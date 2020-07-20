@@ -1,0 +1,60 @@
+/*
+	
+	.fullCard {
+		border: 2px solid #ccc;
+		border-radius: 5px;
+		margin: 20px 30px;
+		padding: 10px;
+		max-width: 700px;
+		
+	}
+	
+	.cardContent {
+		padding: 10px;
+	}
+*/	
+
+	.grid {
+	  display: grid;
+	  grid-template-columns: repeat(3,minmax(300px, 1fr));
+	  /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+	  grid-gap: 1rem;
+	  grid-template-areas:
+		"StressStrain Calculations Cube"
+		"StressStrain Calculations Cube"
+		"Graph Beam Input";
+	}
+	
+	.grid > div {
+	  background: #ADE7E1;
+	  padding: 1.5rem;
+	  border-radius: 1rem;
+	}
+	body {
+	  margin: 2rem;
+	  font: 12px system-ui;
+	}	
+	h2 {
+		/*font-family: Helvetica;*/
+		text-align: center; 
+	}
+	p {
+		/*font-family: Helvetica;
+		font-size: 14px; */
+	}
+
+	.StressStrainExp {
+		/*
+		background-color: #EDE7F6;
+		max-height: 800px;
+		min-width: 400px;
+		grid-row: 1 / 4;
+		*/
+		grid-area: StressStrain;
+		justify-self: center;
+		
+		
+	}
+	
+	
+
