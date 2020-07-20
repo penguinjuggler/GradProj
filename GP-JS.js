@@ -7,7 +7,7 @@ class Material {
 
 $(document).ready(function() {
     var materials_select = document.getElementById("materials");
-    var materials_options = ['aluminum', 'steel', 'copper'];
+    var materials_options = ['Aluminum', 'Steel', 'Copper'];
     var material_objs = {};
 
     for(var i = 0; i < materials_options.length; i++) {

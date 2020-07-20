@@ -15,32 +15,49 @@
 */	
 
 	.grid {
-	  display: grid;
-	  grid-template-columns: repeat(3,minmax(300px, 1fr));
-	  /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
-	  grid-gap: 1rem;
-	  grid-template-areas:
-		"StressStrain Calculations Cube"
-		"StressStrain Calculations Cube"
-		"Graph Beam Input";
+		display: grid;
+		justify-content: center; 
+		grid-template-columns: repeat(3,minmax(300px,450px));
+		/*
+		grid-template-columns: repeat(3,minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		*/
+		grid-gap: 1rem;
+		grid-template-areas:
+			"StressStrain Calculations Cube"
+			"StressStrain Calculations Cube"
+			"Graph Beam Input";
 	}
 	
 	.grid > div {
-	  background: #ADE7E1;
-	  padding: 1.5rem;
-	  border-radius: 1rem;
+		background: #ADE7E1;
+		padding: 1.5rem;
+		border-radius: 1rem;
 	}
 	body {
-	  margin: 2rem;
-	  font: 12px system-ui;
+		margin: 2rem;
+		font: 12px system-ui;
 	}	
 	h2 {
-		/*font-family: Helvetica;*/
+		/*
+		font-family: Helvetica;
+		padding-top: 0px;
+		*/
 		text-align: center; 
 	}
 	p {
-		/*font-family: Helvetica;
-		font-size: 14px; */
+		font-size: 14px;
+		
+		/*
+		font-family: Helvetica;
+		
+		*/
+	}
+	
+	table, th, td {
+		/*
+		border: 1px solid black; 
+		*/
 	}
 
 	.StressStrainExp {
@@ -49,9 +66,10 @@
 		max-height: 800px;
 		min-width: 400px;
 		grid-row: 1 / 4;
+		justify-self: center;
 		*/
 		grid-area: StressStrain;
-		justify-self: center;
+		
 		
 		
 	}
