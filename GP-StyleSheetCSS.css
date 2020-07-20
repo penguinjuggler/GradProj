@@ -12,6 +12,10 @@
 	.cardContent {
 		padding: 10px;
 	}
+	
+	Color Palette: https://colorhunt.co/palette/42191
+	e3fdfd, cbf1f5, a6e3e9, 71c9ce
+	(ADE7E1)
 */	
 
 	.grid {
@@ -30,13 +34,21 @@
 	}
 	
 	.grid > div {
-		background: #ADE7E1;
+		background: #e3fdfd;
 		padding: 1.5rem;
+		margin: 0.5rem;
 		border-radius: 1rem;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 	}
 	body {
 		margin: 2rem;
+		
+		/*
+		
 		font: 12px system-ui;
+		background-color: #e3fdfd;
+		
+		*/
 	}	
 	h2 {
 		/*
@@ -44,6 +56,9 @@
 		padding-top: 0px;
 		*/
 		text-align: center; 
+	}
+	h4 {
+		text-align: center;
 	}
 	p {
 		font-size: 14px;
@@ -58,6 +73,16 @@
 		/*
 		border: 1px solid black; 
 		*/
+	}
+	
+	img {
+		max-width: 100%;
+		height: auto;
+		/*padding: 0px 5px 15px 5px;*/
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	img:hover {
+		transform: scale(2);
 	}
 
 	.StressStrainExp {
