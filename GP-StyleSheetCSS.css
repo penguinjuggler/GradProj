@@ -28,13 +28,13 @@
 		*/
 		grid-gap: 1rem;
 		grid-template-areas:
-			"StressStrain Calculations Cube"
+			"Header Header Header"
+			"StressStrain StressStrain2 Cube"
 			"StressStrain Calculations Cube"
 			"Graph Beam Input";
 	}
 	
 	.grid > div {
-		background: #e3fdfd;
 		padding: 1.5rem;
 		margin: 0.5rem;
 		border-radius: 1rem;
@@ -49,7 +49,12 @@
 		background-color: #e3fdfd;
 		
 		*/
-	}	
+	}
+	h1 {
+		text-align: center;
+		font-size: calc(20px + 3.5vw);
+		font-family: 'Permanent Marker', cursive;
+	}
 	h2 {
 		/*
 		font-family: Helvetica;
@@ -61,8 +66,9 @@
 		text-align: center;
 	}
 	p {
-		font-size: 14px;
 		
+		font-size: 14px;
+		font-family: 'Roboto', sans-serif;
 		/*
 		font-family: Helvetica;
 		
@@ -85,6 +91,11 @@
 		transform: scale(2);
 	}
 
+	.HeaderBox {
+		grid-area: Header;
+		background: #a6e3e9;
+	}
+	
 	.StressStrainExp {
 		/*
 		background-color: #EDE7F6;
@@ -93,10 +104,14 @@
 		grid-row: 1 / 4;
 		justify-self: center;
 		*/
+		background: #e3fdfd;
 		grid-area: StressStrain;
-		
-		
-		
+			
+	}
+	
+	.StressStrainExp2 {
+		background: #e3fdfd;
+		grid-area: StressStrain2;
 	}
 	
 	
