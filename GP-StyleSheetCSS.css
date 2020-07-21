@@ -15,31 +15,57 @@
 	
 	Color Palette: https://colorhunt.co/palette/42191
 	e3fdfd, cbf1f5, a6e3e9, 71c9ce
-	(ADE7E1)
+	
+	Scheme Color: https://www.schemecolor.com/air-element.php
+	#DBF4E0, #CAE3F5, #E7F1F5, #FFFBFB, #FBF3EF, #F4E7EC
+
 */	
 
-	.grid {
+	.grid1 {
 		display: grid;
 		justify-content: center; 
-		grid-template-columns: repeat(3,minmax(300px,450px));
+		grid-template-columns: repeat(2,minmax(400px,550px));
 		/*
 		grid-template-columns: repeat(3,minmax(300px, 1fr));
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		*/
 		grid-gap: 1rem;
 		grid-template-areas:
+			"Header Header"
+			"gStressStrain1 gStressStrain2"
+			"gCalculations gCube"
+			"gGraph gBeam";
+		/*
 			"Header Header Header"
 			"StressStrain StressStrain2 Cube"
 			"StressStrain Calculations Cube"
 			"Graph Beam Input";
+		*/
 	}
 	
-	.grid > div {
+	.grid1 > div {
 		padding: 1.5rem;
 		margin: 0.5rem;
 		border-radius: 1rem;
 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 	}
+	
+	
+	.grid2 {
+		display: grid;
+		justify-content: center;
+		grid-template-columns: repeat(3,minmax(200px,400px));
+		
+	}
+	
+	.grid2 > div {
+		padding: 1.5rem;
+		margin: 0.5rem;
+		border-radius: 1rem;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	}/*
+	*/
+	
 	body {
 		margin: 2rem;
 		
@@ -54,31 +80,34 @@
 		text-align: center;
 		font-size: calc(20px + 3.5vw);
 		font-family: 'Permanent Marker', cursive;
+		margin-top: 0px;
 	}
 	h2 {
 		/*
 		font-family: Helvetica;
 		padding-top: 0px;
 		*/
+		margin-top: 0px;
 		text-align: center; 
+		font-family: 'Permanent Marker', cursive;
 	}
 	h4 {
 		text-align: center;
+		font-family: 'Roboto', sans-serif;
 	}
 	p {
 		
 		font-size: 14px;
 		font-family: 'Roboto', sans-serif;
-		/*
-		font-family: Helvetica;
-		
-		*/
+
 	}
 	
 	table, th, td {
 		/*
 		border: 1px solid black; 
 		*/
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	img {
@@ -93,7 +122,7 @@
 
 	.HeaderBox {
 		grid-area: Header;
-		background: #a6e3e9;
+		background: #CAE3F5; /*#a6e3e9;*/
 	}
 	
 	.StressStrainExp {
@@ -104,15 +133,21 @@
 		grid-row: 1 / 4;
 		justify-self: center;
 		*/
-		background: #e3fdfd;
-		grid-area: StressStrain;
+		background: #E7F1F5; /*#e3fdfd;*/
+		grid-area: gStressStrain1;
 			
 	}
 	
 	.StressStrainExp2 {
-		background: #e3fdfd;
-		grid-area: StressStrain2;
+		background: #E7F1F5;
+		grid-area: gStressStrain2;
 	}
 	
-	
-
+	.Calculations {
+		background: #F4E7EC;
+		grid-area: gCalculations;
+	}
+	.Cube {
+		background: #F4E7EC;
+		grid-area: gCube;
+	}
