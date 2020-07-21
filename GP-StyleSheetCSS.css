@@ -78,12 +78,13 @@
 	}
 	h2 {
 		margin-top: 0px;
+		font-size: calc(10px + 1.5vw);
 		text-align: center; 
 		font-family: 'Permanent Marker', cursive;
 	}
 	h3 {
 		text-align: center;
-		font-size: calc(10px + 1.1vw);
+		font-size: calc(10px + 0.7vw);
 		font-family: 'Permanent Marker', cursive;
 		margin-top: 0px;
 	}
@@ -109,11 +110,24 @@
 	img {
 		max-width: 100%;
 		height: auto;
+		border: 2px solid #ccc;
+		border-radius: 5px;
 		/*padding: 0px 5px 15px 5px;*/
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	img:hover {
 		transform: scale(2);
+	}
+	
+	.InnerBox {
+		background: #FBF3EF;
+		border: 2px solid #ccc;
+		border-radius: 5px;
+		margin: 10px;
+		padding: 10px;
+		/*
+		
+		*/
 	}
 
 	.HeaderBox {
@@ -145,15 +159,20 @@
 		background: #F4E7EC;
 		grid-area: gCubeExp;
 	}
+	
+	
 	.MaterialSelect{
 		grid-area: gMaterial;
+		background: #DBF4E0;
 	}
-	/*
+	
 	.ForcesSelect{
 		grid-area: gForces;
+		background: #DBF4E0;
 	}
 	.EquationsShow{
 		grid-area: gEqs;
+		background: #FBF3EF;
 	}
 	.BeamTool{
 		grid-area: gBeam;
@@ -164,4 +183,4 @@
 	.StressResults{
 		grid-area: gStressResults;
 	}
-	*/
+	/**/
