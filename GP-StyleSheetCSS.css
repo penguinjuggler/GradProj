@@ -1,186 +1,165 @@
 /*
-	
-	.fullCard {
-		border: 2px solid #ccc;
-		border-radius: 5px;
-		margin: 20px 30px;
-		padding: 10px;
-		max-width: 700px;
-		
-	}
-	
-	Color Palette: https://colorhunt.co/palette/42191
-	e3fdfd, cbf1f5, a6e3e9, 71c9ce
+	Grad Project Style Sheet
+	Jacob Mintz, SJSU Summer 2020
+
 	
 	Scheme Color: https://www.schemecolor.com/air-element.php
 	#DBF4E0, #CAE3F5, #E7F1F5, #FFFBFB, #FBF3EF, #F4E7EC
 
 */	
 
-	.grid1 {
-		display: grid;
-		justify-content: center; 
-		grid-template-columns: repeat(2,minmax(400px,550px));
-		/*
-		grid-template-columns: repeat(3,minmax(300px, 1fr));
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-		*/
-		grid-gap: 1rem;
-		grid-template-areas:
-			"Header Header"
-			"gStressStrain1 gStressStrain2"
-			"gCalculations gCubeExp";
-	}
+.grid1, .grid2 {
+	display: grid;
+	justify-content: center;
+	grid-gap: 1rem;
+}
+
+.grid1 {
+	grid-template-columns: repeat(2,minmax(400px,550px));
+	grid-template-areas:
+		"Header Header"
+		"gStressStrain1 gStressStrain2"
+		"gCalculations gCubeExp";
+}
+
+.grid1 > div {
+	padding: 1.5rem;
+	margin: 0.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.grid2 {
+	grid-template-columns: repeat(3,minmax(200px,400px));
+	grid-template-areas:
+		"Header Header Header"
+		"gMaterial gForces gEqs"
+		"gBeam gCubePic gStressResults";
 	
-	.grid1 > div {
-		padding: 1.5rem;
-		margin: 0.5rem;
-		border-radius: 1rem;
-		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-	}
-	
-	
-	.grid2 {
-		display: grid;
-		justify-content: center;
-		grid-template-columns: repeat(3,minmax(200px,400px));
-		grid-gap: 1rem;
-		grid-template-areas:
-			"Header Header Header"
-			"gMaterial gForces gEqs"
-			"gBeam gCubePic gStressResults";
-		
-	}
-	
-	.grid2 > div {
-		padding: 1.5rem;
-		margin: 0.5rem;
-		border-radius: 1rem;
-		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-	}/*
+}
+
+.grid2 > div {
+	padding: 1.5rem;
+	margin: 0.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+body {
+	margin: 2rem;
+	background: #FFFBFB; 
+	font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+	font-family: 'Permanent Marker', cursive;
+	text-align: center;
+	margin-top: 0px;
+}
+h1 {font-size: calc(25px + 2.5vw);}
+h2 {font-size: calc(10px + 1.5vw);}
+h3 {font-size: calc(10px + 0.7vw);}
+p {font-size: 14px;}
+
+table, th, td {
+	/*
+	border: 1px solid black; 
 	*/
-	
-	body {
-		margin: 2rem;
-		
-		/*
-		
-		font: 12px system-ui;
-		background-color: #e3fdfd;
-		
-		*/
-	}
-	h1 {
-		text-align: center;
-		font-size: calc(25px + 2.5vw);
-		font-family: 'Permanent Marker', cursive;
-		margin-top: 0px;
-	}
-	h2 {
-		margin-top: 0px;
-		font-size: calc(10px + 1.5vw);
-		text-align: center; 
-		font-family: 'Permanent Marker', cursive;
-	}
-	h3 {
-		text-align: center;
-		font-size: calc(10px + 0.7vw);
-		font-family: 'Permanent Marker', cursive;
-		margin-top: 0px;
-	}
-	h4 {
-		text-align: center;
-		font-family: 'Roboto', sans-serif;
-	}
-	p {
-		
-		font-size: 14px;
-		font-family: 'Roboto', sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	}
-	
-	table, th, td {
-		/*
-		border: 1px solid black; 
-		*/
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	img {
-		max-width: 100%;
-		height: auto;
-		border: 2px solid #ccc;
-		border-radius: 5px;
-		/*padding: 0px 5px 15px 5px;*/
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	}
-	img:hover {
-		transform: scale(2);
-	}
-	
-	.InnerBox {
-		background: #FBF3EF;
-		border: 2px solid #ccc;
-		border-radius: 5px;
-		margin: 10px;
-		padding: 10px;
-		/*
-		
-		*/
-	}
+img {
+	max-width: 100%;
+	height: auto;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	/*padding: 0px 5px 15px 5px;*/
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+img:hover {
+	transform: scale(2);
+}
 
-	.HeaderBox {
-		grid-area: Header;
-		background: #CAE3F5; /*#a6e3e9;*/
-	}
+.InnerBox {
+	background: #FBF3EF;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.HeaderBox {
+	grid-area: Header;
+	background: #CAE3F5;
+}
+
+.StressStrainExp {
+	/*
+	background-color: #EDE7F6;
+	max-height: 800px;
+	min-width: 400px;
+	grid-row: 1 / 4;
+	justify-self: center;
+	*/
+	background: #E7F1F5; /*#e3fdfd;*/
+	grid-area: gStressStrain1;
+		
+}
+.StressStrainExp2 {
+	background: #E7F1F5;
+	grid-area: gStressStrain2;
+}
+
+.Calculations {
+	background: #F4E7EC;
+	grid-area: gCalculations;
+}
+
+.Cube {
+	background: #F4E7EC;
+	grid-area: gCubeExp;
+}
+
+.MaterialSelect{
+	grid-area: gMaterial;
+	background: #DBF4E0;
+}
+
+.ForcesSelect{
+	grid-area: gForces;
+	background: #DBF4E0;
+}
+.EquationsShow{
+	grid-area: gEqs;
+	background: #FBF3EF;
+}
+.BeamTool{
+	grid-area: gBeam;
+}
+.CubeTool{
+	grid-area: gCubePic;
+}
+.StressResults{
+	grid-area: gStressResults;
+}
+
+/*
+	.fullCard {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	margin: 20px 30px;
+	padding: 10px;
+	max-width: 700px;
 	
-	.StressStrainExp {
-		/*
-		background-color: #EDE7F6;
-		max-height: 800px;
-		min-width: 400px;
-		grid-row: 1 / 4;
-		justify-self: center;
-		*/
-		background: #E7F1F5; /*#e3fdfd;*/
-		grid-area: gStressStrain1;
-			
-	}
-	.StressStrainExp2 {
-		background: #E7F1F5;
-		grid-area: gStressStrain2;
-	}
-	.Calculations {
-		background: #F4E7EC;
-		grid-area: gCalculations;
-	}
-	.Cube {
-		background: #F4E7EC;
-		grid-area: gCubeExp;
-	}
-	
-	
-	.MaterialSelect{
-		grid-area: gMaterial;
-		background: #DBF4E0;
-	}
-	
-	.ForcesSelect{
-		grid-area: gForces;
-		background: #DBF4E0;
-	}
-	.EquationsShow{
-		grid-area: gEqs;
-		background: #FBF3EF;
-	}
-	.BeamTool{
-		grid-area: gBeam;
-	}
-	.CubeTool{
-		grid-area: gCubePic;
-	}
-	.StressResults{
-		grid-area: gStressResults;
-	}
-	/**/
+}
+
+Color Palette: https://colorhunt.co/palette/42191
+e3fdfd, cbf1f5, a6e3e9, 71c9ce
+
+*/
+
+/*
+	grid-template-columns: repeat(3,minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+*/
