@@ -9,10 +9,6 @@
 		
 	}
 	
-	.cardContent {
-		padding: 10px;
-	}
-	
 	Color Palette: https://colorhunt.co/palette/42191
 	e3fdfd, cbf1f5, a6e3e9, 71c9ce
 	
@@ -33,14 +29,7 @@
 		grid-template-areas:
 			"Header Header"
 			"gStressStrain1 gStressStrain2"
-			"gCalculations gCube"
-			"gGraph gBeam";
-		/*
-			"Header Header Header"
-			"StressStrain StressStrain2 Cube"
-			"StressStrain Calculations Cube"
-			"Graph Beam Input";
-		*/
+			"gCalculations gCubeExp";
 	}
 	
 	.grid1 > div {
@@ -55,6 +44,11 @@
 		display: grid;
 		justify-content: center;
 		grid-template-columns: repeat(3,minmax(200px,400px));
+		grid-gap: 1rem;
+		grid-template-areas:
+			"Header Header Header"
+			"gMaterial gForces gEqs"
+			"gBeam gCubePic gStressResults";
 		
 	}
 	
@@ -78,18 +72,20 @@
 	}
 	h1 {
 		text-align: center;
-		font-size: calc(20px + 3.5vw);
+		font-size: calc(25px + 2.5vw);
 		font-family: 'Permanent Marker', cursive;
 		margin-top: 0px;
 	}
 	h2 {
-		/*
-		font-family: Helvetica;
-		padding-top: 0px;
-		*/
 		margin-top: 0px;
 		text-align: center; 
 		font-family: 'Permanent Marker', cursive;
+	}
+	h3 {
+		text-align: center;
+		font-size: calc(10px + 1.1vw);
+		font-family: 'Permanent Marker', cursive;
+		margin-top: 0px;
 	}
 	h4 {
 		text-align: center;
@@ -137,17 +133,35 @@
 		grid-area: gStressStrain1;
 			
 	}
-	
 	.StressStrainExp2 {
 		background: #E7F1F5;
 		grid-area: gStressStrain2;
 	}
-	
 	.Calculations {
 		background: #F4E7EC;
 		grid-area: gCalculations;
 	}
 	.Cube {
 		background: #F4E7EC;
-		grid-area: gCube;
+		grid-area: gCubeExp;
 	}
+	.MaterialSelect{
+		grid-area: gMaterial;
+	}
+	/*
+	.ForcesSelect{
+		grid-area: gForces;
+	}
+	.EquationsShow{
+		grid-area: gEqs;
+	}
+	.BeamTool{
+		grid-area: gBeam;
+	}
+	.CubeTool{
+		grid-area: gCubePic;
+	}
+	.StressResults{
+		grid-area: gStressResults;
+	}
+	*/
