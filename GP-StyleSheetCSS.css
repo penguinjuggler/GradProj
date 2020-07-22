@@ -63,10 +63,11 @@ p {font-size: 14px;}
 
 table, th, td {
 	/*
-	border: 1px solid black; 
-	*/
+	*/	border: 1px solid #ccc; 
+
 	margin-left: auto;
 	margin-right: auto;
+	padding: 5px;
 }
 
 img {
@@ -80,6 +81,7 @@ img {
 img:hover {
 	transform: scale(2);
 }
+
 
 .InnerBox {
 	background: #FBF3EF;
@@ -144,6 +146,9 @@ img:hover {
 	grid-area: gStressResults;
 }
 
+.rota {
+	transform: rotate(-90deg);
+}
 /*
 	.fullCard {
 	border: 2px solid #ccc;

@@ -82,26 +82,58 @@
 	<div class="MaterialSelect">
 		<h3>Material and Geometry</h3>
 		<table>
-		  <tr>
-			<td>
-			  Material
-			</td>
-			<td>
-			  <select id="materials">
-			  </select>
-			</td>
-		  </tr>
-		  <tr>
-			<td>
-			  Cross section height
-			</td>
-		  </tr>
+			<tr>
+				<td>Units</td>
+				<td colspan="2">(Choice b/w mm, m, N, lbs etc)</td>
+			</tr>
+			<tr>
+				<td>Material</td>
+				<td><select id="materials"></select></td>
+				<td>(Young's Modulus Goes Here)</td>
+			</tr>
+			<tr>
+				<td>Cross section</td>
+				<td>(Circle or Square Choice)</td>
+				<td>(Radius: Value, or Height/Width: Values)</td>
+			</tr>
+			<tr>
+				<td>Length (wall to end)</td>
+				<td colspan="2">(Value from 0 to large, rounded to nearest thousandth)</td>
+			</tr>
 		</table>
 		<input type="submit" value="Calculate" id="submit1">
 	</div>
 	<div class="ForcesSelect">
-		<h3>Apply Forces</h3>
+		<h2>Apply Loads</h2>
+		<h3>Forces</h3>
+		<table>
+			<tr>				
+				<th rowspan="3" class="rota">
+					<h3>Forces</h3>
+				</th>
+				<td>Force in x-direction</td>
+				<td>(Value -large to +large, rounded to hundredth)</td>
+			</tr>
+			<tr>
+				<td>Force in y-direction</td>
+				<td>(Value -large to +large, rounded to hundredth)</td>
+			</tr>
+			<tr>
+				<td>Force in z-direction</td>
+				<td>(Value -large to +large, rounded to hundredth)</td>
+			</tr>
+		</table>
 		
+		<br><h3>Moments</h3>
+		<table>
+			<tr>
+				<th rowspan="1" class="rota">
+					<h3>Moments</h3>
+				</th>
+				<td>Moment in x-direction</td>
+				<td>(Value -large to +large, rounded to hundredth)</td>
+			</tr>
+		</table>
 	</div>
 	<div class="EquationsShow">
 		<h3>Stress Equations</h3>
