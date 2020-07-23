@@ -8,6 +8,28 @@
 
 */	
 
+.grid {
+	display: grid;
+	justify-content: center;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(2,minmax(400px,550px));
+	grid-template-areas:
+		"Header Header"
+		"gStressStrain1 gStressStrain2"
+		"gCalculations gCubeExp"
+		"Header2 Header2"
+		"gMaterial gForces"
+		"gEqs gStressResults"
+		"gBeam gCubePic";
+}
+
+.grid > div {
+	padding: 1.5rem;
+	margin: 0.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+/*
 .grid1, .grid2 {
 	display: grid;
 	justify-content: center;
@@ -44,6 +66,7 @@
 	border-radius: 1rem;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
+*/
 
 body {
 	margin: 2rem;
@@ -93,6 +116,10 @@ img:hover {
 
 .HeaderBox {
 	grid-area: Header;
+	background: #CAE3F5;
+}
+.HeaderBox2 {
+	grid-area: Header2;
 	background: #CAE3F5;
 }
 
