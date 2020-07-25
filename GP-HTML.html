@@ -10,10 +10,19 @@
 <body>
 
 <div class="grid">
-	<div class="HeaderBox">
+
+	<div id="HeaderBox">
 		<h1>Engineering Stress & Strain</h1>
+		<ul><h3>
+			<li class="takemetolinks"><a href="#StressStrainExp">Stress Explanation</a></li>
+			|
+			<li class="takemetolinks"><a href="#Calculations">Calculating Stress</a></li>
+			|
+			<li class="takemetolinks"><a href="#HeaderBox2">Stress Visualization</a></li>
+		</h3></ul>
 	</div>
-	<div class="StressStrainExp">	
+	
+	<div id="StressStrainExp">	
 		<h2>Stress and Strain</h2>
 		<p>Stress is often difficult to explain because it is not easy to see. While a meter in length is roughly the nose-to-tail of a medium-sized dog, a brick with a mass of 2 kilograms feels heavy, and a lightbulb with a higher wattage is brighter, a beam undergoing 12MPa of stress is not clear what is going on to a simple observer…until it breaks!</p>
 		<table>
@@ -35,14 +44,16 @@
 		<p class="InnerBox"><strong>Stress is calculated using only the amount and direction of forces applied, and the geometry of the material.
 		<br><br>Whether or not it will break depends on what the material is made of.</strong></p>
 	</div>
-	<div class="StressStrainExp2">
+	
+	<div id="StressStrainExp2">
 		<p>The amount that a material expands relative to its original size is called <strong>strain</strong>.</p>
 		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a material property, and can be seen visually in the Stress-Strain Diagram show below.</p>
 		<h3>Stress-Strain Diagram</h3>
 		<img src="StressStrainCurve1.png" alt="Stress Strain Curve">
 		<p><br>If only pulled apart slightly and then released, then the molecules will return to their normal unstressed state. This is called an elastic deformation. Pulled too far apart, and there can be irreparable damage done to the material, often stretching and elongating – this is called plastic deformation. When these molecules are pulled even further apart the material will fracture and break into separate pieces.<sup>2</sup></p>
 	</div>
-	<div class="Calculations">
+	
+	<div id="Calculations">
 		<h2>How to Calculate Stress</h2>
 		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the following:
 			<ul>
@@ -72,16 +83,19 @@
 		<p><br>The more difficult part is keeping a ledger of which stresses are Normal or Shear, which planes they are in, and if they are positive or negative.</p>
 	</div>	
 
-
-	<div class="Cube">
+	<div id="Cube">
 		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses within each plane) which can be imagined as the material sliding against itself with friction between the two surfaces, or someone pulling two opposite corners of a square piece of fabric apart.</p>
 		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF NORMAL AND SHEAR STRESSES</p>
 		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are a bit more complicated</p>
-		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF CUBE W/ EQUAL & OPPOSITE FORCES<br><img src="CubeEquilibrium2.png" alt="Cube Equilibrium"></p>
+		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF CUBE W/ EQUAL & OPPOSITE FORCES
+		<br><img src="CubeEquilibrium2.png" alt="Cube Equilibrium"></p>
 	</div>
-	<br>
-	<div class="HeaderBox2"><h1>Stress Visualization</h1></div>
-	<div class="MaterialSelect">
+
+	<div id="HeaderBox2">
+		<h1>Stress Visualization</h1>
+	</div>
+	
+	<div id="MaterialSelect">
 		<h2>Material and Geometry</h2>
 		<table>
 			<tr>
@@ -108,7 +122,8 @@
 		</table>
 		<input type="submit" value="Calculate" id="submit1">
 	</div>
-	<div class="ForcesSelect">
+	
+	<div id="ForcesSelect">
 		<h2>Apply Loads</h2>
 		<h3>Forces</h3>
 		<table>
@@ -140,59 +155,24 @@
 			</tr>
 		</table>
 	</div>
-	<div class="EquationsShow">
+	
+	<div id="EquationsShow">
 		<h2>Stress Equations</h2>
 	</div>
-	<div class="BeamTool">
+	
+	<div id="BeamTool">
 		<h2>Beam Visual</h2>
 	</div>
-	<div class="CubeTool">
+	
+	<div id="CubeTool">
 		<h2>Cube Visual</h2>
 	</div>
-	<div class="StressResults">
+	
+	<div id="StressResults">
 		<h2>Stress Results</h2>
 	</div>
+	
 </div>
 
 </body>
 </html>
-
-
-
-<!--
-<body>
-	<div class="fullCard">
-		<h2>Stress and Strain</h2>
-		<div class="cardContent">
-			<p>Stress is often difficult to explain because it is not easy to see. While a meter in length is roughly the nose-to-tail of a medium-sized dog, a brick with a mass of 2 kilograms feels heavy, and a lightbulb with a higher wattage is brighter, a beam undergoing 12MPa of stress is not clear what is going on to a simple observer…until it breaks!
-			<br>As engineers, we are tasked with designing and building objects that are safe to use and perform the tasks they are intended for. It is very important that we calculate stresses and choose the right materials and geometries so that they don’t break by accident!
-			<br>When a force acts on a material, causing it to bend, pull, compress, or twist, then the molecules within that material are moved further apart or closer together. These molecules do not like to be separated, and the material will have an internal resistance against the applied load. This is called <strong>Stress</strong>.
-			<br><strong>Stress is calculated using only the amount and direction of forces applied, and the geometry of the material. Whether or not it will break depends on what the material is made of.</strong>
-			<br>The amount that a material expands relative to its original size is called <strong>strain</strong>.</p>
-		</div>
-	</div>
-	
-	<div class="fullCard">
-	  <div>
-		<table>
-		  <tr>
-			<td>
-			  Material
-			</td>
-			<td>
-			  <select id="materials">
-			  </select>
-			</td>
-		  </tr>
-		  <tr>
-			<td>
-			  Cross section height
-			</td>
-		  </tr>
-		</table>
-		</div>
-		<!-- <button class="btn btn-block btn-info">Calculate</button> --> <!--
-		<input type="submit" value="CALCULATE" id="submit1">
-	</div>
-</body>
--->

@@ -6,10 +6,14 @@ class Material {
     }
 }
 
+// Setup Materials and their Young's Modulus of Elasticities, ultimate tensile strength, and other material properties
 const materials = {
-  'Aluminum': new Material('Aluminum', 1, 4),
-  'Steel': new Material('Steel', 2, 5),
+  'Aluminum': new Material('Aluminum', 69*Math.pow(10,9), 110*Math.pow(10,6)),
+  'Steel': new Material('Steel', 180*Math.pow(10,9), 860*Math.pow(10,6)),
+  'Copper': new Material('Copper', 117*Math.pow(10,9), 220*Math.pow(10,6)),
 };
+
+
 
 function calculateFoo(elasticity, radius) {
   return elasticity * radius;
@@ -17,6 +21,7 @@ function calculateFoo(elasticity, radius) {
 
 $(document).ready(function() {
     var materials_select = document.getElementById("materials");
+	var materials_Modulus = document.getElementById("YM_Display");
     var material_objs = {};
 
     // Setup material input
@@ -53,12 +58,21 @@ $(document).ready(function() {
         const radiusInput = $('#CrossSectionRadius');
         const radiusValue = parseFloat(radiusInput.val());
 
+		
+
         // Calculate foo
+		
         alert(calculateFoo(material.elasticity, radiusValue));
         
         // Calculate baz
     });
 });
 
+
+// Setup units - multiplier between Metric and Imperial
+const unitsChoice = {
+	'mm': new Units1('mm', 0.001, 1, 1),
+	'in': new Units1('in', 25.4, 6894.76, 4.45),
+};
 
 
