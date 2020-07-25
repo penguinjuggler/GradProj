@@ -95,6 +95,24 @@
 		<h1>Stress Visualization</h1>
 	</div>
 	
+	<!-- Wording and pictures here need a lot of work -->
+	<div id="VisualizationExp">
+	
+		<h2>Picture This</h2>
+		<p>One way to visualize stress is through color. You may have seen Finite Element Analyses pictures like the one below that highlight a stressed area versus non-stressed area. In pictures like these the different types of stress are not usually differentiated, red just means more stress, and yellow or blue represent less.   these, Compressive Stress, where a material’s molecules are pushed together, is often colored differently than Tensile Stress, where a material’s molecules are pulled apart. 
+		In the following picture, red represents Tensile stress, Green represents
+		CAD example</p>
+		<h2>Using this Tool</h2>
+		<p>Below the text there are three cantilevered beams (a long thin piece that is fully supported at one side). Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products. Each of the beams here can be articulated in a different way:
+		The left-most can be bent to induce a bending stress
+		The middle one can be twisted to induce a shearing stress </p>
+	</div>
+	
+	<!-- 
+		Need: Dropdown for units (started), Material selection to update YM (started)
+		Circle or Square radio, updates to Width/height or Radius (not started)
+		Length from wall to end (not started), and limit all vals to nearest thou
+	-->
 	<div id="MaterialSelect">
 		<h2>Material and Geometry</h2>
 		<table>
@@ -123,6 +141,11 @@
 		<input type="submit" value="Calculate" id="submit1">
 	</div>
 	
+	<!--
+		Need to include text input for the various forces, update JS to take those vals
+		Update Moments to be more clear
+		think about how to make Beam visual be closer to inputs, different table arrangement?
+	-->
 	<div id="ForcesSelect">
 		<h2>Apply Loads</h2>
 		<h3>Forces</h3>
@@ -156,21 +179,42 @@
 		</table>
 	</div>
 	
+	<!--
+		Need to start looking more into LaTex for JS
+		Figure out what equations I actually need, and how to use Math JS to put them together
+	-->
 	<div id="EquationsShow">
 		<h2>Stress Equations</h2>
 	</div>
 	
+	<!--
+		Use Latex / JS, should be a simple table of sigma's and tau's from equations above
+	-->
+	<div id="StressResults">
+		<h2>Stress Results</h2>
+	</div>
+	
+	<!--
+		Need to make visuals in Publisher (@ work), save them separately
+		Make switch between them for dif stress configs
+	-->
 	<div id="BeamTool">
 		<h2>Beam Visual</h2>
 	</div>
 	
+	<!--
+		Same as Beam tool, but for the cube
+	-->
 	<div id="CubeTool">
 		<h2>Cube Visual</h2>
 	</div>
 	
-	<div id="StressResults">
-		<h2>Stress Results</h2>
-	</div>
+	<!--
+		Decide if also want to do an updating Stress Strain Curve
+		Should add closing remarks
+		Maybe include a test concepts - knowledge
+		Include a list of references
+	-->
 	
 </div>
 

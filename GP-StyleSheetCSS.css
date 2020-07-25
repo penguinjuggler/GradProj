@@ -17,6 +17,7 @@
 		"gStressStrain1 gStressStrain2"
 		"gCalculations gCubeExp"
 		"Header2 Header2"
+		"gVisExp gVisExp"
 		"gMaterial gForces"
 		"gEqs gStressResults"
 		"gBeam gCubePic";
@@ -115,6 +116,11 @@ img:hover {
 #Cube {
 	background: #F4E7EC;
 	grid-area: gCubeExp;
+}
+
+#VisualizationExp {
+	background: #E7F1F5;
+	grid-area: gVisExp;
 }
 
 #MaterialSelect{
