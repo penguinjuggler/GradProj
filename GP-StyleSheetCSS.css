@@ -63,9 +63,10 @@ img {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/*
 img:hover {
 	transform: scale(2);
-}
+}*/
 
 .InnerBox {
 	background: #FBF3EF;
@@ -123,7 +124,7 @@ img:hover {
 	grid-area: gVisExp;
 }
 
-#MaterialSelect{
+#MaterialandGeometry{
 	grid-area: gMaterial;
 	background: #DBF4E0;
 }

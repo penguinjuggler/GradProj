@@ -88,7 +88,7 @@
 		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF NORMAL AND SHEAR STRESSES</p>
 		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are a bit more complicated</p>
 		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF CUBE W/ EQUAL & OPPOSITE FORCES
-		<br><img src="CubeEquilibrium2.png" alt="Cube Equilibrium"></p>
+		<br><img src="CubeEquilibrium2.png" alt="Cube Equilibrium" id="CubePic"></p>
 	</div>
 
 	<div id="HeaderBox2">
@@ -112,8 +112,9 @@
 		Need: Dropdown for units (started), Material selection to update YM (started)
 		Circle or Square radio, updates to Width/height or Radius (not started)
 		Length from wall to end (not started), and limit all vals to nearest thou
+		(Young's Modulus Goes Here)
 	-->
-	<div id="MaterialSelect">
+	<div id="MaterialandGeometry">
 		<h2>Material and Geometry</h2>
 		<table>
 			<tr>
@@ -122,8 +123,8 @@
 			</tr>
 			<tr>
 				<td>Material</td>
-				<td><select id="materials"></select></td>
-				<td>(Young's Modulus Goes Here)</td>
+				<td><select id="MaterialSelect"></select></td>
+				<td id="ElasticityDisplay">TestVal</td>
 			</tr>
 			<tr>
 				<td>Cross section</td>

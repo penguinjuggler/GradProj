@@ -13,6 +13,8 @@ const materials = {
   'Copper': new Material('Copper', 117*Math.pow(10,9), 220*Math.pow(10,6)),
 };
 
+var BeamPicNum;
+
 
 
 function calculateFoo(elasticity, radius) {
@@ -20,8 +22,8 @@ function calculateFoo(elasticity, radius) {
 }
 
 $(document).ready(function() {
-    var materials_select = document.getElementById("materials");
-	var materials_Modulus = document.getElementById("YM_Display");
+    var materials_select = document.getElementById("MaterialSelect");
+	//var materials_Modulus = document.getElementById("YM_Display");
     var material_objs = {};
 
     // Setup material input
@@ -51,7 +53,7 @@ $(document).ready(function() {
     
 
     $("#submit1").click(function(e) {
-        var text = $("#materials option:selected").text();
+        var text = $("#MaterialSelect option:selected").text();
         const material = materials[text]; 
 
         // Read cross section radius
@@ -59,20 +61,39 @@ $(document).ready(function() {
         const radiusValue = parseFloat(radiusInput.val());
 
 		
-
         // Calculate foo
 		
-        alert(calculateFoo(material.elasticity, radiusValue));
-        
-        // Calculate baz
+		
+		// Will change BeamPicture based on final direction of forces
+		// Need to set BeamPicNum above
+		/*
+		var BeamChange = $("#BeamPic");
+		BeamChange.attr('src', 'BeamPic' + BeamPicNum + '.png');
+        */
+		
+			
     });
+	
+	
+	// Updates Youngs Modulus on change of Material
+	$("#MaterialSelect").change(function() {
+		var text1 = $("#MaterialSelect option:selected").text();
+		$("#ElasticityDisplay").text(materials[text1].elasticity);
+	});
+	
+	
+	// Updates Radius or Height/Width request on Circular or Rectangular radio select
+	
+	
 });
 
 
+	
 // Setup units - multiplier between Metric and Imperial
 const unitsChoice = {
 	'mm': new Units1('mm', 0.001, 1, 1),
 	'in': new Units1('in', 25.4, 6894.76, 4.45),
 };
 
-
+        //alert(calculateFoo(material.elasticity, radiusValue));
+        //document.getElementById("ElasticityDisplay").innerHTML = material.elasticity;
