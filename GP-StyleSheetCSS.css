@@ -19,6 +19,7 @@
 		"Header2 Header2"
 		"gVisExp gVisExp"
 		"gMaterial gForces"
+		"gCalcButBlock gCalcButBlock"
 		"gEqs gStressResults"
 		"gBeam gCubePic";
 }
@@ -36,7 +37,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	font-family: 'Permanent Marker', cursive;
 	text-align: center;
 	margin-top: 0px;
@@ -48,11 +49,13 @@ h3 {font-size: calc(10px + 0.7vw);}
 p {font-size: 14px;}
 
 table, th, td {
-	border: 1px solid #ccc; 
+	/*border: 1px solid #ccc; */
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px;
 }
+
+td.thick {font-weight: bold;}
 
 img {
 	max-width: 100%;
@@ -133,6 +136,13 @@ img:hover {
 	grid-area: gForces;
 	background: #DBF4E0;
 }
+
+#CalculateButtonBlock{
+	grid-area: gCalcButBlock;
+	background: #ccc;
+	border-width: 10px;
+}
+
 #EquationsShow{
 	grid-area: gEqs;
 	background: #FBF3EF;
@@ -149,4 +159,17 @@ img:hover {
 
 .rota {
 	transform: rotate(-90deg);
+}
+
+input:invalid {
+  border: 1px solid red;
+  background: #F4E7EC;
+}
+
+/*input:valid {
+  border: 1px solid green;
+}*/
+
+input {
+	border-radius: 4px;
 }

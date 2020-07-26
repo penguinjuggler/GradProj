@@ -6,15 +6,31 @@ class Material {
     }
 }
 
-// Setup Materials and their Young's Modulus of Elasticities, ultimate tensile strength, and other material properties
+class Units {
+	constructor(name, lengthText, lengthMult, pressureText, pressureMult, unitList) {
+		this.name = name;
+		this.lengthText = lengthText;
+		this.lengthMult = lengthMult;
+		this.pressureText = pressureText;
+		this.pressureMult = pressureMult;
+		this.unitList = unitList;
+	}
+}
+
+// Setup Materials and their Young's Modulus of Elasticities (GPa), ultimate tensile strength (MPa), and other material properties
 const materials = {
-  'Aluminum': new Material('Aluminum', 69*Math.pow(10,9), 110*Math.pow(10,6)),
-  'Steel': new Material('Steel', 180*Math.pow(10,9), 860*Math.pow(10,6)),
-  'Copper': new Material('Copper', 117*Math.pow(10,9), 220*Math.pow(10,6)),
+  'Aluminum': new Material('Aluminum', 69, 110),
+  'Steel': new Material('Steel', 180, 860),
+  'Copper': new Material('Copper', 117, 220),
+};
+
+// Setup units - multiplier between Metric and Imperial
+const UnitChoice = {
+	'Metric': new Units('Metric',' m', 1,' GPa', 1, 'm / GPa / kgs'),
+	'Imperial': new Units('Imperial',' in', 39.37,' kpsi', 145.038, 'inch / kpsi / lbs'),
 };
 
 var BeamPicNum;
-
 
 
 function calculateFoo(elasticity, radius) {
@@ -24,8 +40,18 @@ function calculateFoo(elasticity, radius) {
 $(document).ready(function() {
     var materials_select = document.getElementById("MaterialSelect");
 	//var materials_Modulus = document.getElementById("YM_Display");
-    var material_objs = {};
+	var unit_select = document.getElementById("UnitSelect");
+	
+	// Setup Unit input
+    for (let unitKey in UnitChoice) {
+        var unit = UnitChoice[unitKey];
 
+        var el = document.createElement("option");
+        el.textContent = unit.name;
+        el.value = unit.name;
+        unit_select.appendChild(el);
+    }
+	
     // Setup material input
     for (let materialKey in materials) {
         var material = materials[materialKey];
@@ -35,6 +61,7 @@ $(document).ready(function() {
         el.value = material.name;
         materials_select.appendChild(el);
     }
+
 
     // Setup units input...
     //
@@ -62,7 +89,7 @@ $(document).ready(function() {
 
 		
         // Calculate foo
-		
+		alert(calculateFoo(material.elasticity, radiusValue));
 		
 		// Will change BeamPicture based on final direction of forces
 		// Need to set BeamPicNum above
@@ -75,10 +102,13 @@ $(document).ready(function() {
     });
 	
 	
-	// Updates Youngs Modulus on change of Material
-	$("#MaterialSelect").change(function() {
+	// Updates Youngs Modulus on change of Material and Unit Choice
+	$("#MaterialSelect, #UnitSelect").change(function() {
 		var text1 = $("#MaterialSelect option:selected").text();
-		$("#ElasticityDisplay").text(materials[text1].elasticity);
+		var text2 = $("#UnitSelect option:selected").text();
+		var elas = parseInt(materials[text1].elasticity * UnitChoice[text2].pressureMult);
+		$("#ElasticityDisplay").text(elas + UnitChoice[text2].pressureText);
+		$("#UnitDisplay").text(UnitChoice[text2].unitList);
 	});
 	
 	
@@ -89,11 +119,7 @@ $(document).ready(function() {
 
 
 	
-// Setup units - multiplier between Metric and Imperial
-const unitsChoice = {
-	'mm': new Units1('mm', 0.001, 1, 1),
-	'in': new Units1('in', 25.4, 6894.76, 4.45),
-};
+
 
         //alert(calculateFoo(material.elasticity, radiusValue));
         //document.getElementById("ElasticityDisplay").innerHTML = material.elasticity;

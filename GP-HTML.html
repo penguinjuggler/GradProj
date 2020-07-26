@@ -22,6 +22,9 @@
 		</h3></ul>
 	</div>
 	
+	<!--
+		Need Pictures of Dog, Brick, Lightbulb, and QUESTIONMARK
+	-->
 	<div id="StressStrainExp">	
 		<h2>Stress and Strain</h2>
 		<p>Stress is often difficult to explain because it is not easy to see. While a meter in length is roughly the nose-to-tail of a medium-sized dog, a brick with a mass of 2 kilograms feels heavy, and a lightbulb with a higher wattage is brighter, a beam undergoing 12MPa of stress is not clear what is going on to a simple observer…until it breaks!</p>
@@ -45,6 +48,11 @@
 		<br><br>Whether or not it will break depends on what the material is made of.</strong></p>
 	</div>
 	
+	<!--
+		Should get/make simplified picture of stress-strain curve
+		
+		Need to make list of annotations, maybe link them to the bottom too
+	-->
 	<div id="StressStrainExp2">
 		<p>The amount that a material expands relative to its original size is called <strong>strain</strong>.</p>
 		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a material property, and can be seen visually in the Stress-Strain Diagram show below.</p>
@@ -109,7 +117,7 @@
 	</div>
 	
 	<!-- 
-		Need: Dropdown for units (started), Material selection to update YM (started)
+		Need: Dropdown for units (started)
 		Circle or Square radio, updates to Width/height or Radius (not started)
 		Length from wall to end (not started), and limit all vals to nearest thou
 		(Young's Modulus Goes Here)
@@ -118,66 +126,74 @@
 		<h2>Material and Geometry</h2>
 		<table>
 			<tr>
-				<td>Units</td>
-				<td colspan="2">(Choice b/w mm, m, N, lbs etc)</td>
+				<td class="thick">Units</td>
+				<td><select id="UnitSelect"></select></td>
+				<td id="UnitDisplay">m / GPa / kgs</td>
 			</tr>
 			<tr>
-				<td>Material</td>
+				<td class="thick">Material</td>
 				<td><select id="MaterialSelect"></select></td>
-				<td id="ElasticityDisplay">TestVal</td>
+				<td id="ElasticityDisplay">69 GPa</td>
 			</tr>
 			<tr>
-				<td>Cross section</td>
+				<td class="thick">Cross section</td>
 				<td>(Circle or Square Choice)</td>
 				<td>
           (Radius: Value, or Height/Width: Values)
-          <input id="CrossSectionRadius" type="text" />
+          <input id="CrossSectionRadius" type="number" min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)" required />
         </td>
 			</tr>
 			<tr>
-				<td>Length (wall to end)</td>
-				<td colspan="2">(Value from 0 to large, rounded to nearest thousandth)</td>
+				<td class="thick">Length (wall to end)</td>
+				<td colspan="2"><input id="BeamLength" style='width:100%' type="number" min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)" required /></td>
 			</tr>
 		</table>
-		<input type="submit" value="Calculate" id="submit1">
+		
 	</div>
 	
 	<!--
 		Need to include text input for the various forces, update JS to take those vals
 		Update Moments to be more clear
 		think about how to make Beam visual be closer to inputs, different table arrangement?
+	
+	<h3>Forces</h3>
+	<br><h3>Moments</h3>
+	
 	-->
 	<div id="ForcesSelect">
 		<h2>Apply Loads</h2>
-		<h3>Forces</h3>
 		<table>
 			<tr>				
-				<th rowspan="3" class="rota">
-					<h3>Forces</h3>
-				</th>
-				<td>Force in x-direction</td>
+				<td rowspan="3" class="thick">
+					Forces
+				</td>
+				<td>x</td>
 				<td>(Value -large to +large, rounded to hundredth)</td>
 			</tr>
 			<tr>
-				<td>Force in y-direction</td>
+				<td>y</td>
 				<td>(Value -large to +large, rounded to hundredth)</td>
 			</tr>
 			<tr>
-				<td>Force in z-direction</td>
+				<td>z</td>
+				<td>(Value -large to +large, rounded to hundredth)</td>
+			</tr>
+			
+			<tr>
+				<td rowspan="1" class="thick">
+					Moments
+				</td>
+				<td>x</td>
 				<td>(Value -large to +large, rounded to hundredth)</td>
 			</tr>
 		</table>
-		
-		<br><h3>Moments</h3>
-		<table>
-			<tr>
-				<th rowspan="1" class="rota">
-					<h3>Moments</h3>
-				</th>
-				<td>Moment in x-direction</td>
-				<td>(Value -large to +large, rounded to hundredth)</td>
-			</tr>
-		</table>
+	</div>
+	
+	<!--
+		Goal to make the entire calculate box clickable
+	-->
+	<div id="CalculateButtonBlock">
+		<h2><input type="submit" value="Calculate" id="submit1"></h2>
 	</div>
 	
 	<!--
