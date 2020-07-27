@@ -17,17 +17,17 @@ class Units {
 	}
 }
 
+// Setup units - multiplier between Metric and Imperial
+const UnitChoice = {
+	'Metric': new Units('Metric',' m', 1,' GPa', 1, 'm / GPa / kgs'),
+	'Imperial': new Units('Imperial',' in', 39.37,' kpsi', 145.038, 'inch / kpsi / lbs'),
+};
+
 // Setup Materials and their Young's Modulus of Elasticities (GPa), ultimate tensile strength (MPa), and other material properties
 const materials = {
   'Aluminum': new Material('Aluminum', 69, 110),
   'Steel': new Material('Steel', 180, 860),
   'Copper': new Material('Copper', 117, 220),
-};
-
-// Setup units - multiplier between Metric and Imperial
-const UnitChoice = {
-	'Metric': new Units('Metric',' m', 1,' GPa', 1, 'm / GPa / kgs'),
-	'Imperial': new Units('Imperial',' in', 39.37,' kpsi', 145.038, 'inch / kpsi / lbs'),
 };
 
 var BeamPicNum;
@@ -42,6 +42,8 @@ $(document).ready(function() {
     var materials_select = document.getElementById("MaterialSelect");
 	//var materials_Modulus = document.getElementById("YM_Display");
 	var unit_select = document.getElementById("UnitSelect");
+	var CrossSectionArea;
+	
 	
 	// Setup Unit input
     for (let unitKey in UnitChoice) {
@@ -70,9 +72,9 @@ $(document).ready(function() {
 		max:'1000000000',
 		maxLength:'8',
 		value:'10',
-		step:'1',
+		step:'.001',
 		oninput:"this.value=this.value.slice(0,this.maxLength)",
-		//style:'width:80%',
+		style:'width:6em',
 		required:'true'
 	})
 	
@@ -83,11 +85,10 @@ $(document).ready(function() {
 		max:'10000000',
 		maxLength:'8',
 		value:'0',
-		step:'1',
+		step:'.001',
 		oninput:"this.value=this.value.slice(0,this.maxLength)",
-		style:'width:100%; text-align:center;',
+		style:'width:6em; text-align:center;',
 		required:'true'
-		
 	})
 	
     // Setup units input...
@@ -149,12 +150,10 @@ $(document).ready(function() {
 		$("#ElasticityDisplay").text(elas + UnitChoice[text2].pressureText);
 		$("#UnitDisplay").text(UnitChoice[text2].unitList);
 		
-		// Testing realtime output with beamlength as an input
-		var text3 = elas* $("#BeamLength").val();
-		$("#Output01").text(text3);
+
 		
 		// Material and Geometry Values
-		var rad = $("#CrossSectionRadius").val();
+		var rad = $("#Radius").val();
 		var len = $("#BeamLength").val();
 		
 		// Force and Moment Values
@@ -162,6 +161,26 @@ $(document).ready(function() {
 		var fY = $("#fY").val();
 		var fZ = $("#fZ").val();
 		var mZ = $("#mZ").val();
+		
+		var RadioInput = $("input[type=radio][name=CircleOrRect]:checked").val();
+		if (RadioInput == 'Rect') {
+			var h = $("#Height").val();
+			var w = $("#Width").val();
+			CrossSectionArea = (h*w).toFixed(3);
+			//alert("Height: " + h + " and Width: " + w);
+		} else if (RadioInput == 'Circle') {
+			var r = $("#Radius").val();
+			CrossSectionArea = (Math.PI * Math.pow(r,2)).toFixed(3);
+			//alert("Radius: " + r);
+		}
+		
+		
+		// Realtime output
+		// var text3 = elas* $("#BeamLength").val();
+		
+		// Cross Section Area
+		$("#AreaOutput").html(CrossSectionArea + UnitChoice[text2].lengthText + "<sup>2</sup>");
+		
 		
 		
 		
@@ -175,5 +194,5 @@ $(document).ready(function() {
 	
 
 
-        //alert(calculateFoo(material.elasticity, radiusValue));
-        //document.getElementById("ElasticityDisplay").innerHTML = material.elasticity;
+//alert(calculateFoo(material.elasticity, radiusValue));
+//document.getElementById("ElasticityDisplay").innerHTML = material.elasticity;

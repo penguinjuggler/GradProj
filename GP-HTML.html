@@ -24,28 +24,28 @@
 	
 	<!--
 		Need Pictures of Dog, Brick, Lightbulb, and QUESTIONMARK
+		
+		<td>BRICK PICTURE</td>
+				<td>LIGHTBULB PICTURE</td>
+				<td>QUESTIONMARK BEAM</td><td><h3>Stress?</h3></td>
 	-->
-	<div id="StressStrainExp">	
+	<div id="StressStrainExp" class="lightblueish">	
 		<h2>Stress and Strain</h2>
-		<p>Stress is often difficult to explain because it is not easy to see. While a meter in length is roughly the nose-to-tail of a medium-sized dog, a brick with a mass of 2 kilograms feels heavy, and a lightbulb with a higher wattage is brighter, a beam undergoing 12MPa of stress is not clear what is going on to a simple observer…until it breaks!</p>
+		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who deal with it regularly. Many units are easy to see and understand: two meters is roughly the height of a friendly bear, a pumpkin with a weight of 10lbs feels heavy, and a lightbulb with a higher wattage is brighter. But a beam undergoing 12MPa of stress is not clear what is going on to a simple observer…until it breaks!</p>
 		<table>
 			<tr>
-				<td><h3>Length</h3></td>
-				<td><h3>Mass</h3></td>
-				<td><h3>Wattage</h3></td>
-				<td><h3>Stress?</h3></td>
+				<td class="EqualCols3"><h3>Length</h3></td>
+				<td class="EqualCols3"><h3>Weight</h3></td>
+				<td class="EqualCols3"><h3>Wattage</h3></td>
 			</tr>
 			<tr>
-				<td>DOG PICTURE</td>
-				<td>BRICK PICTURE</td>
-				<td>LIGHTBULB PICTURE</td>
-				<td>QUESTIONMARK BEAM</td>
+				<td colspan="3"><img src="UnitVisual.png" /></td>
 			</tr>
 		</table><br>
 		<p>As engineers, we are tasked with designing and building objects that are safe to use and perform the tasks they are intended for. It is very important that we calculate stresses and choose the right materials and geometries so that they don’t break by accident!</p>
-		<p>When a force acts on a material, causing it to bend, pull, compress, or twist, then the molecules within that material are moved further apart or closer together. These molecules do not like to be separated, and the material will have an internal resistance against the applied load. This is called <strong>Stress</strong>.</p>
-		<p class="InnerBox"><strong>Stress is calculated using only the amount and direction of forces applied, and the geometry of the material.
-		<br><br>Whether or not it will break depends on what the material is made of.</strong></p>
+		<p>When a force acts on a material, causing it to bend, pull, compress, or twist, then the molecules within that material are moved further apart or closer together. These molecules do not like to be separated, and the material will have an internal resistance against the applied load. This is called <b>Stress</b>.</p>
+		<p class="InnerBox"><b>Stress is calculated using only the amount and direction of forces applied, and the geometry of the material.
+		<br><br>Whether or not it will break depends on the type of material.</b></p>
 	</div>
 	
 	<!--
@@ -55,8 +55,8 @@
 	-->
 
 	
-	<div id="StressStrainExp2">
-		<p>The amount that a material expands relative to its original size is called <strong>strain</strong>.</p>
+	<div id="StressStrainExp2" class="lightblueish">
+		<p>The amount that a material expands relative to its original size is called <b>strain</b>.</p>
 		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a material property, and can be seen visually in the Stress-Strain Diagram show below.</p>
 		<h3>Stress-Strain Diagram</h3>
 		<img src="StressStrainCurve1.png" alt="Stress Strain Curve">
@@ -67,7 +67,7 @@
 		<h1>Calculating Stress</h1>
 	</div>
 	
-	<div id="Calculations">
+	<div id="Calculations" class="lightblueish">
 		<h2>How to Calculate Stress</h2>
 		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the following:
 			<ul>
@@ -97,7 +97,7 @@
 		<p><br>The more difficult part is keeping a ledger of which stresses are Normal or Shear, which planes they are in, and if they are positive or negative.</p>
 	</div>	
 
-	<div id="Cube">
+	<div id="Cube" class="lightblueish">
 		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses within each plane) which can be imagined as the material sliding against itself with friction between the two surfaces, or someone pulling two opposite corners of a square piece of fabric apart.</p>
 		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF NORMAL AND SHEAR STRESSES</p>
 		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are a bit more complicated</p>
@@ -110,13 +110,13 @@
 	</div>
 	
 	<!-- Wording and pictures here need a lot of work -->
-	<div id="VisualizationExp1">
+	<div id="VisualizationExp1" class="lightblueish">
 		<h2>Picture This</h2>
 		<p>One way to visualize stress is through color. You may have seen Finite Element Analyses pictures like the one below that highlight a stressed area versus non-stressed area. In pictures like these the different types of stress are not usually differentiated, red just means more stress, and yellow or blue represent less.   these, Compressive Stress, where a material’s molecules are pushed together, is often colored differently than Tensile Stress, where a material’s molecules are pulled apart. 
 		In the following picture, red represents Tensile stress, Green represents...</p>
 		<img src="WingFEA.jpg" alt="Wing FEA Example" id="CAD Example"/>
 	</div>
-	<div id="VisualizationExp2">
+	<div id="VisualizationExp2" class="lightblueish">
 		<h2>Using this Tool</h2>
 		<p>A cantilever beam is a long thin piece that is fully supported at one side. Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products from bridges to airplane wings. </p>
 	</div>
@@ -129,7 +129,7 @@
 		Need: Unit values to be udpated
 		Some input box formatting for prettiness / alignment
 	-->
-	<div id="MaterialandGeometry">
+	<div id="MaterialandGeometry" class="greenish">
 		<h2>Material and Geometry</h2>
 		<form>
 		<table>
@@ -147,7 +147,7 @@
 				<td class="thick">Cross section</td>
 				<td>
 					<input type="radio" id="Circle" name="CircleOrRect" value="Circle" checked>
-					<label for="Circle">Circle</label><br>
+					<label for="CircleID">Circle</label><br>
 					<input type="radio" id="Rect" name="CircleOrRect" value="Rect">
 					<label for="Rect">Rectangle</label>
 				</td>
@@ -162,7 +162,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="thick">Length (wall to end)</td>
+				<td class="thick">Length</td>
 				<td colspan="2"><input id="BeamLength" /></td>
 			</tr>
 		</table>
@@ -174,7 +174,7 @@
 		Update Moments to be more clear
 		think about how to make Beam visual be closer to inputs, different table arrangement?
 	-->
-	<div id="ForcesSelect">
+	<div id="ForcesSelect" class="greenish">
 		<h2>Apply Loads</h2>
 		<table>
 			<tr>				
@@ -206,7 +206,7 @@
 	<!--
 		Goal to make the entire calculate box clickable
 	-->
-	<div id="CalculateButtonBlock">
+	<div id="CalculateButtonBlock" class="greenish">
 		<h3><input type="submit" value="Calculate" id="submit1"></h3>
 	</div>
 	
@@ -214,30 +214,30 @@
 		Need to start looking more into LaTex for JS
 		Figure out what equations I actually need, and how to use Math JS to put them together
 	-->
-	<div id="EquationsShow">
+	<div id="EquationsShow" class="tanish">
 		<h2>Stress Equations</h2>
 	</div>
 	
 	<!--
 		Use Latex / JS, should be a simple table of sigma's and tau's from equations above
 	-->
-	<div id="StressResults">
+	<div id="StressResults" class="tanish">
 		<h2>Stress Results</h2><br>
-		<p id="Output01">StressOutputHere</p>
+		<p>Cross Section Area: <span id="AreaOutput">100 m<sup>2</sup></span></p>
 	</div>
 	
 	<!--
 		Need to make visuals in Publisher (@ work), save them separately
 		Make switch between them for dif stress configs
 	-->
-	<div id="BeamTool">
+	<div id="BeamTool" class="tanish">
 		<h2>Beam Visual</h2>
 	</div>
 	
 	<!--
 		Same as Beam tool, but for the cube
 	-->
-	<div id="CubeTool">
+	<div id="CubeTool" class="tanish">
 		<h2>Cube Visual</h2>
 	</div>
 	

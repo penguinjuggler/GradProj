@@ -56,6 +56,11 @@ table, th, td {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px;
+	
+}
+
+.EqualCols3 {
+	width: 33%;
 }
 
 td.thick {font-weight: bold;}
@@ -90,91 +95,44 @@ img:hover {
 	border-width: 3px;
 }
 
-#HeaderTitle {
-	grid-area: Header1;
-}
-#HeaderCalc {
-	grid-area: Header2
-}
-#HeaderVis {
-	grid-area: Header3;
-}
-#HeaderTool {
-	grid-area: Header4;
-}
+.greenish {background: #DBF4E0;}
+.blueish {background: #CAE3F5;}
+.lightblueish {background: #E7F1F5;}
+.reddish {background: #F4E7EC;}
+.offwhite {background: #FFFBFB;}
+.tanish {background: #FBF3EF;}
 
-#StressStrainExp {
-	/*
+/*
 	max-height: 800px;
 	min-width: 400px;
 	grid-row: 1 / 4;
 	justify-self: center;
-	*/
-	background: #E7F1F5;
-	grid-area: gStressStrain1;
-		
-}
-#StressStrainExp2 {
-	background: #E7F1F5;
-	grid-area: gStressStrain2;
-}
+*/
 
-#Calculations {
-	background: #F4E7EC;
-	grid-area: gCalculations;
-}
-
-#Cube {
-	background: #F4E7EC;
-	grid-area: gCubeExp;
-}
-
-#VisualizationExp1 {
-	background: #E7F1F5;
-	grid-area: gVisExp1;
-}
-#VisualizationExp2 {
-	background: #E7F1F5;
-	grid-area: gVisExp2;
-}
-
-#MaterialandGeometry{
-	grid-area: gMaterial;
-	background: #DBF4E0;
-}
-
-#ForcesSelect{
-	grid-area: gForces;
-	background: #DBF4E0;
-}
-
-#CalculateButtonBlock {
-	grid-area: gCalcButBlock;
-	background: #DBF4E0;
-	border-width: 10px;
-}
-
-#EquationsShow{
-	grid-area: gEqs;
-	background: #FBF3EF;
-}
-#BeamTool{
-	grid-area: gBeam;
-}
-#CubeTool{
-	grid-area: gCubePic;
-}
-#StressResults{
-	grid-area: gStressResults;
-}
-
-#Footnotes {
-	grid-area: gFoot;
-	background: #ccc;
-}
+/* 
+	Setting grid areas for the various sections
+*/
+#HeaderTitle {grid-area: Header1;}
+#HeaderCalc {grid-area: Header2;}
+#HeaderVis {grid-area: Header3;}
+#HeaderTool {grid-area: Header4;}
+#StressStrainExp {grid-area: gStressStrain1;}
+#StressStrainExp2 {grid-area: gStressStrain2;}
+#Calculations {grid-area: gCalculations;}
+#Cube {grid-area: gCubeExp;}
+#VisualizationExp1 {grid-area: gVisExp1;}
+#VisualizationExp2 {grid-area: gVisExp2;}
+#MaterialandGeometry{grid-area: gMaterial;}
+#ForcesSelect{grid-area: gForces;}
+#CalculateButtonBlock {grid-area: gCalcButBlock; border-width: 10px;}
+#EquationsShow{grid-area: gEqs;}
+#BeamTool{grid-area: gBeam;}
+#CubeTool{grid-area: gCubePic;}
+#StressResults{grid-area: gStressResults;}
+#Footnotes {grid-area: gFoot; background: #ccc;}
 
 input:invalid {
-  border: 1px solid red;
+  border: 2px solid red;
   background: #F4E7EC;
 }
 
