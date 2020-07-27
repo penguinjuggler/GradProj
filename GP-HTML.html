@@ -16,15 +16,10 @@
 
 	<div class="HeaderBox" id="HeaderTitle">
 		<h1>Engineering Stress & Strain</h1>
-		<ul><h3>
-			<li class="takemetolinks"><a href="#HeaderTitle">Stress Explanation</a></li>
-			|
-			<li class="takemetolinks"><a href="#HeaderCalc">Calculating Stress</a></li>
-			|
-			<li class="takemetolinks"><a href="#HeaderVis">Stress Visualization</a></li>
-			|
-			<li class="takemetolinks"><a href="#HeaderTool">Stress Tool</a></li>
-		</h3></ul>
+		<h3>
+			<a href="#HeaderTitle">Stress Explanation</a> | <a href="#HeaderCalc">Calculating Stress</a> | 
+			<a href="#HeaderVis">Stress Visualization</a> | <a href="#HeaderTool">Stress Tool</a>
+		</h3>
 	</div>
 	
 	<!--
@@ -129,12 +124,14 @@
 	<div class="HeaderBox" id="HeaderTool">
 		<h1>Stress Tool</h1>
 	</div>
+	
 	<!-- 
 		Need: Unit values to be udpated
-		Circle or Square radio, updates to Width/height or Radius (not started)
+		Some input box formatting for prettiness / alignment
 	-->
 	<div id="MaterialandGeometry">
 		<h2>Material and Geometry</h2>
+		<form>
 		<table>
 			<tr>
 				<td class="thick">Units</td>
@@ -148,29 +145,34 @@
 			</tr>
 			<tr>
 				<td class="thick">Cross section</td>
-				<td>(Circle or Square Choice)</td>
 				<td>
-          (Radius: Value, or Height/Width: Values)
-          <input id="CrossSectionRadius"/>
-        </td>
+					<input type="radio" id="Circle" name="CircleOrRect" value="Circle" checked>
+					<label for="Circle">Circle</label><br>
+					<input type="radio" id="Rect" name="CircleOrRect" value="Rect">
+					<label for="Rect">Rectangle</label>
+				</td>
+				<td>
+					<div id="CircleDim">
+						Radius: <input id="Radius"/>
+					</div>
+					<div id="RectDim" hidden>
+						Height: <input id="Height"/><br>
+						Width: <input id="Width" />
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td class="thick">Length (wall to end)</td>
 				<td colspan="2"><input id="BeamLength" /></td>
 			</tr>
 		</table>
-		
+		</form>
 	</div>
 	
 	<!--
-		Need to include text input for the various forces, update JS to take those vals
+		Update JS to take force/moment vals
 		Update Moments to be more clear
 		think about how to make Beam visual be closer to inputs, different table arrangement?
-		min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)"
-		min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)"
-	<h3>Forces</h3>
-	<br><h3>Moments</h3>
-	
 	-->
 	<div id="ForcesSelect">
 		<h2>Apply Loads</h2>
@@ -195,8 +197,8 @@
 				<td rowspan="1" class="thick">
 					Moments
 				</td>
-				<td>x</td>
-				<td><input class="Moment" id="mX" /></td>
+				<td>z</td>
+				<td><input class="Moment" id="mZ" /></td>
 			</tr>
 		</table>
 	</div>
@@ -205,7 +207,7 @@
 		Goal to make the entire calculate box clickable
 	-->
 	<div id="CalculateButtonBlock">
-		<h2><input type="submit" value="Calculate" id="submit1"></h2>
+		<h3><input type="submit" value="Calculate" id="submit1"></h3>
 	</div>
 	
 	<!--
@@ -245,6 +247,13 @@
 		Maybe include a test concepts - knowledge
 		Include a list of references
 	-->
+	<div id="Footnotes">
+		<h3>Footnotes and List of References</h3>
+		1. Note one<br>
+		2. Note two<br>
+		
+		
+	</div>
 	
 </div>
 

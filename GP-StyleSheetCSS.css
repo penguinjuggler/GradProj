@@ -21,9 +21,10 @@
 		"gVisExp1 gVisExp2"
 		"Header4 Header4"
 		"gMaterial gForces"
-		"gCalcButBlock gCalcButBlock"
+		"gMaterial gCalcButBlock"
 		"gEqs gStressResults"
-		"gBeam gCubePic";
+		"gBeam gCubePic"
+		"gFoot gFoot";
 }
 
 .grid > div {
@@ -102,11 +103,6 @@ img:hover {
 	grid-area: Header4;
 }
 
- .takemetolinks {
-	display: inline-block;
-	padding: .5em;
- }
-
 #StressStrainExp {
 	/*
 	max-height: 800px;
@@ -154,7 +150,7 @@ img:hover {
 
 #CalculateButtonBlock {
 	grid-area: gCalcButBlock;
-	background: #ccc;
+	background: #DBF4E0;
 	border-width: 10px;
 }
 
@@ -170,6 +166,11 @@ img:hover {
 }
 #StressResults{
 	grid-area: gStressResults;
+}
+
+#Footnotes {
+	grid-area: gFoot;
+	background: #ccc;
 }
 
 input:invalid {
