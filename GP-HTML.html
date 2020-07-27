@@ -7,18 +7,23 @@
 	<script src="GP-JS.js"></script>
 </head>
 
+
+
 <body>
+<a href="#HeaderTitle"><button id="ScrolltoTop">Top</button></a>
 
 <div class="grid">
 
-	<div id="HeaderBox">
+	<div class="HeaderBox" id="HeaderTitle">
 		<h1>Engineering Stress & Strain</h1>
 		<ul><h3>
-			<li class="takemetolinks"><a href="#StressStrainExp">Stress Explanation</a></li>
+			<li class="takemetolinks"><a href="#HeaderTitle">Stress Explanation</a></li>
 			|
-			<li class="takemetolinks"><a href="#Calculations">Calculating Stress</a></li>
+			<li class="takemetolinks"><a href="#HeaderCalc">Calculating Stress</a></li>
 			|
-			<li class="takemetolinks"><a href="#HeaderBox2">Stress Visualization</a></li>
+			<li class="takemetolinks"><a href="#HeaderVis">Stress Visualization</a></li>
+			|
+			<li class="takemetolinks"><a href="#HeaderTool">Stress Tool</a></li>
 		</h3></ul>
 	</div>
 	
@@ -53,12 +58,18 @@
 		
 		Need to make list of annotations, maybe link them to the bottom too
 	-->
+
+	
 	<div id="StressStrainExp2">
 		<p>The amount that a material expands relative to its original size is called <strong>strain</strong>.</p>
 		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a material property, and can be seen visually in the Stress-Strain Diagram show below.</p>
 		<h3>Stress-Strain Diagram</h3>
 		<img src="StressStrainCurve1.png" alt="Stress Strain Curve">
 		<p><br>If only pulled apart slightly and then released, then the molecules will return to their normal unstressed state. This is called an elastic deformation. Pulled too far apart, and there can be irreparable damage done to the material, often stretching and elongating – this is called plastic deformation. When these molecules are pulled even further apart the material will fracture and break into separate pieces.<sup>2</sup></p>
+	</div>
+	
+	<div class="HeaderBox" id="HeaderCalc">
+		<h1>Calculating Stress</h1>
 	</div>
 	
 	<div id="Calculations">
@@ -99,28 +110,28 @@
 		<br><img src="CubeEquilibrium2.png" alt="Cube Equilibrium" id="CubePic"></p>
 	</div>
 
-	<div id="HeaderBox2">
+	<div class="HeaderBox" id="HeaderVis">
 		<h1>Stress Visualization</h1>
 	</div>
 	
 	<!-- Wording and pictures here need a lot of work -->
-	<div id="VisualizationExp">
-	
+	<div id="VisualizationExp1">
 		<h2>Picture This</h2>
 		<p>One way to visualize stress is through color. You may have seen Finite Element Analyses pictures like the one below that highlight a stressed area versus non-stressed area. In pictures like these the different types of stress are not usually differentiated, red just means more stress, and yellow or blue represent less.   these, Compressive Stress, where a material’s molecules are pushed together, is often colored differently than Tensile Stress, where a material’s molecules are pulled apart. 
-		In the following picture, red represents Tensile stress, Green represents
-		CAD example</p>
+		In the following picture, red represents Tensile stress, Green represents...</p>
+		<img src="WingFEA.jpg" alt="Wing FEA Example" id="CAD Example"/>
+	</div>
+	<div id="VisualizationExp2">
 		<h2>Using this Tool</h2>
-		<p>Below the text there are three cantilevered beams (a long thin piece that is fully supported at one side). Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products. Each of the beams here can be articulated in a different way:
-		The left-most can be bent to induce a bending stress
-		The middle one can be twisted to induce a shearing stress </p>
+		<p>A cantilever beam is a long thin piece that is fully supported at one side. Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products from bridges to airplane wings. </p>
 	</div>
 	
+	<div class="HeaderBox" id="HeaderTool">
+		<h1>Stress Tool</h1>
+	</div>
 	<!-- 
-		Need: Dropdown for units (started)
+		Need: Unit values to be udpated
 		Circle or Square radio, updates to Width/height or Radius (not started)
-		Length from wall to end (not started), and limit all vals to nearest thou
-		(Young's Modulus Goes Here)
 	-->
 	<div id="MaterialandGeometry">
 		<h2>Material and Geometry</h2>
@@ -140,12 +151,12 @@
 				<td>(Circle or Square Choice)</td>
 				<td>
           (Radius: Value, or Height/Width: Values)
-          <input id="CrossSectionRadius" type="number" min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)" required />
+          <input id="CrossSectionRadius"/>
         </td>
 			</tr>
 			<tr>
 				<td class="thick">Length (wall to end)</td>
-				<td colspan="2"><input id="BeamLength" style='width:100%' type="number" min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)" required /></td>
+				<td colspan="2"><input id="BeamLength" /></td>
 			</tr>
 		</table>
 		
@@ -155,7 +166,8 @@
 		Need to include text input for the various forces, update JS to take those vals
 		Update Moments to be more clear
 		think about how to make Beam visual be closer to inputs, different table arrangement?
-	
+		min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)"
+		min="1" max="1000000" maxlength="8" step="1" value="10" oninput="this.value=this.value.slice(0,this.maxLength)"
 	<h3>Forces</h3>
 	<br><h3>Moments</h3>
 	
@@ -168,15 +180,15 @@
 					Forces
 				</td>
 				<td>x</td>
-				<td>(Value -large to +large, rounded to hundredth)</td>
+				<td><input class="Force" id="fX" /></td>
 			</tr>
 			<tr>
 				<td>y</td>
-				<td>(Value -large to +large, rounded to hundredth)</td>
+				<td><input class="Force" id="fY" /></td>
 			</tr>
 			<tr>
 				<td>z</td>
-				<td>(Value -large to +large, rounded to hundredth)</td>
+				<td><input class="Force" id="fZ" /></td>
 			</tr>
 			
 			<tr>
@@ -184,7 +196,7 @@
 					Moments
 				</td>
 				<td>x</td>
-				<td>(Value -large to +large, rounded to hundredth)</td>
+				<td><input class="Moment" id="mX" /></td>
 			</tr>
 		</table>
 	</div>
@@ -208,7 +220,8 @@
 		Use Latex / JS, should be a simple table of sigma's and tau's from equations above
 	-->
 	<div id="StressResults">
-		<h2>Stress Results</h2>
+		<h2>Stress Results</h2><br>
+		<p id="Output01">StressOutputHere</p>
 	</div>
 	
 	<!--
@@ -234,6 +247,7 @@
 	-->
 	
 </div>
+
 
 </body>
 </html>

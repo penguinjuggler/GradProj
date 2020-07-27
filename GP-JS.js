@@ -37,7 +37,17 @@ function calculateFoo(elasticity, radius) {
   return elasticity * radius;
 }
 
+// Scroll to top button
+/*var MyScrollUp = document.getElementById("ScrolltoTop");
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
+*/
 $(document).ready(function() {
+	
     var materials_select = document.getElementById("MaterialSelect");
 	//var materials_Modulus = document.getElementById("YM_Display");
 	var unit_select = document.getElementById("UnitSelect");
@@ -62,7 +72,33 @@ $(document).ready(function() {
         materials_select.appendChild(el);
     }
 
-
+	// Sets up Value inputs for Cross Section and Beam Length, 
+	$("#CrossSectionRadius, #BeamLength").attr({
+		type:'number',
+		min:'1',
+		max:'1000000000',
+		maxLength:'8',
+		value:'10',
+		step:'1',
+		oninput:"this.value=this.value.slice(0,this.maxLength)",
+		style:'width:100%',
+		required:'true'
+	})
+	
+	// Sets up Value inputs for Forces and Moments
+	$(".Force, .Moment").attr({
+		type:'number',
+		min:'-10000000',
+		max:'10000000',
+		maxLength:'8',
+		value:'0',
+		step:'1',
+		oninput:"this.value=this.value.slice(0,this.maxLength)",
+		style:'width:100%; text-align:center;',
+		required:'true'
+		
+	})
+	
     // Setup units input...
     //
     /*
@@ -90,7 +126,7 @@ $(document).ready(function() {
 		
         // Calculate foo
 		alert(calculateFoo(material.elasticity, radiusValue));
-		
+
 		// Will change BeamPicture based on final direction of forces
 		// Need to set BeamPicNum above
 		/*
@@ -103,18 +139,25 @@ $(document).ready(function() {
 	
 	
 	// Updates Youngs Modulus on change of Material and Unit Choice
-	$("#MaterialSelect, #UnitSelect").change(function() {
+	$("#MaterialSelect, #UnitSelect, #BeamLength").change(function() {
 		var text1 = $("#MaterialSelect option:selected").text();
 		var text2 = $("#UnitSelect option:selected").text();
 		var elas = parseInt(materials[text1].elasticity * UnitChoice[text2].pressureMult);
 		$("#ElasticityDisplay").text(elas + UnitChoice[text2].pressureText);
 		$("#UnitDisplay").text(UnitChoice[text2].unitList);
+		
+		//Testing realtime output with beamlength as an input
+		var text3 = elas* $("#BeamLength").val();
+		$("#Output01").text(text3);
+		
 	});
 	
 	
 	// Updates Radius or Height/Width request on Circular or Rectangular radio select
 	
 	
+	
+
 });
 
 
