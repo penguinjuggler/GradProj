@@ -153,62 +153,72 @@
 				</td>
 				<td>
 					<div id="CircleDim">
-						Radius: <input id="Radius"/>
+						Radius: <input id="Radius"/> <span id="RadiusUnit">m</span>
 					</div>
 					<div id="RectDim" hidden>
-						Height: <input id="Height"/><br>
-						Width: <input id="Width" />
+						Height: <input id="Height"/> <span id="HeightUnit">m</span><br>
+						Width: <input id="Width" /> <span id="WidthUnit">m</span>
 					</div>
 				</td>
 			</tr>
 			<tr>
-				<td class="thick">Length</td>
-				<td colspan="2"><input id="BeamLength" /></td>
+				<td class="thick">Length </td>
+				<td colspan="2"><input id="BeamLength" /> <span id="LengthUnit">m</span></td>
 			</tr>
 		</table>
 		</form>
 	</div>
 	
 	<!--
-		Update JS to take force/moment vals
-		Update Moments to be more clear
+		Include pictures of beam / cross section / forces
 		think about how to make Beam visual be closer to inputs, different table arrangement?
 	-->
 	<div id="ForcesSelect" class="greenish">
 		<h2>Apply Loads</h2>
 		<table>
 			<tr>				
-				<td rowspan="3" class="thick">
-					Forces
+				<td colspan="2" class="thick">
+					Forces (<span id="ForceUnits">N</span>)
 				</td>
+				<td rowspan="4" style="width:5em"></td>
+				<td colspan="2" class="thick">
+					Moments (<span id="MomentUnits">Nm</span>)
+				</td>
+			</tr>
+			<tr>
 				<td>x</td>
 				<td><input class="Force" id="fX" /></td>
+
+				<td>x</td>
+				<td><input class="Moment" id="mX" /></td>
 			</tr>
 			<tr>
 				<td>y</td>
 				<td><input class="Force" id="fY" /></td>
+				
+				<td>y</td>
+				<td><input class="Moment" id="mY" /></td>
 			</tr>
 			<tr>
 				<td>z</td>
 				<td><input class="Force" id="fZ" /></td>
-			</tr>
-			
-			<tr>
-				<td rowspan="1" class="thick">
-					Moments
-				</td>
+				
 				<td>z</td>
 				<td><input class="Moment" id="mZ" /></td>
 			</tr>
+			
+			
 		</table>
 	</div>
 	
 	<!--
-		Goal to make the entire calculate box clickable
-	-->
+		Goal to make the entire calculate box clickable,  or autoupdate instead
+	
 	<div id="CalculateButtonBlock" class="greenish">
 		<h3><input type="submit" value="Calculate" id="submit1"></h3>
 	</div>
+	-->
+	
 	
 	<!--
 		Need to start looking more into LaTex for JS
@@ -224,7 +234,7 @@
 	<div id="StressResults" class="tanish">
 		<h2>Stress Results</h2><br>
 		<p>Cross Section Area: <span id="AreaOutput">100 m<sup>2</sup></span></p>
-		<p>Normal Stress in Z direction: <span id="NormalZ">100 GPa</span></p>
+		<p>Normal Stresses in Z direction: <span id="NormalZ">100 GPa</span></p>
 	</div>
 	
 	<!--

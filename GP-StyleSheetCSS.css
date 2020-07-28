@@ -4,7 +4,7 @@
 	
 	Scheme Color: https://www.schemecolor.com/air-element.php
 	#DBF4E0, #CAE3F5, #E7F1F5, #FFFBFB, #FBF3EF, #F4E7EC
-
+"gMaterial gCalcButBlock"
 */	
 
 .grid {
@@ -21,7 +21,7 @@
 		"gVisExp1 gVisExp2"
 		"Header4 Header4"
 		"gMaterial gForces"
-		"gMaterial gCalcButBlock"
+		
 		"gEqs gStressResults"
 		"gBeam gCubePic"
 		"gFoot gFoot";
@@ -63,7 +63,7 @@ table, th, td {
 	width: 33%;
 }
 
-td.thick {font-weight: bold;}
+td.thick {font-weight: bold; text-align:center}
 
 img {
 	max-width: 100%;
