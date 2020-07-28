@@ -139,7 +139,7 @@ $(document).ready(function() {
 		}
 	})
 
-	let ChangeTriggers = $("#MaterialSelect, #UnitSelect, #BeamLength, #CircleDim, #RectDim, input[type=radio][name=CircleOrRect]");
+	let ChangeTriggers = $("#MaterialSelect, #UnitSelect, #BeamLength, #CircleDim, #RectDim, input[type=radio][name=CircleOrRect], #fX, #fY, #fZ");
 	
 	// Updates Youngs Modulus on change of Material and Unit Choice
 	// Also updates "stress results" with arbitrary calculation, to be updated later
@@ -181,6 +181,13 @@ $(document).ready(function() {
 		// Cross Section Area
 		$("#AreaOutput").html(CrossSectionArea + UnitChoice[text2].lengthText + "<sup>2</sup>");
 		
+		
+		var normZ;
+		
+		// Normal Stress in Z = P/A + XXXX
+		// Need to add units to Inputs, check math!
+		normZ = (fZ/CrossSectionArea).toFixed(3);
+		$("#NormalZ").html(normZ + UnitChoice[text2].pressureText);
 		
 		
 		
