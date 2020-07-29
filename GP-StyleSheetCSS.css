@@ -5,7 +5,7 @@
 	Scheme Color: https://www.schemecolor.com/air-element.php
 	#DBF4E0, #CAE3F5, #E7F1F5, #FFFBFB, #FBF3EF, #F4E7EC
 "gMaterial gCalcButBlock"
-*/	
+*/
 
 .grid {
 	display: grid;
@@ -21,7 +21,6 @@
 		"gVisExp1 gVisExp2"
 		"Header4 Header4"
 		"gMaterial gForces"
-		
 		"gEqs gStressResults"
 		"gBeam gCubePic"
 		"gFoot gFoot";
@@ -52,12 +51,13 @@ h3 {font-size: calc(10px + 0.7vw);}
 p {font-size: 14px;}
 
 table, th, td {
-	/*border: 1px solid #ccc; */
+	/*border: 1px solid #ccc;*/ 
 	margin-left: auto;
 	margin-right: auto;
-	padding: 5px;
-	
+	padding: 5px 15px 5px 15px;
 }
+
+/*table {border:solid;}*/
 
 .EqualCols3 {
 	width: 33%;
@@ -74,6 +74,12 @@ img {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#CrossSectionPic {
+	max-height: 100px;
+	background: none;
+	border: none;
+	box-shadow: none;
+}
 /*
 img:hover {
 	transform: scale(2);

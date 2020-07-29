@@ -114,7 +114,7 @@
 		<h2>Picture This</h2>
 		<p>One way to visualize stress is through color. You may have seen Finite Element Analyses pictures like the one below that highlight a stressed area versus non-stressed area. In pictures like these the different types of stress are not usually differentiated, red just means more stress, and yellow or blue represent less.   these, Compressive Stress, where a material’s molecules are pushed together, is often colored differently than Tensile Stress, where a material’s molecules are pulled apart. 
 		In the following picture, red represents Tensile stress, Green represents...</p>
-		<img src="WingFEA.jpg" alt="Wing FEA Example" id="CAD Example"/>
+		<img src="WingFEA.png" alt="Wing FEA Example" id="CAD Example"/>
 	</div>
 	<div id="VisualizationExp2" class="lightblueish">
 		<h2>Using this Tool</h2>
@@ -134,17 +134,21 @@
 		<form>
 		<table>
 			<tr>
-				<td class="thick">Units</td>
+				<td class="thick" style="text-align:right">Units</td>
 				<td><select id="UnitSelect"></select></td>
-				<td id="UnitDisplay">m / GPa / kgs</td>
+				<td id="UnitDisplay">m / Pa / N / Nm</td>
 			</tr>
 			<tr>
-				<td class="thick">Material</td>
+				<td class="thick" style="text-align:right">Material</td>
 				<td><select id="MaterialSelect"></select></td>
 				<td id="ElasticityDisplay">69 GPa</td>
 			</tr>
 			<tr>
-				<td class="thick">Cross section</td>
+				<td class="thick" style="text-align:right">Length </td>
+				<td colspan="2"><input id="BeamLength" value="10"/> <span id="LengthUnit">m</span></td>
+			</tr>
+			<tr>
+				<td class="thick" style="text-align:right">Cross section</td>
 				<td>
 					<input type="radio" id="Circle" name="CircleOrRect" value="Circle" checked>
 					<label for="CircleID">Circle</label><br>
@@ -153,17 +157,18 @@
 				</td>
 				<td>
 					<div id="CircleDim">
-						Radius: <input id="Radius"/> <span id="RadiusUnit">m</span>
+						Radius: <input id="Radius" value="0.1"/> <span id="RadiusUnit">m</span>
 					</div>
 					<div id="RectDim" hidden>
-						Height: <input id="Height"/> <span id="HeightUnit">m</span><br>
-						Width: <input id="Width" /> <span id="WidthUnit">m</span>
+						Height: <input id="Height" value="0.1"/> <span id="HeightUnit">m</span><br>
+						Width: <input id="Width" value="0.1"/> <span id="WidthUnit">m</span>
 					</div>
 				</td>
 			</tr>
 			<tr>
-				<td class="thick">Length </td>
-				<td colspan="2"><input id="BeamLength" /> <span id="LengthUnit">m</span></td>
+				<td class="thick" style="text-align:right;">Cross Section Area</td>
+				<td><span id="AreaOutput">X m<sup>2</sup></span></td>
+				<td><img id="CrossSectionPic" src="CircleCrossSection.png" /></td>
 			</tr>
 		</table>
 		</form>
@@ -206,8 +211,6 @@
 				<td>z</td>
 				<td><input class="Moment" id="mZ" /></td>
 			</tr>
-			
-			
 		</table>
 	</div>
 	
@@ -233,8 +236,26 @@
 	-->
 	<div id="StressResults" class="tanish">
 		<h2>Stress Results</h2><br>
-		<p>Cross Section Area: <span id="AreaOutput">100 m<sup>2</sup></span></p>
-		<p>Normal Stresses in Z direction: <span id="NormalZ">100 GPa</span></p>
+		<table>
+			<tr>
+				<td style="width:25%" class="thick" rowspan="4" >Normal Stresses in Z</td>
+				<td style="width:40%">Due to Axial Force (F<sub>z</sub>)</td>
+				<td style="width:35%"><span id="NormalZaxial">X GPa</span></td>
+			</tr>
+			<tr>
+				<td>Due to Moment caused by F<sub>y</sub> * L</td>
+				<td><span id="NormalZbending1">X Pa</span></td>
+			</tr>
+			<tr style="border-bottom:3px solid #ccc">
+				<td>Due to M<sub>x</sub></td>
+				<td><span id="NormalZbending2">X Pa</span></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td><span id="NormalZtot">X Pa</span></td>
+			</tr>
+			
+		</table>
 	</div>
 	
 	<!--
