@@ -10,3 +10,9 @@ https://www.engineeringtoolbox.com/young-modulus-d_417.html
 BearPic (free): https://pixabay.com/illustrations/bear-cub-animal-silhouette-family-4338380/
 Pumpkin (free): http://pngimg.com/download/86656
 Scale (free): http://pngimg.com/download/52923
+
+Second Area moments of area (wiki): https://en.wikipedia.org/wiki/List_of_second_moments_of_area
+
+Stress Equations 1 - MIT exerpt: http://web.mit.edu/course/3/3.11/www/modules/bstress.pdf
+
+Shear Stress Explanation - Arizona: https://wp.optics.arizona.edu/optomech/wp-content/uploads/sites/53/2016/10/OPTI_222_W10.pdf

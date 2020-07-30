@@ -34,7 +34,6 @@ const materials = {
   'Copper': new Material('Copper', 117*Math.pow(10,9), 220),
 };
 
-var BeamPicNum;
 
 /*
 function calculateFoo(elasticity, radius) {
@@ -82,7 +81,7 @@ $(document).ready(function() {
 		max:'10000000',
 		maxLength:'8',
 		value:'0',
-		step:'.001',
+		step:'0.001',
 		oninput:"this.value=this.value.slice(0,this.maxLength)",
 		style:'width:6em; text-align:center;',
 		required:'true'
@@ -109,16 +108,8 @@ $(document).ready(function() {
         var text = $("#MaterialSelect option:selected").text();
         const material = materials[text]; 
 
-        // Read cross section radius
-        const radiusInput = $('#CrossSectionRadius');
-        const radiusValue = parseFloat(radiusInput.val());
-
-		
         // Calculate foo
 		//alert(calculateFoo(material.elasticity, radiusValue));
-
-		// Will change BeamPicture based on final direction of forces
-		// Need to set BeamPicNum above
 		
 		var BeamChange = $("#BeamPic");
 		BeamChange.attr('src', 'BeamPic' + BeamPicNum + '.png');
@@ -128,11 +119,11 @@ $(document).ready(function() {
 	// Sets input options for a radius or rectangle values depending on radio input
 	$("input[type=radio][name=CircleOrRect]").change(function() {
 		if (this.value == 'Rect') {
-			$("#RectDim").removeAttr("hidden");
-			$("#CircleDim").attr("hidden","true");
+			$("#RectDim, #RectLabels").removeAttr("hidden");
+			$("#CircleDim, #CircleLabels").attr("hidden","true");
 		} else if (this.value == 'Circle') {
-			$("#CircleDim").removeAttr("hidden");
-			$("#RectDim").attr("hidden","true");
+			$("#CircleDim, #CircleLabels").removeAttr("hidden");
+			$("#RectDim, #RectLabels").attr("hidden","true");
 		}
 	})
 
@@ -166,16 +157,35 @@ $(document).ready(function() {
 		var mY = $("#mY").val();
 		var mZ = $("#mZ").val();
 		
+		// Calculating Total Moments
+		var mX_tot = parseFloat(mX) - (fY*len);
+		var mY_tot = parseFloat(mY) + (fX*len);
+		
+		// Other Variables
 		var Ix, Iy, Iz;
 		var normZ1, normZ2, normZ;
 		var mX_tran, halfy, CrossSectionArea;
+		
+		
+		// Selecting the Beam picture based on forces
+		// CC  CB  CA
+		// BC  BB  BA 
+		// AC  AB  AA 
+		var pos;
+		if (mX_tot>0)  {pos='A';}
+		if (mX_tot==0) {pos='B';}
+		if (mX_tot<0)  {pos='C';}
+		if (mY_tot>0)  {pos=pos + 'A';}
+		if (mY_tot==0) {pos=pos + 'B';}
+		if (mY_tot<0)  {pos=pos + 'C';}
+		$("#BeamPicChoice").attr('src','BeamPics\\Beam_' + pos + '.png');
 		
 		var RadioInput = $("input[type=radio][name=CircleOrRect]:checked").val();
 		if (RadioInput == 'Rect') {
 			// No twisting with rectangular cross section
 			$("#mZ").val('0');
 			$("#mZ").attr('disabled','disabled');
-			$("#CrossSectionPic").attr('src','RectCrossSection.png');
+			$("#CrossSectionPic").attr('src','BeamPics\\RectCrossSection.png');
 			CrossSectionArea = (h*w);
 			Ix = (w*Math.pow(h,3)/12); // I = (bh^3)/12
 			Iy = (h*Math.pow(w,3)/12); // I = (hb^3)/12
@@ -184,7 +194,7 @@ $(document).ready(function() {
 		} else if (RadioInput == 'Circle') {
 			// Allows twisting
 			$("#mZ").removeAttr('disabled');
-			$("#CrossSectionPic").attr('src','CircleCrossSection.png');
+			$("#CrossSectionPic").attr('src','BeamPics\\CircleCrossSection.png');
 			CrossSectionArea = (Math.PI * Math.pow(r,2));
 			Ix = (Math.pow(r,4)*Math.PI/4); // I = (pi*r^4)/4
 			Iy = Ix;
@@ -210,12 +220,9 @@ $(document).ready(function() {
 		$("#NormalZbending2").html(normZ3.toFixed(3) + " " + UnitChoice[text2].pressureText);
 		$("#NormalZtot").html(normZ.toFixed(3) + " " + UnitChoice[text2].pressureText);
 		
-
+		
 		// Shear stress
 		// fX and fY contribute, and torsion (mZ)
-		
-		
-		
 		
 		/* 
 			@top reference point: 
@@ -225,11 +232,9 @@ $(document).ready(function() {
 				fX contributes only to shear
 				fY contributes to shear and bending
 				fZ contributes to only normal
-		*/
+		*/		
+		
 	});
-	
-
-
 });
 
 
