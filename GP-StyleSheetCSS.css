@@ -88,6 +88,7 @@ img:hover {
 .InnerBox {
 	background: #FBF3EF;
 	font-size: 16px;
+	font-style: bold;
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 10px;
@@ -162,4 +163,34 @@ input {
 
 #ScrolltoTop:hover {
 	background-color: #888;
+}
+
+.ref {
+    position: relative;
+    vertical-align: baseline;
+   }
+
+.refnum {
+    position: relative;
+    left: 2px;
+    bottom: 1ex;
+    color: #005994;
+    font-size: .7em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.refbody {
+    font-size: .8em;
+    line-height: 1.1;
+    display: block;
+    min-width: 20em;
+    position: absolute;
+    left: 25px;
+    border: 1px solid;
+    padding: 5px;
+    background-color: #fff;
+    word-wrap: break-word;
+    z-index: 9999;
+    overflow: auto;
 }

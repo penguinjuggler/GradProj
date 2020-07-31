@@ -25,34 +25,46 @@
 	-->
 	<div id="StressStrainExp" class="lightblueish">	
 		<h2>Stress and Strain</h2>
-		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who deal with it regularly. Many units are easy to see and understand: two meters is roughly the height of a friendly bear, a pumpkin with a weight of 10lbs feels heavy, and a lightbulb with a higher wattage is brighter. But a beam undergoing 12MPa of stress is not clear what is going on to a simple observer…until it breaks!</p>
+		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who are lucky enough to deal with it regularly. Many units of measure are easy to see, understand, and compare: a friendly bear is much taller than you, weighs much more, and can run much faster than you<span class="ref"><span class="refnum">[*]</span><span class="refbody">Bear: 3. You: 0</span>. But the branch you and the bear are both hanging from is also undergoing stress<span class="ref"><span class="refnum">[*]</span><span class="refbody">Slightly different than the stress you may be experiencing</span> and is not clear what is going on…until it breaks!</p>
 		<table>
 			<tr>
-				<td class="EqualCols3"><h3>Length</h3></td>
-				<td class="EqualCols3"><h3>Weight</h3></td>
-				<td class="EqualCols3"><h3>Wattage</h3></td>
+				<td colspan="3"><img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison"/></td>
 			</tr>
 			<tr>
-				<td colspan="3"><img src="ContentPics\UnitVisual.png" /></td>
+				<td class="EqualCols3"><h3>Height</h3></td>
+				<td class="EqualCols3"><h3>Weight</h3></td>
+				<td class="EqualCols3"><h3>Speed</h3></td>
 			</tr>
-		</table><br>
-		<p>As engineers, we are tasked with designing and building objects that are safe to use and perform the tasks they are intended for. It is very important that we calculate stresses and choose the right materials and geometries so that they don’t break by accident!</p>
-		<p>When a force acts on a material, causing it to bend, pull, compress, or twist, then the molecules within that material are moved further apart or closer together. These molecules do not like to be separated, and the material will have an internal resistance against the applied load. This is called <b>Stress</b>.</p>
-		<p class="InnerBox"><b>Stress is calculated using only the amount and direction of forces applied, and the geometry of the material.
-		<br><br>Whether or not it will break depends on the type of material.</b></p>
+		</table>
+		
+		<p>As engineers, we are tasked with designing and building objects that perform the use they are intended for, and ideally are safe for the person using them. So, when designing everyday objects like a bridge over troubled waters, a staircase to heaven, a wonderwall, or a hotel in California, it is imperative that we accurately calculate stresses and choose the right materials and geometries so that they don’t break unexpectedly!</p>
+		<p>When a force acts on a material, causing it to deform and change shape, the molecules within that material are forcibly moved further apart or closer together. These molecules do <i>not</i> like to be forcibly separated or squished together, and the material will have an internal resistance to the applied load. This is called <b>Stress</b>.</p>
+		<div class="InnerBox">Engineering Stress is calculated using only two inputs:<br><br>
+		<ul style="font-weight:bold">
+			<li>The amount and direction of forces applied</li>
+			<li>The geometry of the material</li>
+		</ul>
+		<br>
+		Whether or not the material will break under a certain amount of stress depends on the <b>type of material</b>, and more specifically, how well that material resists getting bent, pulled, compressed, or twisted.</div>
+		<p>The amount that a material expands relative to its original size is called <b>Engineering Strain</b>.</p>
 	</div>
 	
 	<!--
 		Should get/make simplified picture of stress-strain curve
 		
 		Need to make list of annotations, maybe link them to the bottom too
+		<span title=""><sup>*</sup></span>
 	-->
 	<div id="StressStrainExp2" class="lightblueish">
-		<p>The amount that a material expands relative to its original size is called <b>strain</b>.</p>
-		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a material property, and can be seen visually in the Stress-Strain Diagram show below.</p>
+		
+		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a property of the material itself. Young's Modulus is basically a measure of how stiff a material is. Materials with a larger Young's Modulus are capable of handling higher levels of stress before they deform irreparably. In the Stress-Strain Diagram show below, Young's Modulus is the slope of the straight part of the graph. The steeper the slope, the more stress a material can handle with lower strain (i.e. less "stretchy").</p>
+		
 		<h3>Stress-Strain Diagram</h3>
 		<img src="ContentPics\StressStrainCurve.png" alt="Stress Strain Curve">
-		<p><br>If only pulled apart slightly and then released, then the molecules will return to their normal unstressed state. This is called an elastic deformation. Pulled too far apart, and there can be irreparable damage done to the material, often stretching and elongating – this is called plastic deformation. When these molecules are pulled even further apart the material will fracture and break into separate pieces.<sup>2</sup></p>
+		
+		<p><br>If only pulled apart slightly and then released, then the molecules will return to exactly the same place they started, in their normal unstressed state. This is called an <i>elastic deformation</i>. One way to think about this is to consider your favorite pair of pants. They fit perfectly, right? Have too many tacos one night<span class="ref"><span class="refnum">[*]</span><span class="refbody">A quality excuse</span>, and they may stretch a little bit and be a little more snug, but they will return to their normal size afterwards. However, lend them to a larger friend and they may not come back in the same condition they were borrowed,  as they've been "over-stretched".<span class="ref"><span class="refnum">[*]</span><span class="refbody">Probably just let your friend have them at that point</span></p>
+		
+		<p><br>Forcibly stretching a material too far apart and the material can be damaged, often elongating. This is called <i>plastic deformation</i> and is represented by the rounded part of the graph below. The point at the end of the graph represents when a material's molecules are pulled so far apart that the material will fracture and break into separate pieces, the equivalent of loaning your favorite pair of pants to an elephant.<span class="ref"><span class="refnum">[*]</span><span class="refbody">(Not recommended)</span></p>
 	</div>
 	
 	<div class="HeaderBox" id="HeaderCalc">
@@ -61,33 +73,30 @@
 	
 	<div id="Calculations" class="lightblueish">
 		<h2>How to Calculate Stress</h2>
-		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the following:
-			<ul>
-				<li>How much force is applied to a material</li>
-				<li>Its geometry</li>
-				<li>Its Young’s Modulus of Elasticity</li>
-			</ul>
-		The calculation is made even easier because Stress is additive in nature. The stress due to bending can be added to the stress due to tension.</p>
-		<p>Below are the three main types of stress, and their general equations using known material properties and geometry.</p>
+		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the two qualities mentioned above: How much force is applied to a material and it geometry. The calculation is made even easier because Stress is additive in nature. The stress due to bending can be added to the stress due to tension.</p>
+		<p>Below are several of the main types of stress and their general equations using the applied forces and geometries. Variables based on the applied load are colored Red, while variables based on object geometries are colored in Blue.</p>
 		<table>
 			<tr>
 				<td>Bending</td>
 				<td>Twisting</td>
+				<td>Shear</td>
 				<td>Tension</td>
 			</tr>
 			<tr>
 				<td>Eq</td>
 				<td>Eq</td>
 				<td>Eq</td>
+				<td>Eq</td>
 			</tr>
 			<tr>
+				<td>Picture</td>
 				<td>Picture</td>
 				<td>Picture</td>
 				<td>Picture</td>
 			</tr>
 		</table>
 		<p><br>The more difficult part is keeping a ledger of which stresses are Normal or Shear, which planes they are in, and if they are positive or negative.</p>
-	</div>	
+	</div>
 
 	<div id="Cube" class="lightblueish">
 		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses within each plane) which can be imagined as the material sliding against itself with friction between the two surfaces, or someone pulling two opposite corners of a square piece of fabric apart.</p>
