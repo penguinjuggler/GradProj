@@ -4,25 +4,24 @@
 	
 	Scheme Color: https://www.schemecolor.com/air-element.php
 	#DBF4E0, #CAE3F5, #E7F1F5, #FFFBFB, #FBF3EF, #F4E7EC
-*/
+ gBeam gCubePic*/
 
 .grid {
 	display: grid;
 	justify-content: center;
 	grid-gap: .5rem;
-	grid-template-columns: repeat(2,minmax(400px,550px));
+	grid-template-columns: repeat(6,minmax(150px,200px));
 	grid-template-areas:
-		"Header1 Header1"
-		"gStressStrain1 gStressStrain2"
-		"Header2 Header2"
-		"gCalculations gCubeExp"
-		"Header3 Header3"
-		"gVisExp1 gVisExp2"
-		"Header4 Header4"
-		"gMaterial gBeamDim"
-		"gBeam gStressResults"
-		"gCubePic gEqs"
-		"gFoot gFoot";
+		"Header1 Header1 Header1 Header1 Header1 Header1"
+		"gStressStrain1 gStressStrain1 gStressStrain1 gStressStrain2 gStressStrain2 gStressStrain2"
+		"Header2 Header2 Header2 Header2 Header2 Header2"
+		"gCalculations gCalculations gCalculations gCubeExp gCubeExp gCubeExp"
+		"Header3 Header3 Header3 Header3 Header3 Header3"
+		"gVisExp1 gVisExp1 gVisExp1 gVisExp2 gVisExp2 gVisExp2"
+		"Header4 Header4 Header4 Header4 Header4 Header4"
+		"gMaterial gMaterial gBeamDims gBeamDims gBeam gBeam"
+		"gMaterial gMaterial gCubePic gCubePic gStressResults gStressResults"
+		"gEqs gEqs gEqs gFoot gFoot gFoot";
 }
 
 .grid > div {
@@ -71,7 +70,6 @@ table, th, td {
 }
 
 #CubeBase {
-	
 	max-width: 100%;
 	height: auto;
 }
@@ -82,6 +80,7 @@ table, th, td {
 	background: none;
 	max-width: 100%;
 	height: auto;
+	box-shadow: none;
 }
 
 .imgwrap {
@@ -125,10 +124,16 @@ img:hover {
 }
 
 .HeaderBox {
+	grid-area: Header1;
 	background: #CAE3F5;
 	padding-bottom: 0px;
 	border-style: solid;
 	border-width: 3px;
+	cursor: pointer;
+}
+
+.HeaderBox:hover {
+	background: #84BDE6;
 }
 
 .greenish {background: #DBF4E0;}
@@ -138,33 +143,34 @@ img:hover {
 .offwhite {background: #FFFBFB;}
 .tanish {background: #FBF3EF;}
 
-/*
-	max-height: 800px;
-	min-width: 400px;
-	grid-row: 1 / 4;
-	justify-self: center;
-*/
 
+.IntroSection {background: #E7F1F5;}
+.CalcSection {background: #E7F1F5;}
+.VisSection {background: #E7F1F5;}
+.ToolSection {background: #DBF4E0;}
 /* 
 	Setting grid areas for the various sections
 */
-#HeaderTitle {grid-area: Header1;}
-#HeaderCalc {grid-area: Header2;}
-#HeaderVis {grid-area: Header3;}
-#HeaderTool {grid-area: Header4;}
+#HeaderTitle {}
 #StressStrainExp {grid-area: gStressStrain1;}
 #StressStrainExp2 {grid-area: gStressStrain2;}
+
+#HeaderCalc {grid-area: Header2;}
 #Calculations {grid-area: gCalculations;}
 #Cube {grid-area: gCubeExp;}
-#VisualizationExp1 {grid-area: gVisExp1;}
-#VisualizationExp2 {grid-area: gVisExp2;}
+
+#HeaderVis {grid-area: Header3;}
+#VisExp1 {grid-area: gVisExp1;}
+#VisExp2 {grid-area: gVisExp2;}
+
+#HeaderTool {grid-area: Header4;}
 #MaterialandGeometry{grid-area: gMaterial;}
-#BeamDim{grid-area: gBeamDim;}
-#CalculateButtonBlock {grid-area: gCalcButBlock; border-width: 10px;}
-#EquationsShow{grid-area: gEqs;}
+#BeamDims{grid-area: gBeamDims;}
 #BeamTool{grid-area: gBeam;}
 #CubeTool{grid-area: gCubePic;}
 #StressResults{grid-area: gStressResults;}
+
+#EquationsShow{grid-area: gEqs;}
 #Footnotes {grid-area: gFoot; background: #ccc;}
 
 input:invalid {

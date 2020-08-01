@@ -23,8 +23,8 @@ class Units {
 
 // Setup units - multiplier between Metric and Imperial
 const UnitChoice = {
-	'Metric': new Units('Metric','m',1,'Pa',1, 'N',1,'Nm',1,'m / Pa / N / Nm'),
-	'Imperial': new Units('Imperial','in', 39.37,'psi', 145.038, 'lbf',0.225,'in-lb',8.85,'inch / psi / lbf / in-lb'),
+	'Metric - m/Pa/N': new Units('Metric - m/Pa/N','m',1,'Pa',1, 'N',1,'Nm',1,'m/Pa/N'),
+	'Imperial - in/psi/lbf': new Units('Imperial - in/psi/lbf','in', 39.37,'psi', 145.038, 'lbf',0.225,'in-lb',8.85,'in/psi/lbf'),
 };
 
 // Setup Materials and their Young's Modulus of Elasticities (GPa), ultimate tensile strength (MPa), and other material properties
@@ -41,7 +41,6 @@ function calculateFoo(elasticity, radius) {
 }*/
 
 $(document).ready(function() {
-	
 	
 	// Setup Unit input
     for (let unitKey in UnitChoice) {
@@ -131,14 +130,13 @@ $(document).ready(function() {
 							input[type=radio][name=CircleOrRect], #fX, #fY, #fZ, #mX, #mY, #mZ");
 	
 	// Updates Youngs Modulus on change of Material and Unit Choice
-	// Also updates "stress results" with arbitrary calculation, to be updated later
 	ChangeTriggers.change(function() {
 		var text1 = $("#MaterialSelect option:selected").text();
 		var text2 = $("#UnitSelect option:selected").text();
 		
+		//$("#UnitDisplay").text(UnitChoice[text2].unitList);
 		var elas = parseInt(materials[text1].elasticity * UnitChoice[text2].pressureMult);
 		$("#ElasticityDisplay").text(elas.toExponential() + " " + UnitChoice[text2].pressureText);
-		$("#UnitDisplay").text(UnitChoice[text2].unitList);
 		$("#ForceUnits").text(UnitChoice[text2].forceText);
 		$("#MomentUnits").text(UnitChoice[text2].momentText);
 		$("#RadiusUnit, #HeightUnit, #WidthUnit, #LengthUnit").text(UnitChoice[text2].lengthText);
@@ -248,6 +246,49 @@ $(document).ready(function() {
 		
 	});
 	
+	// Section Groupings
+	// Would be cool to just loop through group headers, and hide the sections below
+	// Hides all sections to start, not sure if I want this or not
+	$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	
+	// What is Stress Section
+	$("#HeaderTitle").click(function() {
+		let Section = $(".IntroSection");
+		if (Section.attr("hidden")) {
+			Section.removeAttr("hidden");
+		} else {
+		Section.attr("hidden","true");
+		}
+	})
+	// Calculations Section
+	$("#HeaderCalc").click(function() {
+		let Section = $(".CalcSection");
+		if (Section.attr("hidden")) {
+			Section.removeAttr("hidden");
+		} else {
+		Section.attr("hidden","true");
+		}
+	})
+	// Visualization Section
+	$("#HeaderVis").click(function() {
+		let Section = $(".VisSection");
+		if (Section.attr("hidden")) {
+			Section.removeAttr("hidden");
+		} else {
+		Section.attr("hidden","true");
+		}
+	})
+		// Calculations Section
+	$("#HeaderTool").click(function() {
+		let Section = $(".ToolSection");
+		if (Section.attr("hidden")) {
+			Section.removeAttr("hidden");
+		} else {
+		Section.attr("hidden","true");
+		}
+	})
+	
+	
 	// Tool Tip Code - noConflict and switching to $() is weird. Not sure exactly what's going on here.
 	//jQuery.noConflict();
 	jQuery(function() {
@@ -262,10 +303,12 @@ $(document).ready(function() {
 	});
 	
 	// Collapsible?
-	/*
-	var acc = document.getElementsByClassName("HeaderBox");
-	var i;
+	//var acc = document.getElementsByClassName("HeaderBox");
+	//var i;
+	
 
+
+	/*
 	for (i = 0; i < acc.length; i++) {
 	  acc[i].addEventListener("click", function() {
 		this.classList.toggle("active");
@@ -276,8 +319,8 @@ $(document).ready(function() {
 		  panel.style.maxHeight = panel.scrollHeight + "px";
 		} 
 	  });
-	}*/
-	
+	}
+	*/
 	
 });
 
