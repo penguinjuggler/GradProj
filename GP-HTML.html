@@ -13,31 +13,31 @@
 <div class="grid">
 
 	<div class="HeaderBox" id="HeaderTitle">
-		<h1>Engineering Stress & Strain</h1>
+		<h1>Engineering Stress</h1>
 		<h3>
 			<a href="#HeaderTitle">Stress Explanation</a> | <a href="#HeaderCalc">Calculating Stress</a> | 
 			<a href="#HeaderVis">Stress Visualization</a> | <a href="#HeaderTool">Stress Tool</a>
 		</h3>
 	</div>
 	
-	<!--
-		Bear / Pumpkin / Bulb pic could use some work
-	-->
 	<div id="StressStrainExp" class="lightblueish">	
-		<h2>Stress and Strain</h2>
+		<h2>What is Stress?</h2>
 		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who are lucky enough to deal with it regularly. Many units of measure are easy to see, understand, and compare: a friendly bear is much taller than you, weighs much more, and can run much faster than you<span class="ref"><span class="refnum">[*]</span><span class="refbody">Bear: 3. You: 0</span>. But the branch you and the bear are both hanging from is also undergoing stress<span class="ref"><span class="refnum">[*]</span><span class="refbody">Slightly different than the stress you may be experiencing</span> and is not clear what is going on…until it breaks!</p>
 		<table>
 			<tr>
 				<td colspan="3"><img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison"/></td>
 			</tr>
-			<tr>
+			<tr class="PicLabel">
 				<td class="EqualCols3"><h3>Height</h3></td>
 				<td class="EqualCols3"><h3>Weight</h3></td>
 				<td class="EqualCols3"><h3>Speed</h3></td>
 			</tr>
 		</table>
 		
+		<h3>Why It's Important</h3>
 		<p>As engineers, we are tasked with designing and building objects that perform the use they are intended for, and ideally are safe for the person using them. So, when designing everyday objects like a bridge over troubled waters, a staircase to heaven, a wonderwall, or a hotel in California, it is imperative that we accurately calculate stresses and choose the right materials and geometries so that they don’t break unexpectedly!</p>
+		
+		<h3>So What Is It?</h3>
 		<p>When a force acts on a material, causing it to deform and change shape, the molecules within that material are forcibly moved further apart or closer together. These molecules do <i>not</i> like to be forcibly separated or squished together, and the material will have an internal resistance to the applied load. This is called <b>Stress</b>.</p>
 		<div class="InnerBox">Engineering Stress is calculated using only two inputs:<br><br>
 		<ul style="font-weight:bold">
@@ -56,15 +56,19 @@
 		<span title=""><sup>*</sup></span>
 	-->
 	<div id="StressStrainExp2" class="lightblueish">
+		<h2>The Stress-Strain Diagram</h2>
+		<h3>Young's Modulus of Elasticity</h3>
+		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity which is a property of the material itself. Young's Modulus is basically a measure of how stiff a material is. Materials with a larger Young's Modulus are capable of handling higher levels of stress before they deform irreparably. In the Stress-Strain Diagram show below, Young's Modulus is the slope of the straight part of the graph. The steeper the slope, the more stress a material can handle with lower strain (i.e. less "stretchy").</p>
 		
-		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity<sup>1</sup> which is a property of the material itself. Young's Modulus is basically a measure of how stiff a material is. Materials with a larger Young's Modulus are capable of handling higher levels of stress before they deform irreparably. In the Stress-Strain Diagram show below, Young's Modulus is the slope of the straight part of the graph. The steeper the slope, the more stress a material can handle with lower strain (i.e. less "stretchy").</p>
 		
-		<h3>Stress-Strain Diagram</h3>
-		<img src="ContentPics\StressStrainCurve.png" alt="Stress Strain Curve">
+		<img src="ContentPics\StressStrainCurve.png" alt="Stress Strain Curve" title="(In most cases) Straight-Line Section: Good. Curvy Section: Bad. X-Section: Really Bad.">
+		<div class="PicLabel">Stress-Strain Diagram</div>
+		<br>
+		<h3>Elastic Deformation</h3>
+		<p>If only pulled apart slightly and then released, then the molecules will return to exactly the same place they started, in their normal unstressed state. This is called an <i>elastic deformation</i>. One way to think about this is to consider your favorite pair of pants. They fit perfectly, right? Have too many tacos one night<span class="ref"><span class="refnum">[*]</span><span class="refbody">A quality excuse</span>, and they may stretch a little bit and be a little more snug, but they will return to their normal size afterwards. However, lend them to a larger friend and they may not come back in the same condition they were borrowed,  as they've been "over-stretched".<span class="ref"><span class="refnum">[*]</span><span class="refbody">Probably just let your friend have them at that point</span>  This happens with other materials too.</p>
 		
-		<p><br>If only pulled apart slightly and then released, then the molecules will return to exactly the same place they started, in their normal unstressed state. This is called an <i>elastic deformation</i>. One way to think about this is to consider your favorite pair of pants. They fit perfectly, right? Have too many tacos one night<span class="ref"><span class="refnum">[*]</span><span class="refbody">A quality excuse</span>, and they may stretch a little bit and be a little more snug, but they will return to their normal size afterwards. However, lend them to a larger friend and they may not come back in the same condition they were borrowed,  as they've been "over-stretched".<span class="ref"><span class="refnum">[*]</span><span class="refbody">Probably just let your friend have them at that point</span></p>
-		
-		<p><br>Forcibly stretching a material too far apart and the material can be damaged, often elongating. This is called <i>plastic deformation</i> and is represented by the rounded part of the graph below. The point at the end of the graph represents when a material's molecules are pulled so far apart that the material will fracture and break into separate pieces, the equivalent of loaning your favorite pair of pants to an elephant.<span class="ref"><span class="refnum">[*]</span><span class="refbody">(Not recommended)</span></p>
+		<h3>Plastic Deformation and Fracture</h3>
+		<p>Forcibly stretch a material too far apart and the material can be damaged, often by elongating. This is called <i>plastic deformation</i> and is represented by the rounded part of the graph above. The point at the end of the graph represents when a material's molecules are pulled so far apart that the material will fracture and break into separate pieces, the equivalent to loaning your favorite pair of pants to an elephant.<span class="ref"><span class="refnum">[*]</span><span class="refbody">(Not recommended)</span></p>
 	</div>
 	
 	<div class="HeaderBox" id="HeaderCalc">
@@ -73,7 +77,7 @@
 	
 	<div id="Calculations" class="lightblueish">
 		<h2>How to Calculate Stress</h2>
-		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the two qualities mentioned above: How much force is applied to a material and it geometry. The calculation is made even easier because Stress is additive in nature. The stress due to bending can be added to the stress due to tension.</p>
+		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the two qualities mentioned above: How much force is applied to a material and the object's geometry. The calculation is made even easier because Stress is additive in nature. The stress due to bending can be added to the stress due to tension, as long as those stresses are in the same plane/location and are of the same type (normal stress vs shear stress).</p>
 		<p>Below are several of the main types of stress and their general equations using the applied forces and geometries. Variables based on the applied load are colored Red, while variables based on object geometries are colored in Blue.</p>
 		<table>
 			<tr>
@@ -99,11 +103,13 @@
 	</div>
 
 	<div id="Cube" class="lightblueish">
-		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses within each plane) which can be imagined as the material sliding against itself with friction between the two surfaces, or someone pulling two opposite corners of a square piece of fabric apart.</p>
-		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF NORMAL AND SHEAR STRESSES</p>
-		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are a bit more complicated</p>
-		<p style="color:Tomato; text-align:center; font-size:20px">VISUAL OF CUBE W/ EQUAL & OPPOSITE FORCES
-		<br><img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" id="CubePic"></p>
+		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses within each plane) which can be imagined as the material sliding against itself with friction between the two surfaces, or someone pulling two opposite corners of a square piece of fabric apart so that it takes on a more diamond-like shape.</p>
+		<img src="CubePics\CubeEverything.png">
+		<div class="PicLabel">Representative Cube Stresses</div>
+		<p><br>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are a bit more complicated</p>
+		
+		<img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic">
+		<div class="PicLabel">Representative Cube Equalized</div>
 	</div>
 
 	<div class="HeaderBox" id="HeaderVis">
@@ -117,7 +123,8 @@
 		<h2>Picture This</h2>
 		<p>One way to visualize stress is through color. You may have seen Finite Element Analyses pictures like the one below that highlight a stressed area versus non-stressed area. In pictures like these the different types of stress are not usually differentiated, red just means more stress, and yellow or blue represent less.   these, Compressive Stress, where a material’s molecules are pushed together, is often colored differently than Tensile Stress, where a material’s molecules are pulled apart. 
 		In the following picture, red represents Tensile stress, Green represents...</p>
-		<img src="ContentPics\WingFEA.png" alt="Wing FEA Example" id="CAD Example"/>
+		<img src="ContentPics\WingFEA.png" alt="Wing FEA Example" id="CAD Example" title="Those colors are pretty fly, right?"/>
+		<h3><span class="PicLabel">Wing FEA Model</span></h3>
 	</div>
 	<div id="VisualizationExp2" class="lightblueish">
 		<h2>Using this Tool</h2>
@@ -157,7 +164,7 @@
 					<input type="radio" id="Circle" name="CircleOrRect" value="Circle">
 					<label for="CircleID">Circle</label>
 				</td>
-				<td rowspan="3"><img id="CrossSectionPic" src="BeamPics\RectCrossSection.png" /></td>
+				<td rowspan="3"><img id="CrossSectionPic" src="BeamPics\RectCrossSection1.png" /></td>
 			</tr>
 			<tr>
 				<td class="thick"  style="text-align:right;">
@@ -225,8 +232,7 @@
 	
 	
 	<!--
-		Goal to make the entire calculate box clickable,  or autoupdate instead
-	
+		
 	<div id="CalculateButtonBlock" class="greenish">
 		<h3><input type="submit" value="Calculate" id="submit1"></h3>
 	</div>
@@ -271,11 +277,29 @@
 	
 	<!--
 		Same as Beam tool, but for the cube
-		Still need to do
-		Maybe overlay the arrows instead of dif pics?
+		Box isn't staying inside div element, not sure why
 	-->
 	<div id="CubeTool" class="tanish">
 		<h2>Cube Visual</h2>
+		<div id="CubeTool">
+			<img src="CubePics\CubeBase.png" id="CubeBase" class="CubeOverlay">
+			
+			<img src="CubePics\tauXY-1.png" id="CubetauXY" class="CubeOverlay">
+			<img src="CubePics\tauYZ-1.png" id="CubetauYZ" class="CubeOverlay">
+			<img src="CubePics\tauXZ-1.png" id="CubetauXZ" class="CubeOverlay">
+			
+			<img src="CubePics\sigX-1.png" id="CubesigX" class="CubeOverlay">
+			<img src="CubePics\sigY-1.png" id="CubesigY" class="CubeOverlay">
+			<img src="CubePics\sigZ-1.png" id="CubesigZ" class="CubeOverlay">
+			
+			<img src="CubePics\sigX-label.png" id="CubesigXlabel" class="CubeOverlay">
+			<img src="CubePics\sigY-label.png" id="CubesigYlabel" class="CubeOverlay">
+			<img src="CubePics\sigZ-label.png" id="CubesigZlabel" class="CubeOverlay">
+			
+			<img src="CubePics\tauXY-label.png" id="CubetauXYlabel" class="CubeOverlay">
+			<img src="CubePics\tauYZ-label.png" id="CubetauYZlabel" class="CubeOverlay">
+			<img src="CubePics\tauXZ-label.png" id="CubetauXZlabel" class="CubeOverlay">
+		</div>
 	</div>
 	
 	<!--

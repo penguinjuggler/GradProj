@@ -185,7 +185,7 @@ $(document).ready(function() {
 			// No twisting with rectangular cross section
 			$("#mZ").val('0');
 			$("#mZ").attr('disabled','disabled');
-			$("#CrossSectionPic").attr('src','BeamPics\\RectCrossSection.png');
+			$("#CrossSectionPic").attr('src','BeamPics\\RectCrossSection1.png');
 			CrossSectionArea = (h*w);
 			Ix = (w*Math.pow(h,3)/12); // I = (bh^3)/12
 			Iy = (h*Math.pow(w,3)/12); // I = (hb^3)/12
@@ -194,7 +194,7 @@ $(document).ready(function() {
 		} else if (RadioInput == 'Circle') {
 			// Allows twisting
 			$("#mZ").removeAttr('disabled');
-			$("#CrossSectionPic").attr('src','BeamPics\\CircleCrossSection.png');
+			$("#CrossSectionPic").attr('src','BeamPics\\CircleCrossSection1.png');
 			CrossSectionArea = (Math.PI * Math.pow(r,2));
 			Ix = (Math.pow(r,4)*Math.PI/4); // I = (pi*r^4)/4
 			Iy = Ix;
@@ -235,22 +235,43 @@ $(document).ready(function() {
 		*/		
 		
 	});
-});
-
-// Tool Tip Code
-jQuery.noConflict();
-jQuery(function() {
-jQuery(".refbody").hide();
-jQuery(".refnum").click(function(event) {
-  jQuery(this.nextSibling).toggle();
-  event.stopPropagation();
-});
-jQuery("body").click(function(event) {
-  jQuery(".refbody").hide();
-});
-});
 	
+	// Tool Tip Code - noConflict and switching to $() is weird. Not sure exactly what's going on here.
+	//jQuery.noConflict();
+	jQuery(function() {
+	jQuery(".refbody").hide();
+	jQuery(".refnum").click(function(event) {
+	  jQuery(this.nextSibling).toggle();
+	  event.stopPropagation();
+	});
+	jQuery("body").click(function(event) {
+	  jQuery(".refbody").hide();
+	});
+	});
+	
+	// Collapsible?
+	/*
+	var acc = document.getElementsByClassName("HeaderBox");
+	var i;
 
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.maxHeight) {
+		  panel.style.maxHeight = null;
+		} else {
+		  panel.style.maxHeight = panel.scrollHeight + "px";
+		} 
+	  });
+	}*/
+	
+	
+});
+
+/*
+	
+*/
 
 //alert(calculateFoo(material.elasticity, radiusValue));
 //document.getElementById("ElasticityDisplay").innerHTML = material.elasticity;

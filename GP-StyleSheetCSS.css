@@ -62,6 +62,21 @@ table, th, td {
 	width: 33%;
 }
 
+.PicLabel {
+	color: #989898;
+	font-size: calc(10px + 0.7vw);
+	font-family: 'Permanent Marker', cursive;
+	text-align: center;
+	margin-top: 0px;
+}
+
+.CubeOverlay {
+	position: absolute;
+	background: none;
+	max-width: 100%;
+	height: auto;
+}
+
 tr:hover {background-color: #FBF3EF}
 td.thick {font-weight: bold; text-align:center}
 
@@ -80,7 +95,8 @@ img {
 	border: none;
 	box-shadow: none;
 }
-/*
+/*top: 0px;
+	left: 0px;
 img:hover {
 	transform: scale(2);
 }*/
