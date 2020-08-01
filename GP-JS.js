@@ -232,7 +232,19 @@ $(document).ready(function() {
 				fX contributes only to shear
 				fY contributes to shear and bending
 				fZ contributes to only normal
-		*/		
+		*/	
+		
+		//alert(normZ)
+		let cubelayers = $("#CubetauXY, #CubetauYZ, #CubetauXZ, #CubesigX, #CubesigY, #CubesigZ");
+		let cubelabels = $("#CubesigXlabel, #CubesigYlabel, #CubesigZlabel, #CubetauXYlabel, #CubetauYZlabel, #CubetauXZlabel");//
+		cubelayers.attr("hidden","true");
+		cubelabels.attr("hidden","true");
+		if (normZ>0) {
+			$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
+		} else if (normZ<0) {
+			$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
+			$("#CubesigZ").attr("src","CubePics\\sigZ-0.png");
+		}
 		
 	});
 	

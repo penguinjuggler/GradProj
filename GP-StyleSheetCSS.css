@@ -56,7 +56,7 @@ table, th, td {
 	padding: 5px 15px 5px 15px;
 }
 
-/*table {border:solid;}*/
+/*table {border:solid;}position: absolute;*/
 
 .EqualCols3 {
 	width: 33%;
@@ -70,11 +70,24 @@ table, th, td {
 	margin-top: 0px;
 }
 
+#CubeBase {
+	
+	max-width: 100%;
+	height: auto;
+}
+
 .CubeOverlay {
-	position: absolute;
+	position: relative;
+	top: 0;
 	background: none;
 	max-width: 100%;
 	height: auto;
+}
+
+.imgwrap {
+	position: absolute;
+	top: 0;
+	max-width: 100%;
 }
 
 tr:hover {background-color: #FBF3EF}
