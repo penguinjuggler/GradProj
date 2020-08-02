@@ -12,9 +12,6 @@
 
 <div class="grid">
 
-	<!--
-		Section 1
-	-->
 	<div class="HeaderBox" id="HeaderTitle">
 		<h1>Engineering Stress</h1>
 		<h3>
@@ -73,9 +70,6 @@
 		<p>Forcibly stretch a material too far apart and the material can be damaged, often by elongating. This is called <i>plastic deformation</i> and is represented by the rounded part of the graph above. The point at the end of the graph represents when a material's molecules are pulled so far apart that the material will fracture and break into separate pieces, the equivalent to loaning your favorite pair of pants to an elephant.<span class="ref"><span class="refnum">[*]</span><span class="refbody">(Not recommended)</span></p>
 	</div>
 	
-	<!--
-		Section 2
-	-->
 	<div class="HeaderBox" id="HeaderCalc">
 		<h1>Calculating Stress</h1>
 	</div>
@@ -117,9 +111,6 @@
 		<div class="PicLabel">Representative Cube Equalized</div>
 	</div>
 
-	<!--
-		Section 3
-	-->
 	<div class="HeaderBox" id="HeaderVis">
 		<h1>Stress Visualization</h1>
 	</div>
@@ -139,9 +130,6 @@
 		<p>A cantilever beam is a long thin piece that is fully supported at one side. Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products from bridges to airplane wings. </p>
 	</div>
 
-	<!--
-		Section 4
-	-->
 	<div class="HeaderBox" id="HeaderTool">
 		<h1>Stress Tool</h1>
 	</div>
@@ -153,6 +141,10 @@
 		<h2>Material and Geometry</h2>
 		<form>
 		<table>
+			<colgroup>
+				<col span="1" style="width:30%;">
+				<col span="1" style="width:70%;">
+			</colgroup>
 			<tr>
 				<td class="thick" style="text-align:right">Units</td>
 				<td><select id="UnitSelect"></select></td>
@@ -166,7 +158,7 @@
 				<td><input id="BeamLength" value="10"/> <span id="LengthUnit">m</span></td>
 			</tr>
 			<tr>
-				<td class="thick" style="text-align:right">Cross section</td>
+				<td class="thick" style="text-align:right">Cross<br>Section:</td>
 				<td>
 					<input type="radio" id="Rect" name="CircleOrRect" value="Rect" checked>
 					<label for="Rect">Rectangle</label><br>
@@ -195,7 +187,7 @@
 				<td><img id="CrossSectionPic" src="BeamPics\RectCrossSection1.png" /></td>
 			</tr>
 			<tr>
-				<td class="thick" style="text-align:right;">Cross Section Area</td>
+				<td class="thick" style="text-align:right;">Cross Section Area:</td>
 				<td><span id="AreaOutput">X m<sup>2</sup></span></td>
 			</tr>
 		</table>
@@ -241,49 +233,42 @@
 	
 	<div id="BeamDims" class="ToolSection">
 		<h2>Beam Dimensions</h2>
-		<img src="BeamPics\BeamDims.png" />
+		<div style="position: relative; z-index: 1;">
+			<img src="BeamPics\BeamDims.png" />
+			<div class="imgwrap"><img src="BeamPics\Beam_CubeLoc2.png" class="Overlay" style="z-index: 4" /></div>
+		</div>
 	</div>
-	
-	
-	<!--
-		Need to add location of Stress Cube!		
-	-->
 
-		
-	<!--
-		Should add background to beam pics, maybe include forces?
-		Need to add background wall to pics
-	-->
 	<div id="BeamTool" class="ToolSection">
 		<h2>Beam Visual</h2>
-		<img id="BeamPicChoice" src="BeamPics\Beam_BB.png" />
+		<div style="position: relative;">
+			<img id="BeamDimBackground" src="BeamPics\Beam_Background.png" style="z-index: 2" />
+			<div class="imgwrap"><img id="BeamPicChoice" src="BeamPics\Beam_BB.png" class="Overlay" style="z-index: 3" /></div>
+			<div class="imgwrap"><img id="BeamPicChoice" src="BeamPics\Beam_CubeLoc.png" class="Overlay" style="z-index: 4" /></div>
+		</div>
 	</div>
-	
-	<!--
-		Same as Beam tool, but for the cube
-	-->
+
 	<div id="CubeTool" class="ToolSection">
 		<h2>Cube Visual</h2>
-		<div id="CubeTool" style="position: relative; z-index: 1;">
+		<div id="CubeTool" style="position: relative;">
 			
 			<img src="CubePics\CubeBase.png"  id="CubeBase" style="z-index: 2;">
 			
-			<div class="imgwrap"><img src="CubePics\tauXY-1.png" id="CubetauXY" class="CubeOverlay" style="z-index: 3;"></div>
-			<div class="imgwrap"><img src="CubePics\tauYZ-1.png" id="CubetauYZ" class="CubeOverlay" style="z-index: 4;"></div>
-			<div class="imgwrap"><img src="CubePics\tauXZ-1.png" id="CubetauXZ" class="CubeOverlay" style="z-index: 5;"></div>
+			<div class="imgwrap"><img src="CubePics\tauXY-1.png" id="CubetauXY" class="Overlay" style="z-index: 3;"></div>
+			<div class="imgwrap"><img src="CubePics\tauYZ-1.png" id="CubetauYZ" class="Overlay" style="z-index: 4;"></div>
+			<div class="imgwrap"><img src="CubePics\tauXZ-1.png" id="CubetauXZ" class="Overlay" style="z-index: 5;"></div>
 			
+			<div class="imgwrap"><img src="CubePics\sigX-1.png" id="CubesigX" class="Overlay" style="z-index: 7;"></div>
+			<div class="imgwrap"><img src="CubePics\sigY-1.png" id="CubesigY" class="Overlay" style="z-index: 8;"></div>
+			<div class="imgwrap"><img src="CubePics\sigZ-1.png" id="CubesigZ" class="Overlay" style="z-index: 9;"></div>
 			
-			<div class="imgwrap"><img src="CubePics\sigX-1.png" id="CubesigX" class="CubeOverlay" style="z-index: 7;"></div>
-			<div class="imgwrap"><img src="CubePics\sigY-1.png" id="CubesigY" class="CubeOverlay" style="z-index: 8;"></div>
-			<div class="imgwrap"><img src="CubePics\sigZ-1.png" id="CubesigZ" class="CubeOverlay" style="z-index: 9;"></div>
+			<div class="imgwrap"><img src="CubePics\sigX-label.png" id="CubesigXlabel" class="Overlay" style="z-index: 10;"></div>
+			<div class="imgwrap"><img src="CubePics\sigY-label.png" id="CubesigYlabel" class="Overlay" style="z-index: 11;"></div>
+			<div class="imgwrap"><img src="CubePics\sigZ-label.png" id="CubesigZlabel" class="Overlay" style="z-index: 12;"></div>
 			
-			<div class="imgwrap"><img src="CubePics\sigX-label.png" id="CubesigXlabel" class="CubeOverlay" style="z-index: 10;"></div>
-			<div class="imgwrap"><img src="CubePics\sigY-label.png" id="CubesigYlabel" class="CubeOverlay" style="z-index: 11;"></div>
-			<div class="imgwrap"><img src="CubePics\sigZ-label.png" id="CubesigZlabel" class="CubeOverlay" style="z-index: 12;"></div>
-			
-			<div class="imgwrap"><img src="CubePics\tauXY-label.png" id="CubetauXYlabel" class="CubeOverlay" style="z-index: 13;"></div>
-			<div class="imgwrap"><img src="CubePics\tauYZ-label.png" id="CubetauYZlabel" class="CubeOverlay" style="z-index: 14;"></div>
-			<div class="imgwrap"><img src="CubePics\tauXZ-label.png" id="CubetauXZlabel" class="CubeOverlay" style="z-index: 15;"></div>
+			<div class="imgwrap"><img src="CubePics\tauXY-label.png" id="CubetauXYlabel" class="Overlay" style="z-index: 13;"></div>
+			<div class="imgwrap"><img src="CubePics\tauYZ-label.png" id="CubetauYZlabel" class="Overlay" style="z-index: 14;"></div>
+			<div class="imgwrap"><img src="CubePics\tauXZ-label.png" id="CubetauXZlabel" class="Overlay" style="z-index: 15;"></div>
 			
 		</div>
 	</div>

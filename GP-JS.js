@@ -34,6 +34,21 @@ const materials = {
   'Copper': new Material('Copper', 117*Math.pow(10,9), 220),
 };
 
+var Stress = [
+	[0, 0, 0],
+	[0, 0, 0],
+	[0, 0, 0]
+];
+
+var Loads = [
+	[0, 0, 0], // fX, fY, fZ
+	[0, 0, 0]  // mX, mY, mZ
+];
+
+const XYZ = ["X","Y","Z"];
+const ABC = ["A","B","C"];
+const sigtau = ["sig","tau"];
+
 
 /*
 function calculateFoo(elasticity, radius) {
@@ -136,7 +151,7 @@ $(document).ready(function() {
 		
 		//$("#UnitDisplay").text(UnitChoice[text2].unitList);
 		var elas = parseInt(materials[text1].elasticity * UnitChoice[text2].pressureMult);
-		$("#ElasticityDisplay").text(elas.toExponential() + " " + UnitChoice[text2].pressureText);
+		$("#ElasticityDisplay").text(elas.toPrecision(3) + " " + UnitChoice[text2].pressureText);
 		$("#ForceUnits").text(UnitChoice[text2].forceText);
 		$("#MomentUnits").text(UnitChoice[text2].momentText);
 		$("#RadiusUnit, #HeightUnit, #WidthUnit, #LengthUnit").text(UnitChoice[text2].lengthText);
@@ -146,25 +161,24 @@ $(document).ready(function() {
 		var len = $("#BeamLength").val();
 		var h = $("#Height").val();
 		var w = $("#Width").val();
-			
+		
+		
 		// Force and Moment Values
-		var fX = $("#fX").val();
-		var fY = $("#fY").val();
-		var fZ = $("#fZ").val();
-		var mX = $("#mX").val();
-		var mY = $("#mY").val();
-		var mZ = $("#mZ").val();
+		for(var i=0; i<3; i++){
+			Loads[0][i] = $("#f" + XYZ[i]).val();
+			Loads[1][i] = $("#m" + XYZ[i]).val();
+		}
 		
 		// Calculating Total Moments
-		var mX_tot = parseFloat(mX) - (fY*len);
-		var mY_tot = parseFloat(mY) + (fX*len);
-		
+		var mX_tot = parseFloat(Loads[1][0]) - Loads[0][1]*len; // mX - fY*L
+		var mY_tot = parseFloat(Loads[1][1]) + Loads[0][0]*len; // mY + fX*L
+
 		// Other Variables
 		var Ix, Iy, Iz;
 		var normZ1, normZ2, normZ;
 		var mX_tran, halfy, CrossSectionArea;
-		
-		
+
+		//alert("Forces: " + Loads[0] + "  Moments: " + Loads[1]);
 		// Selecting the Beam picture based on forces
 		// CC  CB  CA
 		// BC  BB  BA 
@@ -207,17 +221,16 @@ $(document).ready(function() {
 		$("#AreaOutput").html(CrossSectionArea.toFixed(3) + " " + UnitChoice[text2].lengthText + "<sup>2</sup>");
 		
 		// Normal Stress in Z = P/A - (Mx1 + Mx2)y/I
-		normZ1 = (fZ/CrossSectionArea); 	// Normal Stress in Z = Fz/A
-		mX_tran = -fY*len; 					// Moment X = Force in Y * length of beam		
+		normZ1 = (Loads[0][2]/CrossSectionArea); 	// Normal Stress in Z = Fz/A
+		mX_tran = -Loads[0][1]*len; 				// Moment X = Force in Y * length of beam		
 		normZ2 = (mX_tran*halfy)/Ix; 		// Normal stress = -M*y/I due to fY
-		normZ3 = (mX*halfy)/Ix;				// Normal stress = -M*y/I due to mX
+		normZ3 = (Loads[1][0]*halfy)/Ix;	// Normal stress = -M*y/I due to mX
 		normZ = normZ1 + normZ2 + normZ3;	// Normal stress Total
-		
+		Stress[2][2] = normZ;
 		$("#NormalZaxial").html(normZ1.toFixed(3) + " " + UnitChoice[text2].pressureText);
 		$("#NormalZbending1").html(normZ2.toFixed(3) + " " + UnitChoice[text2].pressureText);
 		$("#NormalZbending2").html(normZ3.toFixed(3) + " " + UnitChoice[text2].pressureText);
 		$("#NormalZtot").html(normZ.toFixed(3) + " " + UnitChoice[text2].pressureText);
-		
 		
 		// Shear stress
 		// fX and fY contribute, and torsion (mZ)
@@ -232,17 +245,28 @@ $(document).ready(function() {
 				fZ contributes to only normal
 		*/	
 		
-		//alert(normZ)
 		let cubelayers = $("#CubetauXY, #CubetauYZ, #CubetauXZ, #CubesigX, #CubesigY, #CubesigZ");
 		let cubelabels = $("#CubesigXlabel, #CubesigYlabel, #CubesigZlabel, #CubetauXYlabel, #CubetauYZlabel, #CubetauXZlabel");//
 		cubelayers.attr("hidden","true");
 		cubelabels.attr("hidden","true");
+		
 		if (normZ>0) {
 			$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
 		} else if (normZ<0) {
 			$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
 			$("#CubesigZ").attr("src","CubePics\\sigZ-0.png");
 		}
+		
+		/*
+		for(var i=0; i<3; i++) {
+			if (normZ>0) {
+				$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
+			} else if (normZ<0) {
+				$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
+				$("#CubesigZ").attr("src","CubePics\\sigZ-0.png");
+			}
+		}
+		*/
 		
 	});
 	
