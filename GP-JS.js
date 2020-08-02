@@ -35,9 +35,8 @@ const materials = {
 };
 
 var Stress = [
-	[0, 0, 0],
-	[0, 0, 0],
-	[0, 0, 0]
+	[0, 0, 0], // sigX,  sigY,  sigZ
+	[0, 0, 0]  // tauXY, tauYZ, tauXZ
 ];
 
 var Loads = [
@@ -55,6 +54,10 @@ function calculateFoo(elasticity, radius) {
   return elasticity * radius;
 }*/
 
+// Updates Range/Input value based on other input
+function updateValue(val, output1){output1.val(val);}
+
+	
 $(document).ready(function() {
 	
 	// Setup Unit input
@@ -75,31 +78,71 @@ $(document).ready(function() {
         $("#MaterialSelect").append(el);
     }
 
-	// Sets up Value inputs for Cross Section and Beam Length, 
-	$("#Radius, #BeamLength, #Height, #Width").attr({
+	$("#LengthInput").attr({
+		type:'number',
+		min:'0',
+		max:'1000',
+		maxLength:'8',
+		step:'.1',
+		oninput:"this.value=this.value.slice(0,this.maxLength)",
+		style:'width:30%; text-align:right',
+		required:'true'
+	})
+
+	$("#RadiusInput, #HeightInput, #Width_Input").attr({
 		type:'number',
 		min:'0.001',
-		max:'1000000000',
+		max:'100',
 		maxLength:'8',
-		//value:'10',
 		step:'.001',
-		oninput:"this.value=this.value.slice(0,this.maxLength)",
-		style:'width:6em; text-align:right',
+		oninput:"this.value=this.value.slice(0,this.maxLength);",
+		style:'width:30%; text-align:right',
 		required:'true'
+	})
+	
+	// Sets up Value inputs for Cross Section and Beam Length, 
+	$("#LengthRange").attr({
+		type:'range',
+		min:'0',
+		max:'1000',
+		step:'.1',
+		style:'width:60%; display:inline',
+	})
+	
+	// Sets up Value inputs for Cross Section and Beam Length, 
+	$("#RadiusRange, #HeightRange, #Width_Range").attr({
+		type:'range',
+		min:'0.001',
+		max:'100',
+		step:'.001',
+		style:'width:60%; display:inline'
 	})
 	
 	// Sets up Value inputs for Forces and Moments
 	$(".Force, .Moment").attr({
-		type:'number',
+		type:'range',
 		min:'-10000000',
 		max:'10000000',
-		maxLength:'8',
+		//maxLength:'8',
 		value:'0',
 		step:'0.001',
-		oninput:"this.value=this.value.slice(0,this.maxLength)",
-		style:'width:6em; text-align:center;',
-		required:'true'
+		//oninput:"this.value=this.value.slice(0,this.maxLength)",
+		style:'width:6em',
+		//required:'true'
 	})
+	
+	
+	$("#LengthRange").change(function() {$("#LengthInput").val(this.value);})
+	$("#RadiusRange").change(function() {$("#RadiusInput").val(this.value);})
+	$("#HeightRange").change(function() {$("#HeightInput").val(this.value);})
+	$("#Width_Range").change(function() {$("#Width_Input").val(this.value);})
+	
+	$("#LengthInput").change(function() {$("#LengthRange").val(this.value);})
+	$("#RadiusInput").change(function() {$("#RadiusRange").val(this.value);})
+	$("#HeightInput").change(function() {$("#HeightRange").val(this.value);})
+	$("#Width_Input").change(function() {$("#Width_Range").val(this.value);})
+	
+	
 	
     // Setup units input...
     //
@@ -141,7 +184,7 @@ $(document).ready(function() {
 		}
 	})
 
-	let ChangeTriggers = $("#MaterialSelect, #UnitSelect, #BeamLength, #CircleDim, #RectDim, \
+	let ChangeTriggers = $("#MaterialSelect, #UnitSelect, #LengthInput, #CircleDim, #RectDim, \
 							input[type=radio][name=CircleOrRect], #fX, #fY, #fZ, #mX, #mY, #mZ");
 	
 	// Updates Youngs Modulus on change of Material and Unit Choice
@@ -157,10 +200,10 @@ $(document).ready(function() {
 		$("#RadiusUnit, #HeightUnit, #WidthUnit, #LengthUnit").text(UnitChoice[text2].lengthText);
 		
 		// Material and Geometry Values
-		var r = $("#Radius").val();
-		var len = $("#BeamLength").val();
-		var h = $("#Height").val();
-		var w = $("#Width").val();
+		var r = $("#RadiusInput").val();
+		var len = $("#LengthInput").val();
+		var h = $("#HeightInput").val();
+		var w = $("#Width_Input").val();
 		
 		
 		// Force and Moment Values
@@ -210,7 +253,8 @@ $(document).ready(function() {
 			CrossSectionArea = (Math.PI * Math.pow(r,2));
 			Ix = (Math.pow(r,4)*Math.PI/4); // I = (pi*r^4)/4
 			Iy = Ix;
-			Iz = Ix*2; // Iz = (pi*r^4)/2
+			Iz = Ix*2; // Iz = J = (pi*r^4)/2
+			
 			halfy = r;
 		}
 		

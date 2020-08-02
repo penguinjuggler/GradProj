@@ -14,15 +14,16 @@
 
 	<div class="HeaderBox" id="HeaderTitle">
 		<h1>Engineering Stress</h1>
-		<h3>
+		<h3>An introduction to Stress, why it's important, how it's calculated,<br>and an interactive tool to visually show how stress is created under various loads.</h3>
+		<!--<h3>
 			<a href="#HeaderTitle">Stress Explanation</a> | <a href="#HeaderCalc">Calculating Stress</a> | 
 			<a href="#HeaderVis">Stress Visualization</a> | <a href="#HeaderTool">Stress Tool</a>
-		</h3>
+		</h3> -->
 	</div>
 	
 	<div id="StressStrainExp" class="IntroSection">	
 		<h2>What is Stress?</h2>
-		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who are lucky enough to deal with it regularly. Many units of measure are easy to see, understand, and compare: a friendly bear is much taller than you, weighs much more, and can run much faster than you<span class="ref"><span class="refnum">[*]</span><span class="refbody">Bear: 3. You: 0</span>. But the branch you and the bear are both hanging from is also undergoing stress<span class="ref"><span class="refnum">[*]</span><span class="refbody">Slightly different than the stress you may be experiencing</span> and is not clear what is going on…until it breaks!</p>
+		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who are lucky enough to deal with it regularly. Many units of measure are easy to see, understand, and compare: a friendly bear is much taller than you, weighs much more, and can run much faster than you<span class="ref"><span class="refnum">[*]</span><span class="refbody">Bear: 3. You: 0</span>. But the tree branch you and the bear are both hanging from is also undergoing stress<span class="ref"><span class="refnum">[*]</span><span class="refbody">Slightly different than the stress you may be experiencing</span> which may not be readily visible…until it breaks!</p>
 		<table>
 			<tr>
 				<td colspan="3"><img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison"/></td>
@@ -39,6 +40,7 @@
 		
 		<h3>So What Is It?</h3>
 		<p>When a force acts on a material, causing it to deform and change shape, the molecules within that material are forcibly moved further apart or closer together. These molecules do <i>not</i> like to be forcibly separated or squished together, and the material will have an internal resistance to the applied load. This is called <b>Stress</b>.</p>
+		<p>The amount that a material expands relative to its original size is called <b>Engineering Strain</b>.</p>
 		<div class="InnerBox">Engineering Stress is calculated using only two inputs:<br><br>
 		<ul style="font-weight:bold">
 			<li>The amount and direction of forces applied</li>
@@ -46,7 +48,6 @@
 		</ul>
 		<br>
 		Whether or not the material will break under a certain amount of stress depends on the <b>type of material</b>, and more specifically, how well that material resists getting bent, pulled, compressed, or twisted.</div>
-		<p>The amount that a material expands relative to its original size is called <b>Engineering Strain</b>.</p>
 	</div>
 	
 	<!--
@@ -76,14 +77,21 @@
 	
 	<div id="Calculations" class="CalcSection">
 		<h2>How to Calculate Stress</h2>
-		<p>Though the term may be intangible, it is relatively straightforward to calculate using knowledge of the two qualities mentioned above: How much force is applied to a material and the object's geometry. The calculation is made even easier because Stress is additive in nature. The stress due to bending can be added to the stress due to tension, as long as those stresses are in the same plane/location and are of the same type (normal stress vs shear stress).</p>
+		<p>Though the term may be intangible, Stress is relatively straightforward to calculate using knowledge of the two qualities mentioned above: how much force is applied to a material and the object's geometry (it doesn't depend on the type of material!). The calculation is made even easier because firstly, there are only two types of stress (normal and shear) and secondly, Engineering Stress is additive in nature. All of the stress in a single location of the same kind can be added together, no matter the source of that stress (bending, twisting, bears, etc.).</p>
+		
+		<p>The two main types of Engineering Stress already hinted at above are <b>Normal Stress</b> and <b>Shear Stress</b>. To help us understand these, we're going to revisit our friendly bear. Unfortunately, he got into some very sticky honey and can no longer separate his two paws from each other. Here the honey represents the resistance to change that the molecules in a material also experience, aka "Stress". If he tries to pull his paws apart directly away from each other, the sticky honey will resist his attempts to escape. If he pushes his paws together, there will be honey in the way and the honey will squish. Both these two applied forces create Normal Stress in the honey, with "pulling" or tensile stress commonly considered positive and "squishing" or compressive stress commonly considered negative. After these two unsuccessful attempts at honey freedom, our bear friend may try to slide his two paws apart, side to side in a rubbing motion. Again, the honey will resist, this time creating Shear Stress in the honey.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Don't worry, he eventually licked his way to freedom.</span></p>
+		<img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison" style="border-color:tomato"/>
+		<div class="PicLabel" style="color:tomato">Bear Stresses using Paws (TBD)</div>
+		
+		<!-- Bear Paw Pics? -->
+		
 		<p>Below are several of the main types of stress and their general equations using the applied forces and geometries. Variables based on the applied load are colored Red, while variables based on object geometries are colored in Blue.</p>
-		<table>
+		<table style="color:tomato">
 			<tr>
+				<td>Pressure</td>
 				<td>Bending</td>
 				<td>Twisting</td>
 				<td>Shear</td>
-				<td>Tension</td>
 			</tr>
 			<tr>
 				<td>Eq</td>
@@ -98,17 +106,20 @@
 				<td>Picture</td>
 			</tr>
 		</table>
-		<p><br>The more difficult part is keeping a ledger of which stresses are Normal or Shear, which planes they are in, and if they are positive or negative.</p>
+		<p><br>Now that we know how to calculate different types of stress, we have to keep track of which stresses are Normal or Shear, which surfaces they apply to, and which direction they are in.</p>
 	</div>
 
 	<div id="Cube" class="CalcSection">
-		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses within each plane) which can be imagined as the material sliding against itself with friction between the two surfaces, or someone pulling two opposite corners of a square piece of fabric apart so that it takes on a more diamond-like shape.</p>
+		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses along the surface) which can be imagined as the material sliding against itself with friction between the two surfaces, or from a side view, someone pulling two opposite corners of a square piece of fabric apart so that it takes on a more diamond-like shape.</p>
 		<img src="CubePics\CubeEverything.png">
 		<div class="PicLabel">Representative Cube Stresses</div>
-		<p><br>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are a bit more complicated</p>
+		<p><br>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are the same, just harder to visualize. If there's stress sliding across one surface, then there must also be a stress on the opposite side of the cube in the opposite direction. If you just have these two opposing stresses, then the cube would spin - it would not be in equilibrium. Therefore another pair of stresses appear in on the two connecting faces, to balance this out.</p>
 		
 		<img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic">
-		<div class="PicLabel">Representative Cube Equalized</div>
+		<div class="PicLabel">Cube Equalized with Normal Stresses</div>
+		
+		<img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic"  style="border-color:tomato">
+		<div class="PicLabel" style="color:tomato">Cube Equalized with Shear Stresses (TBD)</div>
 	</div>
 
 	<div class="HeaderBox" id="HeaderVis">
@@ -155,7 +166,7 @@
 			</tr>
 			<tr>
 				<td class="thick" style="text-align:right">Length </td>
-				<td><input id="BeamLength" value="10"/> <span id="LengthUnit">m</span></td>
+				<td><input id="LengthRange" class="slider" value="1"/><input id="LengthInput" value="1"> <span id="LengthUnit">m</span></td>
 			</tr>
 			<tr>
 				<td class="thick" style="text-align:right">Cross<br>Section:</td>
@@ -173,12 +184,12 @@
 					<span id="RectLabels">Height:<br>Width:</span>
 				</td>
 				<td>
-					<div id="CircleDim" hidden>
-						<input id="Radius" value="0.1"/> <span id="RadiusUnit">m</span>
-					</div>
 					<div id="RectDim">
-						<input id="Height" value="0.1"/> <span id="HeightUnit">m</span><br>
-						<input id="Width" value="0.1"/> <span id="WidthUnit">m</span>
+						<input id="HeightRange" class="slider" value="0.1"><input id="HeightInput" value="0.1"> <span id="HeightUnit">m</span><br>
+						<input id="Width_Range" class="slider" value="0.1"><input id="Width_Input" value="0.1"> <span id="WidthUnit">m</span>
+					</div>
+					<div id="CircleDim" hidden>
+						<input id="RadiusRange" class="slider" value="0.1"><input id="RadiusInput" value="0.1"> <span id="RadiusUnit">m</span>
 					</div>
 				</td>
 			</tr>
@@ -247,7 +258,8 @@
 			<div class="imgwrap"><img id="BeamPicChoice" src="BeamPics\Beam_CubeLoc.png" class="Overlay" style="z-index: 4" /></div>
 		</div>
 	</div>
-
+	
+	<!-- This section seemed to stop working after I added in sliders -->
 	<div id="CubeTool" class="ToolSection">
 		<h2>Cube Visual</h2>
 		<div id="CubeTool" style="position: relative;">
