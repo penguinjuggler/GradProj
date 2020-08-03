@@ -34,21 +34,18 @@ const materials = {
   'Copper': new Material('Copper', 117*Math.pow(10,9), 220),
 };
 
-//switched back to just naming all of them for clarity
-/*var Stress = [
-	[0, 0, 0], // sigX,  sigY,  sigZ
-	[0, 0, 0]  // tauXY, tauYZ, tauXZ
-];
-
-var Loads = [
-	[0, 0, 0], // fX, fY, fZ
-	[0, 0, 0]  // mX, mY, mZ
-];*/
-
-const XYZ = ["X","Y","Z"];
-const ABC = ["A","B","C"];
-const sigtau = ["sig","tau"];
-
+// Takes in Stress Value, Normal or Shear (sig or tau), and X/Y/Z and displays matching cube pic
+function showStress(StressVal,NorS,direction){
+	var callSign = "#Cube" + NorS + direction;
+	var callSignLabel = "#Cube" + NorS + direction + "label";
+	if (StressVal>0) {
+		$(callSign + ", " + callSignLabel).removeAttr("hidden");
+		$(callSign).attr("src","CubePics\\" + NorS + direction + "-1.png");
+	} else if (StressVal<0) {
+		$(callSign + ", " + callSignLabel).removeAttr("hidden");
+		$(callSign).attr("src","CubePics\\" + NorS + direction + "-0.png");
+	}
+}
 
 $(document).ready(function() {
 	
@@ -72,11 +69,12 @@ $(document).ready(function() {
 	
 	$(".slider").attr({
 		type:'range',
-		style:'width:50%; display:inline'
+		style:'width:6em; display:inline'
 	})
+	
 	$(".inputText").attr({
 		type:'number',
-		style:'width:30%; text-align:right',
+		style:'width:5em; text-align:right; margin-left:10px',
 		maxLength:'8',
 		oninput:"this.value=this.value.slice(0,this.maxLength)",
 		required:'true'
@@ -187,7 +185,8 @@ $(document).ready(function() {
 
 		// Other Variables
 		var Ix, Iy, Iz;
-		var normZ1, normZ2, normZ;
+		var normZ1, normZ2;
+		var normX=0, normY=0, normZ=0, tauXY=0, tauYZ=0, tauXZ=0;
 		var Mx_tran, halfy, CrossSectionArea;
 
 		// Selecting the Beam picture based on forces
@@ -260,8 +259,16 @@ $(document).ready(function() {
 		cubelayers.attr("hidden","true");
 		cubelabels.attr("hidden","true");
 		
+		showStress(normX,"sig","X");
+		showStress(normY,"sig","Y");
+		showStress(normZ,"sig","Z");
+		showStress(tauXY,"tau","XY");
+		showStress(tauYZ,"tau","YZ");
+		showStress(tauXZ,"tau","XZ");
+		
 		if (normZ>0) {
 			$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
+			$("#CubesigZ").attr("src","CubePics\\sigZ-1.png");
 		} else if (normZ<0) {
 			$("#CubesigZ, #CubesigZlabel").removeAttr("hidden");
 			$("#CubesigZ").attr("src","CubePics\\sigZ-0.png");
@@ -353,21 +360,6 @@ $(document).ready(function() {
 			$(".refbody").hide();
 		});
 	});
-	
-
-	/*
-	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		if (panel.style.maxHeight) {
-		  panel.style.maxHeight = null;
-		} else {
-		  panel.style.maxHeight = panel.scrollHeight + "px";
-		} 
-	  });
-	}
-	*/
 	
 });
 

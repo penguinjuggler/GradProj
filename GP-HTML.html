@@ -14,7 +14,7 @@
 
 	<div class="HeaderBox" id="HeaderTitle">
 		<h1>Engineering Stress</h1>
-		<h3>An introduction to Stress, why it's important, how it's calculated,<br>and an interactive tool to visually show how stress is created under various loads.</h3>
+		<h3 style="color:#989898">An introduction to Stress, why it's important, how it's calculated,<br>and an interactive tool to visually show how stress is created under various loads.</h3>
 		<!--<h3>
 			<a href="#HeaderTitle">Stress Explanation</a> | <a href="#HeaderCalc">Calculating Stress</a> | 
 			<a href="#HeaderVis">Stress Visualization</a> | <a href="#HeaderTool">Stress Tool</a>
@@ -238,8 +238,9 @@
 				<td>z</td>
 				<td><input class="Moment slider" id="MzSlide" disabled/><input class="Moment inputText" id="Mz" disabled/> <span class="MomentUnits">N</span></td>
 			</tr>
+			<tr><td></td><td style="align-text:center"><input type="button" value="Reset Values" id="Reset"></td></tr>
 		</table>
-		<input type="button" value="Reset Values" id="Reset">
+		
 		</form>
 	</div>
 	
@@ -297,19 +298,19 @@
 			<tr>
 				<td style="width:25%" class="thick" rowspan="4" >Normal Stresses in Z</td>
 				<td style="width:40%">Due to Axial Force (F<sub>z</sub>)</td>
-				<td style="width:35%"><span id="NormalZaxial">X</span> <span class="StressUnits">Pa</span></td>
+				<td style="width:35%"><span id="NormalZaxial">0.00</span> <span class="StressUnits">Pa</span></td>
 			</tr>
 			<tr>
 				<td>Due to Moment caused by F<sub>y</sub> * L</td>
-				<td><span id="NormalZbending1">X</span> <span class="StressUnits">Pa</span></td>
+				<td><span id="NormalZbending1">0.00</span> <span class="StressUnits">Pa</span></td>
 			</tr>
 			<tr style="border-bottom:3px solid #ddd">
 				<td>Due to M<sub>x</sub></td>
-				<td><span id="NormalZbending2">X</span> <span class="StressUnits">Pa</span></td>
+				<td><span id="NormalZbending2">0.00</span> <span class="StressUnits">Pa</span></td>
 			</tr>
 			<tr>
 				<td>Total</td>
-				<td><span id="NormalZtot">X</span>  <span class="StressUnits">Pa</span></td>
+				<td><span id="NormalZtot">0.00</span>  <span class="StressUnits">Pa</span></td>
 			</tr>
 			
 		</table>
