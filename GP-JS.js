@@ -7,12 +7,12 @@ class Material {
 }
 
 class Units {
-	constructor(name, lengthText, lengthMult, pressureText, pressureMult, forceText, forceMult, momentText, momentMult, unitList) {
+	constructor(name, lengthText, lengthMult, stressText, stressMult, forceText, forceMult, momentText, momentMult, unitList) {
 		this.name = name;
 		this.lengthText = lengthText;
 		this.lengthMult = lengthMult;
-		this.pressureText = pressureText;
-		this.pressureMult = pressureMult;
+		this.stressText = stressText;
+		this.stressMult = stressMult;
 		this.forceText = forceText;
 		this.forceMult = forceMult;
 		this.momentText = momentText;
@@ -34,7 +34,8 @@ const materials = {
   'Copper': new Material('Copper', 117*Math.pow(10,9), 220),
 };
 
-var Stress = [
+//switched back to just naming all of them for clarity
+/*var Stress = [
 	[0, 0, 0], // sigX,  sigY,  sigZ
 	[0, 0, 0]  // tauXY, tauYZ, tauXZ
 ];
@@ -42,22 +43,13 @@ var Stress = [
 var Loads = [
 	[0, 0, 0], // fX, fY, fZ
 	[0, 0, 0]  // mX, mY, mZ
-];
+];*/
 
 const XYZ = ["X","Y","Z"];
 const ABC = ["A","B","C"];
 const sigtau = ["sig","tau"];
 
 
-/*
-function calculateFoo(elasticity, radius) {
-  return elasticity * radius;
-}*/
-
-// Updates Range/Input value based on other input
-function updateValue(val, output1){output1.val(val);}
-
-	
 $(document).ready(function() {
 	
 	// Setup Unit input
@@ -77,101 +69,71 @@ $(document).ready(function() {
         el.value = material.name;
         $("#MaterialSelect").append(el);
     }
-
-	$("#LengthInput").attr({
+	
+	$(".slider").attr({
+		type:'range',
+		style:'width:50%; display:inline'
+	})
+	$(".inputText").attr({
 		type:'number',
-		min:'0',
-		max:'1000',
+		style:'width:30%; text-align:right',
 		maxLength:'8',
-		step:'.1',
 		oninput:"this.value=this.value.slice(0,this.maxLength)",
-		style:'width:30%; text-align:right',
-		required:'true'
-	})
-
-	$("#RadiusInput, #HeightInput, #Width_Input").attr({
-		type:'number',
-		min:'0.001',
-		max:'100',
-		maxLength:'8',
-		step:'.001',
-		oninput:"this.value=this.value.slice(0,this.maxLength);",
-		style:'width:30%; text-align:right',
 		required:'true'
 	})
 	
-	// Sets up Value inputs for Cross Section and Beam Length, 
-	$("#LengthRange").attr({
-		type:'range',
+	$(".lengths0").attr({
+		value:'1',
 		min:'0',
 		max:'1000',
-		step:'.1',
-		style:'width:60%; display:inline',
+		step:'.1'
 	})
-	
-	// Sets up Value inputs for Cross Section and Beam Length, 
-	$("#RadiusRange, #HeightRange, #Width_Range").attr({
-		type:'range',
+
+	$(".lengths1").attr({
+		value:'0.1',
 		min:'0.001',
 		max:'100',
-		step:'.001',
-		style:'width:60%; display:inline'
+		step:'.001'
 	})
 	
 	// Sets up Value inputs for Forces and Moments
 	$(".Force, .Moment").attr({
-		type:'range',
+		value:'0',
 		min:'-10000000',
 		max:'10000000',
-		//maxLength:'8',
-		value:'0',
-		step:'0.001',
-		//oninput:"this.value=this.value.slice(0,this.maxLength)",
-		style:'width:6em',
-		//required:'true'
+		step:'0.001'
 	})
 	
-	
+	// Connects Slider to Text Input
 	$("#LengthRange").change(function() {$("#LengthInput").val(this.value);})
 	$("#RadiusRange").change(function() {$("#RadiusInput").val(this.value);})
 	$("#HeightRange").change(function() {$("#HeightInput").val(this.value);})
 	$("#Width_Range").change(function() {$("#Width_Input").val(this.value);})
-	
+	$("#FxSlide").change(function() {$("#Fx").val(this.value);})
+	$("#FySlide").change(function() {$("#Fy").val(this.value);})
+	$("#FzSlide").change(function() {$("#Fz").val(this.value);})
+	$("#MxSlide").change(function() {$("#Mx").val(this.value);})
+	$("#MySlide").change(function() {$("#My").val(this.value);})
+	$("#MzSlide").change(function() {$("#Mz").val(this.value);})
+
+	// Connects Text Input to Slider Input
 	$("#LengthInput").change(function() {$("#LengthRange").val(this.value);})
 	$("#RadiusInput").change(function() {$("#RadiusRange").val(this.value);})
 	$("#HeightInput").change(function() {$("#HeightRange").val(this.value);})
 	$("#Width_Input").change(function() {$("#Width_Range").val(this.value);})
+	$("#Fx").change(function() {$("#FxSlide").val(this.value);})
+	$("#Fy").change(function() {$("#FySlide").val(this.value);})
+	$("#Fz").change(function() {$("#FzSlide").val(this.value);})	
+	$("#Mx").change(function() {$("#MxSlide").val(this.value);})
+	$("#My").change(function() {$("#MySlide").val(this.value);})
+	$("#Mz").change(function() {$("#MzSlide").val(this.value);})
 	
+	$("#Reset").click(function() {
+		$(".Force, .Moment").val('0');
+		$("#LengthInput, #LengthRange").val('1');
+		$("#HeightInput, #RadiusInput, #Width_Input, #HeightRange, #RadiusRange, #Width_Range").val('0.1');
+	})
 	
-	
-    // Setup units input...
-    //
-    /*
-     *
-     * ﻿
-     * $('#CrossSectionRadius')
-     * S.fn.init [input#CrossSectionRadius]
-     * const someElement = $('#CrossSectionRadius')
-     * undefined
-     * someElement
-     * S.fn.init [input#CrossSectionRadius]
-     * someElement.attr('src', 'foo.svg')
-     * S.fn.init [input#CrossSectionRadius]
-     */
-    
-
-    /*	Will likely delete this section, since using autoupdate feature
-	$("#submit1").click(function(e) {
-        var text = $("#MaterialSelect option:selected").text();
-        const material = materials[text]; 
-
-        // Calculate foo
-		//alert(calculateFoo(material.elasticity, radiusValue));
-		
-		var BeamChange = $("#BeamPic");
-		BeamChange.attr('src', 'BeamPic' + BeamPicNum + '.png');
-        	
-    });*/
 	
 	// Sets input options for a radius or rectangle values depending on radio input
 	$("input[type=radio][name=CircleOrRect]").change(function() {
@@ -184,20 +146,22 @@ $(document).ready(function() {
 		}
 	})
 
-	let ChangeTriggers = $("#MaterialSelect, #UnitSelect, #LengthInput, #CircleDim, #RectDim, \
-							input[type=radio][name=CircleOrRect], #fX, #fY, #fZ, #mX, #mY, #mZ");
+	// Not sure how to get the reset button to trigger the ChangeTrigger
+	let ChangeTriggers = $(".slider, .inputText, #MaterialSelect, #UnitSelect, input[type=radio][name=CircleOrRect], #Reset");						
 	
-	// Updates Youngs Modulus on change of Material and Unit Choice
+	// Auto Update if any of the inputs change
 	ChangeTriggers.change(function() {
-		var text1 = $("#MaterialSelect option:selected").text();
+		var matChoice = $("#MaterialSelect option:selected").text();
 		var text2 = $("#UnitSelect option:selected").text();
+		const units = UnitChoice[text2];
 		
 		//$("#UnitDisplay").text(UnitChoice[text2].unitList);
-		var elas = parseInt(materials[text1].elasticity * UnitChoice[text2].pressureMult);
-		$("#ElasticityDisplay").text(elas.toPrecision(3) + " " + UnitChoice[text2].pressureText);
-		$("#ForceUnits").text(UnitChoice[text2].forceText);
-		$("#MomentUnits").text(UnitChoice[text2].momentText);
-		$("#RadiusUnit, #HeightUnit, #WidthUnit, #LengthUnit").text(UnitChoice[text2].lengthText);
+		var elas = parseInt(materials[matChoice].elasticity * units.stressMult);
+		$("#ElasticityDisplay").text(elas.toPrecision(3));
+		$(".ForceUnits").text(units.forceText);
+		$(".MomentUnits").text(units.momentText);
+		$(".StressUnits").text(units.stressText);
+		$(".LengthUnits").text(units.lengthText);
 		
 		// Material and Geometry Values
 		var r = $("#RadiusInput").val();
@@ -205,41 +169,45 @@ $(document).ready(function() {
 		var h = $("#HeightInput").val();
 		var w = $("#Width_Input").val();
 		
-		
 		// Force and Moment Values
-		for(var i=0; i<3; i++){
+		/*for(var i=0; i<3; i++){
 			Loads[0][i] = $("#f" + XYZ[i]).val();
 			Loads[1][i] = $("#m" + XYZ[i]).val();
-		}
+		}*/
+		var Fx = $("#Fx").val();
+		var Fy = $("#Fy").val();
+		var Fz = $("#Fz").val();
+		var Mx = $("#Mx").val();
+		var My = $("#My").val();
+		var Mz = $("#Mz").val();
 		
 		// Calculating Total Moments
-		var mX_tot = parseFloat(Loads[1][0]) - Loads[0][1]*len; // mX - fY*L
-		var mY_tot = parseFloat(Loads[1][1]) + Loads[0][0]*len; // mY + fX*L
+		var Mx_tot = parseFloat(Mx) - Fy*len; // mX - fY*L
+		var My_tot = parseFloat(My) + Fx*len; // mY + fX*L
 
 		// Other Variables
 		var Ix, Iy, Iz;
 		var normZ1, normZ2, normZ;
-		var mX_tran, halfy, CrossSectionArea;
+		var Mx_tran, halfy, CrossSectionArea;
 
-		//alert("Forces: " + Loads[0] + "  Moments: " + Loads[1]);
 		// Selecting the Beam picture based on forces
 		// CC  CB  CA
 		// BC  BB  BA 
 		// AC  AB  AA 
 		var pos;
-		if (mX_tot>0)  {pos='A';}
-		if (mX_tot==0) {pos='B';}
-		if (mX_tot<0)  {pos='C';}
-		if (mY_tot>0)  {pos=pos + 'A';}
-		if (mY_tot==0) {pos=pos + 'B';}
-		if (mY_tot<0)  {pos=pos + 'C';}
+		if (Mx_tot>0)  {pos='A';}
+		if (Mx_tot==0) {pos='B';}
+		if (Mx_tot<0)  {pos='C';}
+		if (My_tot>0)  {pos=pos + 'A';}
+		if (My_tot==0) {pos=pos + 'B';}
+		if (My_tot<0)  {pos=pos + 'C';}
 		$("#BeamPicChoice").attr('src','BeamPics\\Beam_' + pos + '.png');
 		
 		var RadioInput = $("input[type=radio][name=CircleOrRect]:checked").val();
 		if (RadioInput == 'Rect') {
 			// No twisting with rectangular cross section
-			$("#mZ").val('0');
-			$("#mZ").attr('disabled','disabled');
+			$("#Mz, #MzSlide").val('0');
+			$("#Mz, #MzSlide").attr('disabled','disabled');
 			$("#CrossSectionPic").attr('src','BeamPics\\RectCrossSection1.png');
 			CrossSectionArea = (h*w);
 			Ix = (w*Math.pow(h,3)/12); // I = (bh^3)/12
@@ -248,13 +216,12 @@ $(document).ready(function() {
 			halfy = h/2;
 		} else if (RadioInput == 'Circle') {
 			// Allows twisting
-			$("#mZ").removeAttr('disabled');
+			$("#Mz, #MzSlide").removeAttr('disabled');
 			$("#CrossSectionPic").attr('src','BeamPics\\CircleCrossSection1.png');
 			CrossSectionArea = (Math.PI * Math.pow(r,2));
 			Ix = (Math.pow(r,4)*Math.PI/4); // I = (pi*r^4)/4
 			Iy = Ix;
 			Iz = Ix*2; // Iz = J = (pi*r^4)/2
-			
 			halfy = r;
 		}
 		
@@ -262,19 +229,18 @@ $(document).ready(function() {
 		// Realtime output
 		
 		// Cross Section Area
-		$("#AreaOutput").html(CrossSectionArea.toFixed(3) + " " + UnitChoice[text2].lengthText + "<sup>2</sup>");
+		$("#AreaOutput").html(CrossSectionArea.toFixed(3) + " " + units.lengthText + "<sup>2</sup>");
 		
 		// Normal Stress in Z = P/A - (Mx1 + Mx2)y/I
-		normZ1 = (Loads[0][2]/CrossSectionArea); 	// Normal Stress in Z = Fz/A
-		mX_tran = -Loads[0][1]*len; 				// Moment X = Force in Y * length of beam		
-		normZ2 = (mX_tran*halfy)/Ix; 		// Normal stress = -M*y/I due to fY
-		normZ3 = (Loads[1][0]*halfy)/Ix;	// Normal stress = -M*y/I due to mX
+		normZ1 = (Fz/CrossSectionArea); 	// Normal Stress in Z = Fz/A
+		Mx_tran = -Fy*len; 				// Moment X = Force in Y * length of beam		
+		normZ2 = (Mx_tran*halfy)/Ix; 		// Normal stress = -M*y/I due to fY
+		normZ3 = (Mx*halfy)/Ix;	// Normal stress = -M*y/I due to Mx
 		normZ = normZ1 + normZ2 + normZ3;	// Normal stress Total
-		Stress[2][2] = normZ;
-		$("#NormalZaxial").html(normZ1.toFixed(3) + " " + UnitChoice[text2].pressureText);
-		$("#NormalZbending1").html(normZ2.toFixed(3) + " " + UnitChoice[text2].pressureText);
-		$("#NormalZbending2").html(normZ3.toFixed(3) + " " + UnitChoice[text2].pressureText);
-		$("#NormalZtot").html(normZ.toFixed(3) + " " + UnitChoice[text2].pressureText);
+		$("#NormalZaxial").html(normZ1.toPrecision(3));
+		$("#NormalZbending1").html(normZ2.toPrecision(3));
+		$("#NormalZbending2").html(normZ3.toPrecision(3));
+		$("#NormalZtot").html(normZ.toPrecision(3));
 		
 		// Shear stress
 		// fX and fY contribute, and torsion (mZ)
@@ -315,10 +281,30 @@ $(document).ready(function() {
 	});
 	
 	// Section Groupings
+	// clicking on a section header opens that one and closes the others
+	// Not sure if I like this either
+	$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	
+	$("#HeaderTitle").click(function() {
+		$(".IntroSection").removeAttr("hidden");
+		$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	})
+	$("#HeaderCalc").click(function() {
+		$(".CalcSection").removeAttr("hidden");
+		$(".IntroSection, .VisSection, .ToolSection").attr("hidden","true");
+	})
+	$("#HeaderVis").click(function() {
+		$(".VisSection").removeAttr("hidden");
+		$(".IntroSection, .CalcSection, .ToolSection").attr("hidden","true");
+	})
+	$("#HeaderTool").click(function() {
+		$(".ToolSection").removeAttr("hidden");
+		$(".IntroSection, .CalcSection, .VisSection").attr("hidden","true");
+	})
+	
+	/*
 	// Would be cool to just loop through group headers, and hide the sections below
 	// Hides all sections to start, not sure if I want this or not
-	$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
-	
 	// What is Stress Section
 	$("#HeaderTitle").click(function() {
 		let Section = $(".IntroSection");
@@ -355,26 +341,19 @@ $(document).ready(function() {
 		Section.attr("hidden","true");
 		}
 	})
-	
-	
-	// Tool Tip Code - noConflict and switching to $() is weird. Not sure exactly what's going on here.
-	//jQuery.noConflict();
-	jQuery(function() {
-	jQuery(".refbody").hide();
-	jQuery(".refnum").click(function(event) {
-	  jQuery(this.nextSibling).toggle();
-	  event.stopPropagation();
-	});
-	jQuery("body").click(function(event) {
-	  jQuery(".refbody").hide();
-	});
+	*/
+	// Tool Tip Code
+	$(function() {
+		$(".refbody").hide();
+		$(".refnum").click(function(event) {
+			$(this.nextSibling).toggle();
+			event.stopPropagation();
+		});
+		$("body").click(function(event) {
+			$(".refbody").hide();
+		});
 	});
 	
-	// Collapsible?
-	//var acc = document.getElementsByClassName("HeaderBox");
-	//var i;
-	
-
 
 	/*
 	for (i = 0; i < acc.length; i++) {

@@ -162,11 +162,11 @@
 			</tr>
 			<tr>
 				<td class="thick" style="text-align:right">Material</td>
-				<td><select id="MaterialSelect"></select> <span id="ElasticityDisplay">69 GPa</span></td>
+				<td><select id="MaterialSelect"></select> <span id="ElasticityDisplay">69</span> <span class="StressUnits">GPa</span></td>
 			</tr>
 			<tr>
 				<td class="thick" style="text-align:right">Length </td>
-				<td><input id="LengthRange" class="slider" value="1"/><input id="LengthInput" value="1"> <span id="LengthUnit">m</span></td>
+				<td><input id="LengthRange" class="lengths0 slider" value="1"/><input class="lengths0 inputText" id="LengthInput"> <span class="LengthUnits">m</span></td>
 			</tr>
 			<tr>
 				<td class="thick" style="text-align:right">Cross<br>Section:</td>
@@ -185,11 +185,11 @@
 				</td>
 				<td>
 					<div id="RectDim">
-						<input id="HeightRange" class="slider" value="0.1"><input id="HeightInput" value="0.1"> <span id="HeightUnit">m</span><br>
-						<input id="Width_Range" class="slider" value="0.1"><input id="Width_Input" value="0.1"> <span id="WidthUnit">m</span>
+						<input id="HeightRange" class="lengths1 slider"><input class="lengths1 inputText" id="HeightInput"> <span class="LengthUnits">m</span><br>
+						<input id="Width_Range" class="lengths1 slider"><input class="lengths1 inputText" id="Width_Input"> <span class="LengthUnits">m</span>
 					</div>
 					<div id="CircleDim" hidden>
-						<input id="RadiusRange" class="slider" value="0.1"><input id="RadiusInput" value="0.1"> <span id="RadiusUnit">m</span>
+						<input id="RadiusRange" class="lengths1 slider"><input class="lengths1 inputText" id="RadiusInput"> <span class="LengthUnits">m</span>
 					</div>
 				</td>
 			</tr>
@@ -206,39 +206,40 @@
 		<table>
 			<tr>				
 				<td colspan="2" class="thick">
-					Forces (<span id="ForceUnits">N</span>)
+					Forces
 				</td>
 			</tr>
 			<tr>
 				<td>x</td>
-				<td><input class="Force" id="fX" /></td>
+				<td><input class="Force slider" id="FxSlide" /><input class="Force inputText" id="Fx" /> <span class="ForceUnits">N</span></td>
 			</tr>
 			<tr>
 				<td>y</td>
-				<td><input class="Force" id="fY" /></td>				
+				<td><input class="Force slider" id="FySlide" /><input class="Force inputText" id="Fy" /> <span class="ForceUnits">N</span></td>				
 			</tr>
 			<tr>
 				<td>z</td>
-				<td><input class="Force" id="fZ" /></td>
+				<td><input class="Force slider" id="FzSlide" /><input class="Force inputText" id="Fz" /> <span class="ForceUnits">N</span></td>
 			</tr>
 			<tr>
 				<td colspan="2" class="thick">
-					Moments (<span id="MomentUnits">Nm</span>)
+					Moments
 				</td>
 			</tr>
 			<tr>
 				<td>x</td>
-				<td><input class="Moment" id="mX" /></td>
+				<td><input class="Moment slider" id="MxSlide" /><input class="Moment inputText" id="Mx" /> <span class="MomentUnits">N</span></td>
 			</tr>
 			<tr>
 				<td>y</td>
-				<td><input class="Moment" id="mY" /></td>
+				<td><input class="Moment slider" id="MySlide" /><input class="Moment inputText" id="My" /> <span class="MomentUnits">N</span></td>
 			</tr>
 			<tr>
 				<td>z</td>
-				<td><input class="Moment" id="mZ" /></td>
+				<td><input class="Moment slider" id="MzSlide" disabled/><input class="Moment inputText" id="Mz" disabled/> <span class="MomentUnits">N</span></td>
 			</tr>
 		</table>
+		<input type="button" value="Reset Values" id="Reset">
 		</form>
 	</div>
 	
@@ -296,19 +297,19 @@
 			<tr>
 				<td style="width:25%" class="thick" rowspan="4" >Normal Stresses in Z</td>
 				<td style="width:40%">Due to Axial Force (F<sub>z</sub>)</td>
-				<td style="width:35%"><span id="NormalZaxial">X GPa</span></td>
+				<td style="width:35%"><span id="NormalZaxial">X</span> <span class="StressUnits">Pa</span></td>
 			</tr>
 			<tr>
 				<td>Due to Moment caused by F<sub>y</sub> * L</td>
-				<td><span id="NormalZbending1">X Pa</span></td>
+				<td><span id="NormalZbending1">X</span> <span class="StressUnits">Pa</span></td>
 			</tr>
 			<tr style="border-bottom:3px solid #ddd">
 				<td>Due to M<sub>x</sub></td>
-				<td><span id="NormalZbending2">X Pa</span></td>
+				<td><span id="NormalZbending2">X</span> <span class="StressUnits">Pa</span></td>
 			</tr>
 			<tr>
 				<td>Total</td>
-				<td><span id="NormalZtot">X Pa</span></td>
+				<td><span id="NormalZtot">X</span>  <span class="StressUnits">Pa</span></td>
 			</tr>
 			
 		</table>
