@@ -15,7 +15,8 @@
 		"Header1 Header1 Header1 Header1 Header1 Header1"
 		"gStressStrain1 gStressStrain1 gStressStrain1 gStressStrain2 gStressStrain2 gStressStrain2"
 		"Header2 Header2 Header2 Header2 Header2 Header2"
-		"gCalculations gCalculations gCalculations gCubeExp gCubeExp gCubeExp"
+		"gCalcs gCalcs gCalcs gStressEqs gStressEqs gStressEqs"
+		"gCubeExp gCubeExp gCubeExp gEquil gEquil gEquil"
 		"Header3 Header3 Header3 Header3 Header3 Header3"
 		"gVisExp1 gVisExp1 gVisExp1 gVisExp2 gVisExp2 gVisExp2"
 		"Header4 Header4 Header4 Header4 Header4 Header4"
@@ -158,8 +159,10 @@ img:hover {
 #StressStrainExp2 {grid-area: gStressStrain2;}
 
 #HeaderCalc {grid-area: Header2;}
-#Calculations {grid-area: gCalculations;}
+#Calculations {grid-area: gCalcs;}
+#StressEqsVis {grid-area: gStressEqs;}
 #Cube {grid-area: gCubeExp;}
+#Equilibrium {grid-area: gEquil;}
 
 #HeaderVis {grid-area: Header3;}
 #VisExp1 {grid-area: gVisExp1;}
