@@ -20,9 +20,10 @@
 		"Header3 Header3 Header3 Header3 Header3 Header3"
 		"gVisExp1 gVisExp1 gVisExp1 gVisExp2 gVisExp2 gVisExp2"
 		"Header4 Header4 Header4 Header4 Header4 Header4"
+		"gCanti gCanti gCanti gHowTo gHowTo gHowTo"
 		"gMaterial gMaterial gBeamDims gBeamDims gBeam gBeam"
 		"gMaterial gMaterial gCubePic gCubePic gStressResults gStressResults"
-		"gEqs gEqs gEqs gFoot gFoot gFoot";
+		"gFoot gFoot gFoot gFoot gFoot gFoot"; /*gEqs*/
 }
 
 .grid > div {
@@ -169,6 +170,8 @@ img:hover {
 #VisExp2 {grid-area: gVisExp2;}
 
 #HeaderTool {grid-area: Header4;}
+#Cantilever{grid-area:gCanti;}
+#UsingThisTool{grid-area:gHowTo;}
 #MaterialandGeometry{grid-area: gMaterial;}
 #BeamDims{grid-area: gBeamDims;}
 #BeamTool{grid-area: gBeam;}

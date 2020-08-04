@@ -80,6 +80,43 @@ function MaterialSetup() {
     }
 }
 
+function InputSetup(){
+	$(".slider").attr({
+		type:'range',
+		style:'width:6em; display:inline'
+	})
+	
+	$(".inputText").attr({
+		type:'number',
+		style:'width:5em; text-align:right; margin-left:10px',
+		maxLength:'8',
+		oninput:"this.value=this.value.slice(0,this.maxLength)",
+		required:'true'
+	})
+	
+	$(".lengths0").attr({
+		value:'1',
+		min:'0',
+		max:'1000',
+		step:'.1'
+	})
+
+	$(".lengths1").attr({
+		value:'0.1',
+		min:'0.001',
+		max:'10',
+		step:'.001'
+	})
+	
+	// Sets up Value inputs for Forces and Moments
+	$(".Force, .Moment").attr({
+		value:'0',
+		min:'-100000',
+		max:'100000',
+		step:'0.001'
+	})
+}
+
 function BeamPictureSelect(Mx_tot, My_tot){
 	// CC  CB  CA
 	// BC  BB  BA 
@@ -162,45 +199,31 @@ function HideCubeLayers(){
 	cubelabels.attr("hidden","true");
 }
 
+function ExpandCollapseSections() {
+	$("#HeaderTitle").click(function() {
+		$(".IntroSection").removeAttr("hidden");
+		$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	})
+	$("#HeaderCalc").click(function() {
+		$(".CalcSection").removeAttr("hidden");
+		$(".IntroSection, .VisSection, .ToolSection").attr("hidden","true");
+	})
+	$("#HeaderVis").click(function() {
+		$(".VisSection").removeAttr("hidden");
+		$(".IntroSection, .CalcSection, .ToolSection").attr("hidden","true");
+	})
+	$("#HeaderTool").click(function() {
+		$(".ToolSection").removeAttr("hidden");
+		$(".IntroSection, .CalcSection, .VisSection").attr("hidden","true");
+	})
+}
+
+
 $(document).ready(function() {
 	
 	UnitSetup();
 	MaterialSetup();
-   
-	$(".slider").attr({
-		type:'range',
-		style:'width:6em; display:inline'
-	})
-	
-	$(".inputText").attr({
-		type:'number',
-		style:'width:5em; text-align:right; margin-left:10px',
-		maxLength:'8',
-		oninput:"this.value=this.value.slice(0,this.maxLength)",
-		required:'true'
-	})
-	
-	$(".lengths0").attr({
-		value:'1',
-		min:'0',
-		max:'1000',
-		step:'.1'
-	})
-
-	$(".lengths1").attr({
-		value:'0.1',
-		min:'0.001',
-		max:'10',
-		step:'.001'
-	})
-	
-	// Sets up Value inputs for Forces and Moments
-	$(".Force, .Moment").attr({
-		value:'0',
-		min:'-100000',
-		max:'100000',
-		step:'0.001'
-	})
+	InputSetup();
 	
 	// Connects the Range Slider and the Text Inputs to each other
 	SliderToTextInput();
@@ -250,7 +273,7 @@ $(document).ready(function() {
 		// var Ix, Iy, Iz;
 		var normZ1, normZ2;
 		var normX=0, normY=0, normZ=0, tauXY=0, tauYZ=0, tauXZ=0;
-		var Mx_tran, halfy, CrossSectionArea;
+		var Mx_tran, halfy, CrossSectionArea, tauXZ_BeamShear, tauXZ_Torsion;
 
 		// Selecting and showing the Beam picture based on forces/moments
 		var BeamPicName = BeamPictureSelect(Mx_tot,My_tot);
@@ -268,6 +291,8 @@ $(document).ready(function() {
 			CrossSectionArea = (h*w);
 			[Ix,Iy,Iz] = AreaMomentInertia_Rect(h,w);
 			halfy = h/2;
+			tauXZ_BeamShear = 3*Fx/(2*CrossSectionArea);
+			tauXZ_Torsion = 0;
 		} else if (RadioInput == 'Circle') {
 			// Allows twisting
 			$("#Mz, #MzSlide").removeAttr('disabled');
@@ -275,6 +300,8 @@ $(document).ready(function() {
 			CrossSectionArea = (Math.PI * Math.pow(r,2));
 			[Ix,Iy,Iz] = AreaMomentInertia_Circle(r);
 			halfy = r;
+			tauXZ_BeamShear = 4*Fx/(3*CrossSectionArea);
+			tauXZ_Torsion = Mz*r/Iz;
 		}
 		
 		// Cross Section Area Output
@@ -291,18 +318,20 @@ $(document).ready(function() {
 		$("#NormalZbending2").html(normZ3.toPrecision(3));
 		$("#NormalZtot").html(normZ.toPrecision(3));
 		
-		// Shear stress
-		// fX and fY contribute, and torsion (mZ)
-		
+		tauXZ = tauXZ_BeamShear + tauXZ_Torsion;
+		$("#BeamShearXZ").text(tauXZ_BeamShear.toPrecision(3));
+		$("#TorsionShearXZ").text(tauXZ_Torsion.toPrecision(3));
+		$("#ShearXZ").text(tauXZ.toPrecision(3));
 		/* 
 			@top reference point: 
-				mX contributes to pure bending (normal) stress
-				mY doesn't contribute normal (Neutral Axis) or shear stress
-				mZ (torsion) contributes to pure shear
-				fX contributes only to shear
-				fY contributes to shear and bending
-				fZ contributes to only normal
+				mX contributes to pure bending (normal) stress [x]
+				mY doesn't contribute normal (Neutral Axis) or shear stress [x]
+				mZ (torsion) contributes to pure shear [x]
+				fX contributes only to shear [x]
+				fY contributes to shear (zero at top) and bending [x]
+				fZ contributes to only normal [x]
 		*/	
+		
 		
 		HideCubeLayers();
 		
@@ -315,25 +344,10 @@ $(document).ready(function() {
 		
 	});
 	
-	// Section Groupings
+	// Initial Section Groupings
 	$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
-	
-	$("#HeaderTitle").click(function() {
-		$(".IntroSection").removeAttr("hidden");
-		$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
-	})
-	$("#HeaderCalc").click(function() {
-		$(".CalcSection").removeAttr("hidden");
-		$(".IntroSection, .VisSection, .ToolSection").attr("hidden","true");
-	})
-	$("#HeaderVis").click(function() {
-		$(".VisSection").removeAttr("hidden");
-		$(".IntroSection, .CalcSection, .ToolSection").attr("hidden","true");
-	})
-	$("#HeaderTool").click(function() {
-		$(".ToolSection").removeAttr("hidden");
-		$(".IntroSection, .CalcSection, .VisSection").attr("hidden","true");
-	})
+	// Closes and Opens Sections on click
+	ExpandCollapseSections();
 	
 });
 
