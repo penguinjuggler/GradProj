@@ -1,3 +1,8 @@
+<!--
+	Grad Project html doc
+	Jacob Mintz, SJSU Summer 2020
+-->
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 <html>
 <head>
@@ -23,12 +28,12 @@
 	
 	<div id="StressStrainExp" class="IntroSection">	
 		<h2>What is Stress?</h2>
-		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who are lucky enough to deal with it regularly. Many units of measure are easy to see, understand, and compare: a friendly bear is much taller than you, weighs much more, and can run much faster than you<span class="ref"><span class="refnum">[*]</span><span class="refbody">Bear: 3. You: 0</span>. But the tree branch you and the bear are both hanging from is also undergoing stress<span class="ref"><span class="refnum">[*]</span><span class="refbody">Slightly different than the stress you may be experiencing</span> which may not be readily visible…until it breaks!</p>
-		<table>
+		<p>Engineering Stress can be a difficult concept to grasp and explain, even to those who get to deal with it regularly. Many units of measure are easy to see, understand, and compare: a friendly bear is much taller than you, weighs much more, and can run much faster than you<span class="ref"><span class="refnum">[*]</span><span class="refbody">Bear: 3. You: 0</span>. But the tree branch you and the bear are both hanging from is also undergoing stress<span class="ref"><span class="refnum">[*]</span><span class="refbody">Slightly different than the stress you may be experiencing</span> which may not be readily visible…until it breaks!</p>
+		<table class="PicLabel">
 			<tr>
 				<td colspan="3"><img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison"/></td>
 			</tr>
-			<tr class="PicLabel">
+			<tr>
 				<td class="EqualCols3"><h3>Height</h3></td>
 				<td class="EqualCols3"><h3>Weight</h3></td>
 				<td class="EqualCols3"><h3>Speed</h3></td>
@@ -36,18 +41,17 @@
 		</table>
 		
 		<h3>Why It's Important</h3>
-		<p>As engineers, we are tasked with designing and building objects that perform the use they are intended for, and ideally are safe for the person using them. So, when designing everyday objects like a bridge over troubled waters, a staircase to heaven, a wonderwall, or a hotel in California, it is imperative that we accurately calculate stresses and choose the right materials and geometries so that they don’t break unexpectedly!</p>
+		<p>As engineers, we are tasked with designing and building objects that perform the use they are intended for and are safe for the person using them. So, when designing everyday objects like a bridge over troubled waters, a staircase to heaven, a wonderwall, or a hotel in California, it is imperative that we accurately calculate stresses and choose the right materials and geometries so that they don’t break unexpectedly!</p>
 		
 		<h3>So What Is It?</h3>
-		<p>When a force acts on a material, causing it to deform and change shape, the molecules within that material are forcibly moved further apart or closer together. These molecules do <i>not</i> like to be forcibly separated or squished together, and the material will have an internal resistance to the applied load. This is called <b>Stress</b>.</p>
-		<p>The amount that a material expands relative to its original size is called <b>Engineering Strain</b>.</p>
-		<div class="InnerBox">Engineering Stress is calculated using only two inputs:<br><br>
-		<ul style="font-weight:bold">
-			<li>The amount and direction of forces applied</li>
-			<li>The geometry of the material</li>
-		</ul>
-		<br>
-		Whether or not the material will break under a certain amount of stress depends on the <b>type of material</b>, and more specifically, how well that material resists getting bent, pulled, compressed, or twisted.</div>
+		<p>When a force acts on a material, causing it to deform and change shape, the molecules within that material are forcibly moved further apart or closer together. These molecules <i>do not like</i> to be forcibly separated or squished together, and the material will have an internal resistance to the applied load. This is called <b>Stress</b>.</p>
+		
+		<p>The amount that a material expands relative to its original size is called <b>Engineering Strain</b>. Strain is related to Stress by a material property, as will be discussed in the next section. But Engineering Stress can be calculated using only two inputs:</p>
+		
+		<div class="InnerBox" style="color:blue">The amount and direction of forces applied</div>
+		<div class="InnerBox" style="color:crimson">The geometry of the material</div>
+		
+		<p>Whether or not the material will break under a certain amount of stress depends on the <b>type of material</b>, and more specifically, how well that material resists getting bent, pulled, compressed, or twisted.</p>
 	</div>
 	
 	<!--
@@ -60,10 +64,9 @@
 		<h2>The Stress-Strain Diagram</h2>
 		<h3>Young's Modulus of Elasticity</h3>
 		<p>Stress and strain are directly proportional to each other by a factor called Young’s Modulus of Elasticity which is a property of the material itself. Young's Modulus is basically a measure of how stiff a material is. Materials with a larger Young's Modulus are capable of handling higher levels of stress before they deform irreparably. In the Stress-Strain Diagram show below, Young's Modulus is the slope of the straight part of the graph. The steeper the slope, the more stress a material can handle with lower strain (i.e. less "stretchy").</p>
-		
+		<div class="PicLabel">
 		<img src="ContentPics\StressStrainCurve.png" alt="Stress Strain Curve" title="(In most cases) Straight-Line Section: Good. Curvy Section: Bad. X-Section: Really Bad.">
-		<div class="PicLabel">Stress-Strain Diagram</div>
-		<br>
+		Stress-Strain Diagram</div>
 		<h3>Elastic Deformation</h3>
 		<p>If only pulled apart slightly and then released, then the molecules will return to exactly the same place they started, in their normal unstressed state. This is called an <i>elastic deformation</i>. One way to think about this is to consider your favorite pair of pants. They fit perfectly, right? Have too many tacos one night<span class="ref"><span class="refnum">[*]</span><span class="refbody">A quality excuse</span>, and they may stretch a little bit and be a little more snug, but they will return to their normal size afterwards. However, lend them to a larger friend and they may not come back in the same condition they were borrowed,  as they've been "over-stretched".<span class="ref"><span class="refnum">[*]</span><span class="refbody">Probably just let your friend have them at that point</span>  This happens with other materials too.</p>
 		
@@ -79,49 +82,37 @@
 		<h2>How to Calculate Stress</h2>
 		<p>Though the term may be intangible, Stress is relatively straightforward to calculate using knowledge of the two qualities mentioned above: how much force is applied to a material and the object's geometry (it doesn't depend on the type of material!). The calculation is made even easier because firstly, there are only two types of stress (normal and shear) and secondly, Engineering Stress is additive in nature. All of the stress in a single location of the same kind can be added together, no matter the source of that stress (bending, twisting, bears, etc.).</p>
 		
-		<p>The two main types of Engineering Stress already hinted at above are <b>Normal Stress</b> and <b>Shear Stress</b>. To help us understand these, we're going to revisit our friendly bear. Unfortunately, he got into some very sticky honey and can no longer separate his two paws from each other. Here the honey represents the resistance to change that the molecules in a material also experience, aka "Stress". If he tries to pull his paws apart directly away from each other, the sticky honey will resist his attempts to escape. If he pushes his paws together, there will be honey in the way and the honey will squish. Both these two applied forces create Normal Stress in the honey, with "pulling" or tensile stress commonly considered positive and "squishing" or compressive stress commonly considered negative. After these two unsuccessful attempts at honey freedom, our bear friend may try to slide his two paws apart, side to side in a rubbing motion. Again, the honey will resist, this time creating Shear Stress in the honey.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Don't worry, he eventually licked his way to freedom.</span></p>
+		<h3>Normal and Shear Stress</h3>
+		<p>As mentioned above, the two main types of Engineering Stress  are <b>Normal Stress</b> and <b>Shear Stress</b>. To help us understand these, we're going to revisit our friendly bear. Unfortunately, he got into some very sticky honey and can no longer separate his two paws from each other. Here the honey represents the resistance to change that the molecules in a material also experience, aka "Stress". If he tries to pull his paws apart directly away from each other, the sticky honey will resist his attempts to escape. If he pushes his paws together, there will be honey in the way and the honey will squish. Both these two applied forces create Normal Stress in the honey, with "pulling" or tensile stress commonly considered positive and "squishing" or compressive stress commonly considered negative. After these two unsuccessful attempts at honey freedom, our bear friend may try to slide his two paws apart, side to side in a rubbing motion. Again, the honey will resist, this time creating Shear Stress in the honey.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Don't worry, he eventually licked his way to freedom.</span></p>
+		
+		<div class="PicLabel" style="color:tomato">
 		<img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison" style="border-color:tomato"/>
-		<div class="PicLabel" style="color:tomato">Bear Stresses using Paws (TBD)</div>
+		Bear Stresses using Paws (TBD)</div>
 		
 		<!-- Bear Paw Pics? -->
-		
-		<p>Below are several of the main types of stress and their general equations using the applied forces and geometries. Variables based on the applied load are colored Red, while variables based on object geometries are colored in Blue.</p>
-		<table style="color:tomato">
-			<tr>
-				<td>Pressure</td>
-				<td>Bending</td>
-				<td>Twisting</td>
-				<td>Shear</td>
-			</tr>
-			<tr>
-				<td>Eq</td>
-				<td>Eq</td>
-				<td>Eq</td>
-				<td>Eq</td>
-			</tr>
-			<tr>
-				<td>Picture</td>
-				<td>Picture</td>
-				<td>Picture</td>
-				<td>Picture</td>
-			</tr>
-		</table>
+		<h3>(Some of) The Equations</h3>
+		<p>Below are several of the main types of stress and their general equations using the applied forces and geometries. Variables based on the <b>applied load</b> are colored <span style="color:red"><b>Red</b></span>, while variables based on <b>object geometries</b> are colored in <span style="color:blue"><b>Blue</b></span>.</p>
+
+		<div class="PicLabel" style="color:tomato">
 		<img src="ContentPics\StressEquations.png" title="Stress(ful) Equations" style="border-color:tomato"/>
-		<div class="PicLabel" style="color:tomato">Stress Equations</div>
-		<p><br>Now that we know how to calculate different types of stress, we have to keep track of which stresses are Normal or Shear, which surfaces they apply to, and which direction they are in.</p>
+		Stress Equations</div>
+		
+		<p>Now that we know how to calculate different types of stress, we have to keep track of which stresses are Normal or Shear, which surfaces they apply to, and which direction they are in.</p>
 	</div>
 
 	<div id="Cube" class="CalcSection">
 		<p>To help with these three issues, a representative cube is used as a visual aid. Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses along the surface) which can be imagined as the material sliding against itself with friction between the two surfaces, or from a side view, someone pulling two opposite corners of a square piece of fabric apart so that it takes on a more diamond-like shape.</p>
-		<img src="CubePics\CubeEverything.png">
-		<div class="PicLabel">Representative Cube Stresses</div>
-		<p><br>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are the same, just harder to visualize. If there's stress sliding across one surface, then there must also be a stress on the opposite side of the cube in the opposite direction. If you just have these two opposing stresses, then the cube would spin - it would not be in equilibrium. Therefore another pair of stresses appear in on the two connecting faces, to balance this out.</p>
 		
-		<img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic">
-		<div class="PicLabel">Cube Equalized with Normal Stresses</div>
+		<div class="PicLabel"><img src="CubePics\CubeEverything.png">
+		Representative Cube Stresses</div>
 		
-		<img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic"  style="border-color:tomato">
-		<div class="PicLabel" style="color:tomato">Cube Equalized with Shear Stresses (TBD)</div>
+		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back and left and right stresses pull in equal but opposite directions from each other. The Shear stresses are the same, just harder to visualize. If there's stress sliding across one surface, then there must also be a stress on the opposite side of the cube in the opposite direction. If you just have these two opposing stresses, then the cube would spin - it would not be in equilibrium. Therefore another pair of stresses appear in on the two connecting faces, to balance this out.</p>
+		
+		<div class="PicLabel"><img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic">
+		Cube Equalized with Normal Stresses</div>
+		
+		<div class="PicLabel" style="color:tomato"><img src="ContentPics\CubeEquilibrium.png" alt="Cube Equilibrium" title="You're tearing me apart Lisa!" id="CubePic"  style="border-color:tomato">
+		Cube Equalized with Shear Stresses (TBD)</div>
 	</div>
 
 	<div class="HeaderBox" id="HeaderVis">
@@ -133,23 +124,31 @@
 	-->
 	<div id="VisExp1" class="VisSection">
 		<h2>Picture This</h2>
-		<p>One way to visualize stress is through color. You may have seen Finite Element Analyses pictures like the one below that highlight a stressed area versus non-stressed area. In pictures like these the different types of stress are not usually differentiated, red just means more stress, and yellow or blue represent less.   these, Compressive Stress, where a material’s molecules are pushed together, is often colored differently than Tensile Stress, where a material’s molecules are pulled apart. 
-		In the following picture, red represents Tensile stress, Green represents...</p>
-		<img src="ContentPics\WingFEA.png" alt="Wing FEA Example" id="CAD Example" title="Those colors are pretty fly, right?"/>
-		<h3><span class="PicLabel">Wing FEA Model</span></h3>
+		<p>One way to visualize stress is through color. You may have heard of "Finite Element Analyses" before and seen pictures like the one below that highlight a stressed area versus non-stressed area. These are great tools to see where the applied loads and geometries can cause high stresses in the structures, allowing the designer to change the geometry to lower the stress that is experienced in those problem areas. However, those tools are both expensive to use in both time and cost. Being able to do quick, back-of-the-napkin calculations and having a good idea where high stress points may occur can save a lot of time!</p>
+		<div class="PicLabel"><img src="ContentPics\WingFEA.png" alt="Wing FEA Example" id="CAD Example" title="Those colors are pretty fly, right?"/>
+		Wing FEA Model</div>
 	</div>
+	
 	<div id="VisExp2" class="VisSection">
-		<h2>Using this Tool</h2>
-		<p>A cantilever beam is a long thin piece that is fully supported at one side. Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products from bridges to airplane wings. </p>
+		<h2>Principal Stress</h2>
+		<p>In pictures like the wing on the left, the different types of stress are not usually differentiated between normal stress and shear stress. One reason for this is that by changing our frame of reference using a nifty mathematical tool called "Mohr's Circle", we can find what are called <b>principal stresses</b>, which are more useful to plot, and tell us a lot more about whether a material can withstand the stress being created in it.</p>
+		
+		<p>To understand principal stresses we are going to visit our bear friend one last time. This time he is feeling very talkative and decides to say hello through a very loud roar. You and your friend are both standing 50' away from the bear, but neither of you are right in front of him, so it's not as loud. But if you could both measure how loud he was to you and how far away from him / in what direction, you could figure out how loud he was if you were standing right in front of him. To hear his hello properly and loudest, that's where you'd want to be. But his roar didn't actually change in volume, you just happened to be standing in the wrong (or right) spot to not get slobbered on.</p>		
+		
+		<div class="PicLabel" style="color:tomato;"><img src="ContentPics\WingFEA.png" alt="Bear Hello's and Principal Stresses" id="CAD Example" title="The Roaring Twenties" style="border-color:tomato"/>
+		Bear Hello's and Principal Stresses</div>
+		
+		<p>So it is with stress! The amount of stress we calculated using the formulas above is what we happen to hear when we're standing off to the side of the bear. But to truly hear his hello, aka find the principal stress, we'd have to change our reference point.</p>
+		<p>Principal stresses are the ones that will inform whether or not a material will break, when compared to the material's yield stress or Ultimate tensile strength.</p>
+		
+		<h3>Using this Tool</h3>
+		<p>A cantilever beam is a long thin piece that is fully supported at one side. Cantilevered beams are used in engineering problems very frequently as they are great representations of many common engineered products from bridges to airplane wings.</p>
 	</div>
 
 	<div class="HeaderBox" id="HeaderTool">
 		<h1>Stress Tool</h1>
 	</div>
 	
-	<!-- 
-		Some input box formatting for prettiness / alignment
-	-->
 	<div id="MaterialandGeometry" class="ToolSection">
 		<h2>Material and Geometry</h2>
 		<form>

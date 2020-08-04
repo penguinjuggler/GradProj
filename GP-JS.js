@@ -167,7 +167,6 @@ $(document).ready(function() {
 	UnitSetup();
 	MaterialSetup();
    
-	
 	$(".slider").attr({
 		type:'range',
 		style:'width:6em; display:inline'
@@ -191,15 +190,15 @@ $(document).ready(function() {
 	$(".lengths1").attr({
 		value:'0.1',
 		min:'0.001',
-		max:'100',
+		max:'10',
 		step:'.001'
 	})
 	
 	// Sets up Value inputs for Forces and Moments
 	$(".Force, .Moment").attr({
 		value:'0',
-		min:'-10000000',
-		max:'10000000',
+		min:'-100000',
+		max:'100000',
 		step:'0.001'
 	})
 	

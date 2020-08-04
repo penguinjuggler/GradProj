@@ -4,7 +4,7 @@
 	
 	Scheme Color: https://www.schemecolor.com/air-element.php
 	#DBF4E0, #CAE3F5, #E7F1F5, #FFFBFB, #FBF3EF, #F4E7EC
- gBeam gCubePic*/
+*/
 
 .grid {
 	display: grid;
@@ -66,7 +66,7 @@ table, th, td {
 	font-size: calc(10px + 0.7vw);
 	font-family: 'Permanent Marker', cursive;
 	text-align: center;
-	margin-top: 0px;
+	margin: 20px 0px 20px 0px;
 }
 
 #CubeBase {
@@ -116,10 +116,14 @@ img:hover {
 .InnerBox {
 	background: #FBF3EF;
 	font-size: 16px;
-	font-style: bold;
+	font-weight: bold;
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 10px;
+	padding: 10px;
+	text-align: center;
+}
+.listitem {
 	padding: 10px;
 }
 
@@ -143,14 +147,12 @@ img:hover {
 .offwhite {background: #FFFBFB;}
 .tanish {background: #FBF3EF;}
 
-
 .IntroSection {background: #E7F1F5;}
 .CalcSection {background: #E7F1F5;}
 .VisSection {background: #E7F1F5;}
 .ToolSection {background: #DBF4E0;}
-/* 
-	Setting grid areas for the various sections
-*/
+
+/* Setting grid areas for the various sections */
 #HeaderTitle {}
 #StressStrainExp {grid-area: gStressStrain1;}
 #StressStrainExp2 {grid-area: gStressStrain2;}
