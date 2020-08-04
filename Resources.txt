@@ -4,15 +4,41 @@ https://www.flickr.com/photos/31274959@N08/14302438370/in/photostream/
 Scheme Color Palette
 https://www.schemecolor.com/air-element.php
 
+Color Shading Help:
+https://colorate.azurewebsites.net/Color/CAE3F5
+https://colorate.azurewebsites.net/Color/DBF4E0
+
 Engineering Toolbox for YM values
 https://www.engineeringtoolbox.com/young-modulus-d_417.html
-
-BearPic (free): https://pixabay.com/illustrations/bear-cub-animal-silhouette-family-4338380/
-Pumpkin (free): http://pngimg.com/download/86656
-Scale (free): http://pngimg.com/download/52923
 
 Second Area moments of area (wiki): https://en.wikipedia.org/wiki/List_of_second_moments_of_area
 
 Stress Equations 1 - MIT exerpt: http://web.mit.edu/course/3/3.11/www/modules/bstress.pdf
 
-Shear Stress Explanation - Arizona: https://wp.optics.arizona.edu/optomech/wp-content/uploads/sites/53/2016/10/OPTI_222_W10.pdf
+Shear Stress Explanation - Arizona (BEST!): https://wp.optics.arizona.edu/optomech/wp-content/uploads/sites/53/2016/10/OPTI_222_W10.pdf
+
+Beam calculators, mostly 2d or displacement. Haven't checked if they have something close to mine. Not visual though: https://www.engineersedge.com/beam_bending/calculators_protected/beam_deflection_10.htm
+
+SkyCiv, fancy calculator, lots of ads to buy their product: https://skyciv.com/free-moment-of-inertia-calculator/
+
+
+w3schools.com for html/css/js/jquery help: https://www.w3schools.com/default.asp
+
+kinda helpful:
+https://www.tigerquest.com/Mechanical/Strength%20of%20Materials/Stress%20Summary.php
+
+
+Coding bootcamp helpful before starting, less useful after
+https://www.freecodecamp.org/learn
+
+Pretty useful:
+https://mechanicalc.com/reference/beam-analysis 
+
+Useful for understanding css grid
+https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-areas
+
++/- for collapsible accordion:
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_symbol 
+
+Maybe use for stress strain diagram plotting
+https://www.chartjs.org/samples/latest/
