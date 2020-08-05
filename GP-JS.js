@@ -26,9 +26,10 @@ class Units {
 	}
 }
 
-// Setup units - multiplier between Metric and Imperial
+// Setup units - multiplier between Metric and Imperial, maybe add combinations
 const UnitChoice = {
 	'Metric - m/Pa/N': new Units('Metric - m/Pa/N','m',1,'Pa',1, 'N',1,'Nm',1,'m/Pa/N'),
+	//'Metric - m/GPa/kN': new Units('Metric - m/GPa/kN','m',1,'GPa',0.000000001,'kN',.001,'kNm',0.001,'m/GPa/kN'),
 	'Imperial - in/psi/lbf': new Units('Imperial - in/psi/lbf','in', 39.37,'psi', 145.038, 'lbf',0.225,'in-lb',8.85,'in/psi/lbf'),
 };
 

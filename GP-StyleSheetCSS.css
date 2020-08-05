@@ -170,8 +170,8 @@ img:hover {
 #VisExp2 {grid-area: gVisExp2;}
 
 #HeaderTool {grid-area: Header4;}
-#Cantilever{grid-area:gCanti;}
-#UsingThisTool{grid-area:gHowTo;}
+#Cantilever{grid-area:gCanti; background: #FBF3EF;}
+#UsingThisTool{grid-area:gHowTo; background: #FBF3EF;}
 #MaterialandGeometry{grid-area: gMaterial;}
 #BeamDims{grid-area: gBeamDims;}
 #BeamTool{grid-area: gBeam;}
