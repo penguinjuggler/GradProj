@@ -54,7 +54,6 @@ function showStress(StressVal,NorS,direction){
 }
 
 function UnitSetup() {
-	// Setup Unit input
     for (let unitKey in UnitChoice) {
         var unit = UnitChoice[unitKey];
         var el = document.createElement("option");
@@ -219,6 +218,18 @@ function ExpandCollapseSections() {
 	})
 }
 
+// Tool Tip Code
+$(function() {
+	$(".refbody").hide();
+	$(".refnum").click(function(event) {
+		$(this.nextSibling).toggle();
+		event.stopPropagation();
+	});
+	$("body").click(function(event) {
+		$(".refbody").hide();
+	});
+});
+
 
 $(document).ready(function() {
 	
@@ -323,8 +334,9 @@ $(document).ready(function() {
 		$("#BeamShearXZ").text(tauXZ_BeamShear.toPrecision(3));
 		$("#TorsionShearXZ").text(tauXZ_Torsion.toPrecision(3));
 		$("#ShearXZ").text(tauXZ.toPrecision(3));
+		
 		/* 
-			@top reference point: 
+			Each applied load's affect on stress @ top reference point: 
 				mX contributes to pure bending (normal) stress [x]
 				mY doesn't contribute normal (Neutral Axis) or shear stress [x]
 				mZ (torsion) contributes to pure shear [x]
@@ -332,7 +344,6 @@ $(document).ready(function() {
 				fY contributes to shear (zero at top) and bending [x]
 				fZ contributes to only normal [x]
 		*/	
-		
 		
 		HideCubeLayers();
 		
@@ -351,19 +362,3 @@ $(document).ready(function() {
 	ExpandCollapseSections();
 	
 });
-
-
-// Tool Tip Code
-$(function() {
-	$(".refbody").hide();
-	$(".refnum").click(function(event) {
-		$(this.nextSibling).toggle();
-		event.stopPropagation();
-	});
-	$("body").click(function(event) {
-		$(".refbody").hide();
-	});
-});
-
-//function foo(x,y,z) {return [a,b,c];}
-// [a,b,c] = tester(x,y,z);

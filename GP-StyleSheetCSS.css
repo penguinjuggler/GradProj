@@ -51,13 +51,10 @@ h3 {font-size: calc(10px + 0.7vw);}
 p {font-size: 14px;}
 
 table, th, td {
-	/*border: 1px solid #ccc;*/ 
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px 15px 5px 15px;
 }
-
-/*table {border:solid;}position: absolute;*/
 
 .EqualCols3 {
 	width: 33%;
@@ -142,13 +139,7 @@ img:hover {
 	background: #84BDE6;
 }
 
-.greenish {background: #DBF4E0;}
-.blueish {background: #CAE3F5;}
-.lightblueish {background: #E7F1F5;}
-.reddish {background: #F4E7EC;}
-.offwhite {background: #FFFBFB;}
-.tanish {background: #FBF3EF;}
-
+/* Setting Colors for the various sections */
 .IntroSection {background: #E7F1F5;}
 .CalcSection {background: #E7F1F5;}
 .VisSection {background: #E7F1F5;}

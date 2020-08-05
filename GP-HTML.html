@@ -43,7 +43,7 @@
 	
 			<tr>
 				<td colspan="3">
-					<img src="ContentPics\Combearison.png" title="Common Unit Types: A combearison"/>
+					<img src="ContentPics\Combearison.png" title="Common Unit Types: A ComBearison"/>
 				</td>
 			</tr>
 			<tr>
@@ -108,24 +108,24 @@
 		</div>
 		
 		<h3>(Some of) The Equations</h3>
-		<p>To the right are several of the main types of stress and their general equations using the applied forces and geometries. Variables based on the <span style="color:red"><b>applied load</b></span> are colored red, while variables based on <span style="color:blue"><b>object geometries</b></span> are colored in blue.</p>
+		<p>To the right are four examples of stress that appear often, as well as their general equations using the applied forces and geometries. In these equations, variables based on the <span style="color:red"><b>applied load</b></span> are colored red, while variables based on <span style="color:blue"><b>object geometries</b></span> are colored in blue.</p>
 		
-		<p>There are a few caveats and exceptions to the equations that should be mentioned however:</p>
+		<p>However, as usual with all things simplified for physics, there are a few caveats and exceptions to the equations worth mentioning:</p>
 		
-		<p><b>Firstly</b>, it is important to note (except for the case of axial loading) how the stress changes depending on what point on the cross-sectional area you are investigating. While beam bending has the highest stresses at the top and bottom of the beam, with the minimal amount at the neutral axis (the centerline for vertically symmetrical faces), shear stress due to beam shear is just the opposite and has maximum stress at the neutral axis, and zero at the top and bottom of the beam!</p>
+		<p><b>Firstly</b>, it is important to note how the stress changes depending on what point on the cross-sectional area you are investigating, except for the case of axial loading because of symmetry. While a beam in bending has the highest stresses at the top and bottom of the beam, shear stress due to beam shear is just the opposite and has maximum stress at the central axis for vertically symmetrical faces, and zero at the top and bottom of the beam.</p>
 		
 		<!--
 		<h3 style="color:tomato">Include pic of varying stress across cross-sectional area for Torsion/bending/shear</h3>
 		<img src="ContentPics\Equation-BeamShearExtra.png" class="PicLabel" style="border-color:tomato">
 		-->
 		
-		<p><b>Secondly</b>, to successfully use these equations to solve basic three-dimensional beam problems like the tool on this page does, the user must picture how these equations are applicable in other directions. If a sideways force is being applied to the end of the beam, there will be beam bending in a side-to-side direction, as well as horizontal beam shear, and the cross-sectional heights and widths used to make calculations are switched!</p>
+		<p><b>Secondly</b>, to successfully use these equations to solve basic three-dimensional beam problems like the tool on this page does, the user must picture how these equations are applicable in other directions. If a sideways force is being applied to the end of the beam, there will be beam bending in a side-to-side direction (instead of up and down), as well as horizontal beam shear, and the cross-sectional heights and widths used to make stress calculations are switched.</p>
 		
-		<p><b>Thirdly</b>, it should be stressed that these equations do require a bit more grunt work as the cross-sections become more complicated, often referring to tables or performing integrals to calculate Area Moment of Inertia (I), or the Polar Moment of Inertia (J). Finding the Polar Moment of Inertia, even for a simple rectangular cross-section is a bit too complicated to go into here, and is purposefully omitted. To calculate shear stress due to beam shear, the equations to find the stress at any point are actually as shown below, but it is often easier and more useful to look at the maximum stress. Luckily, plugging in values for the neutral axis where the stress is greatest results in the simplified equations to the right.<span class="ref"><span class="refnum">[*]</span><span class="refbody">#yay</span></p>
+		<p><b>Thirdly</b>, it should be stressed that calculating normal and shear stress requires a bit more grunt work as the cross-sections of the beams become more complicated, often referring to tables or performing integrals to calculate Area Moment of Inertia (I), or the Polar Moment of Inertia (J). Finding the Polar Moment of Inertia, even for a simple rectangular cross-section is a bit too complicated to go into here, and is purposefully omitted. To calculate shear stress due to beam shear, the equations to find the stress at any point are actually as shown below, but it is often easier and more useful to look at the maximum stress. Luckily, plugging in values for the neutral axis where the stress is greatest results in the simplified equations to the right.<span class="ref"><span class="refnum">[*]</span><span class="refbody">#yay</span></p>
 
 		<img src="ContentPics\Equation-BeamShearExtra.png" class="PicLabel" title="TAUabunga Dude!">
 		
-		<p><b>Finally</b>, there are a couple other ways that stress can be induced in an object that can't be well-explained with the simple beam model used in the tool below, such as pressure vessels, fatigue, and stress due to thermal expansion.</p>
+		<p><b>Finally</b>, there are a couple other ways that stress can be induced in an object that can't be well-explained with the simple beam model used in the tool below, such as pressure vessels, fatigue, and stress due to thermal expansion, which are left as exercises to the reader.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Please be careful while writing stress equations and running simultaneously.</span></p>
 
 	</div>
 	<div id="StressEqsVis" class="CalcSection">
@@ -139,7 +139,7 @@
 
 	<div id="Cube" class="CalcSection">
 		<h2>Representative Stress Cube</h2>
-		<p>To help with the difficulties of keeping track of normal and shear stresses, and which stresses can and cannot be added together, a representative cube with infinitesimally small sides is used as a visual aid <b>at the location of interest</b> (remember that the top of a beam's cross-section  may have very different stresses than the center or neutral-axis!). Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses along the surface) which can be imagined as the material sliding against itself with friction between the two surfaces (bear paws sliding across each other), or from a side view, someone pulling two opposite corners of a square piece of fabric apart so that it takes on a more diamond-like shape.</p>
+		<p>To help with the difficulties of keeping track of normal and shear stresses, and which stresses can and cannot be added together, a representative cube with infinitesimally small sides is used as a visual aid <b>at the location of interest</b> (remember that the top of a beam's cross-section  may have very different stresses than the center or neutral-axis!). Each face of the cube has normal stresses (stresses perpendicular to each face) which represent the material being compressed or pulled apart, and shear stresses (stresses along the surface) which can be imagined as the material sliding against itself with friction between the two surfaces (bear paws sliding across each other). From a side view, those shear stresses make it look like someone is pulling two opposite corners of a square piece of fabric apart so that it takes on a more diamond-like shape.</p>
 		
 		<div class="PicLabel">
 			<img src="CubePics\CubeEverything.png">
@@ -149,7 +149,7 @@
 	
 	<div id="Equilibrium" class="CalcSection">
 		<h2>Stress Cube Equilibrium</h2>
-		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. For Normal stresses, this means the top and bottom face stresses are pulling up and down respectively with the same quantity. Likewise, the front and back, and left and right stresses pull in equal but opposite directions from each other.</p>
+		<p>As Newton’s Third law has taught us, for every action there is an equal and opposite reaction. Assuming the material in question is not in motion, for each stress applied to this cube in one direction, there is an equal stress in the opposite direction. While it is a bit of misnomer to say that a "stress is pulling", these stresses can be thought of as a Force over an Area. Since the area of one face of our stress cube is the same area as the opposite face (both are infinitesimally small), we are allowed to think of them in the same way we think of forces maintaining equilibrium. For Normal stresses, this means the top and bottom face stresses are "pulling" up and down respectively with the same quantity. Likewise, the front and back, and left and right stresses "pull" in equal but opposite directions from each other. </p>
 		
 		<div class="PicLabel">
 			<img src="ContentPics\CubeEquilibriumNormal.png" alt="Cube Equilibrium - Normal Stresses" title="You're tearing me apart Lisa!" id="CubePic">
@@ -175,27 +175,31 @@
 	-->
 	<div id="VisExp1" class="VisSection">
 		<h2>Picture This</h2>
-		<p>One way to visualize stress is through color. You may have heard of "Finite Element Analysis" before and seen pictures like the one below that highlight a stressed area versus non-stressed area. Obviously these colors do not appear in real life as stresses are induced. However, these are great tools to see where an applied load and certain geometries can cause high stresses in the structures, allowing the designer to change the geometry to lower the stress that is experienced in those problem areas before it gets built. However, those tools are expensive to use, require a lot of fine adjustments to get an accurate model, and can take a lot of time to compile. Being able to do quick, back-of-the-napkin<span class="ref"><span class="refnum">[*]</span><span class="refbody">Clean napkins preferred - we said "Strain" not "Stain"</span> calculations and having a good idea where high stress points may occur can save a lot of time and energy!</p>
+		<p>One way to visualize stress is through color. You may have heard of "Finite Element Analysis" before and seen pictures like the one below that highlight a stressed area versus non-stressed area. Obviously these colors do not appear in real life as stresses are induced. However, these are great tools to see where an applied load on a specific geometry can cause high stresses in the structures. This colorful, comparative representation is extraordinarily useful for designers since it allows them to adjust (or completely redesign) the geometry of a structure and try again to see if the stress is lower. They can then iterate on this process, making adjustments over and over again until they are certain the structure is safe to build. However, those tools are expensive to use, require a lot of fine adjustments to get an accurate model, and can take a lot of time to compile. Being able to do quick, back-of-the-napkin<span class="ref"><span class="refnum">[*]</span><span class="refbody">Clean napkins preferred - we said "Strain" not "Stain"</span> calculations and having a good idea where high stress points may occur can save a lot of time and energy!</p>
 		
 		<div class="PicLabel">
 			<img src="ContentPics\WingFEA.png" alt="Wing FEA Example" id="CAD Example" title="Those colors are pretty fly, right?"/>
 			Wing FEA Model
 		</div>
+		
+		<p>In pictures like the wing above, the different types of stress are not usually differentiated between normal stress and shear stress. By sneakily changing our frame of reference using a nifty mathematical tool called "Mohr's Circle"<span class="ref"><span class="refnum">[*]</span><span class="refbody">Originally called "S'Mores Circle", but engineers kept getting too hungry for sweets during their all-nighters, so the "S" was removed.</span>, we can find what are called <b>principal stresses</b>, which tell us a lot more about whether a material can withstand the stress being created in it.</p>
+		
 	</div>
 	
 	<div id="VisExp2" class="VisSection">
 		<h2>Principal Stress</h2>
-		<p>In pictures like the wing on the left, the different types of stress are not usually differentiated between normal stress and shear stress. One reason for this is that by changing our frame of reference using a nifty mathematical tool called "Mohr's Circle"<span class="ref"><span class="refnum">[*]</span><span class="refbody">Originally called "S'Mores Circle", but engineers kept getting too hungry for sweets during their all-nighters, so the "S" was removed.</span>, we can find what are called <b>principal stresses</b>, which are more useful to plot, and tell us a lot more about whether a material can withstand the stress being created in it.</p>
 		
-		<p>To understand principal stresses we are going to visit our bear friend one last time. This time he is feeling very talkative and decides to say hello through a very loud roar. You and your friend are both standing 50' away from the bear, but neither of you are right in front of him, so it's not as loud. But if you could measure how loud he sounded from where you were standing and how far away from him / in what direction you were, you could calculate out how loud he was if you were standing right in front of him. To hear his hello properly and at its loudest, that's where you'd want to be. But his emitted roar doesn't actually change in volume, you just happened to be standing in the wrong (or right) spot to not get slobbered on.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Or eaten.</span></p>		
+		<p>To understand principal stresses we are going to visit our bear friend one last time.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Fur old time's sake</span> This time he is feeling very talkative and decides to say ‘hello’, which he does by roaring very loudly. You and your friend are both standing 50 feet away from the bear, but, understandably, neither of you are right in front of him, so it's not as loud of a sound. The roar would appear much louder if you were directly in the path of his presumably friendly greetings. Assuming you don’t want to stand directly in front of the bear but you still want to know how loud the roar is over there,  you could measure how loud he is (perceived <span style="color:crimson; font-weight:bold;">magnitude</span>) and how far away from him / in what direction you are (<span style="color:blue; font-weight:bold;">geometry</span>) and use some physics magic (i.e. Mohr’s circle) to calculate the maximum loudness of the roar.  Note that his roar doesn't actually change in volume, you just happened to be standing in the wrong (or right) spot to keep your eardrums intact and not get slobbered on.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Or eaten.</span></p>
 		
 		<div class="PicLabel">
 			<img src="ContentPics\MohrsCircleBear.png" alt="Bear Hello and Principal Stresses" id="MohrsBear" title="The Roaring Twenties"/>
 			Bear Hello's and Principal Stresses
 		</div>
 		
-		<p>So it is with stress! The amount of stress we calculated using the formulas above is similar to what we happen to hear when we're standing off to the side of the bear. But to truly hear his "Good Morning!", i.e. find the principal stresses, we'd have to change our reference point. By figuratively rotating our representative cube, the normal and shear stresses will vary. At a certain point by rotating to juuuust the right angle, the Normal Stresses will be highest (principal), and the Shear Stresses will be lowest. At an exactly orthogonal (right angle) to this, the Shear Stresses will be highest, and the Normal Stresses will be lowest. Depending on which one's greater, it is at one of these two angles that the material would most likely break!<span class="ref"><span class="refnum">[*]</span><span class="refbody">COOL RIGHT&#8253;</span></p>
-		<p>Using Mohr's Circle as described above and comparing that value to the material's yield stress or Ultimate tensile strength will inform whether or not a material will be irreparably deformed or break. Unfortunately our bear friend is tired of teaching us engineering concepts and has gone back to his bear family<span class="ref"><span class="refnum">[*]</span><span class="refbody">Maybe he'll be right back, and just needed a quick paws.</span>, and the details of using Mohr's Circle will have to be covered another time by another bear.</p>
+		<p>So it is with stress! The amount of stress we calculated using the formulas above is similar to what we happen to hear when we're standing off to the side of the bear. But to truly hear his "Good Morning!", i.e. find the principal stresses, we'd have to change our reference point. By figuratively rotating our representative cube, the normal and shear stresses will vary. At a certain point by rotating to juuuust the right angle, the Normal Stresses will be highest (principal), and the Shear Stresses will be lowest. At an angle of exactly 45 degrees to this, the Shear Stresses will be highest, and the Normal Stresses will be lowest. Depending on which one of these principal stresses is greater, it is at one of these two angles that the material would most likely break.<span class="ref"><span class="refnum">[*]</span><span class="refbody">COOL RIGHT&#8253;</span></p>
+		
+		<p>Using Mohr's Circle as described above and comparing that maximum stress value to the material's Yield Strength or Ultimate Tensile Strength will inform whether or not a material will be irreparably deformed or break under that stress. This is why designers and engineers generally focus on the maximum stress value instead of separating out Normal and Shear Stresses when they're analyzing a geometry to see if it will break under a certain load.</p>
+		<p>	But unfortunately for us, our bear friend is tired of teaching us engineering concepts and has gone back to his bear family<span class="ref"><span class="refnum">[*]</span><span class="refbody">Maybe he'll be right back, and just needed a quick paws.</span>, and the remaining details of using Mohr's Circle will have to be covered another time by another bear.</p>
 	</div>
 
 	<div class="HeaderBox" id="HeaderTool">
@@ -204,7 +208,7 @@
 	
 	<div id="Cantilever" class="ToolSection">
 		<h2>Cantilever Beams</h2>
-		<p>A cantilever beam is a long thin piece (usually the height and width is less than 10% of the length) that is fully supported at one side, i.e. the wall provides reaction moments and forces in all directions. Cantilevered beams are often used in engineering problems as they can be easily added together and analyzed to represent all sorts of complex structures from bridges to airplane wings.</p>
+		<p>A cantilever beam is a long thin piece (usually the height and width is less than 10% of the length) that is fully supported at one side; the wall provides reaction moments and forces in all directions. Cantilevered beams are often used in engineering problems as they can be easily added together and analyzed to represent all sorts of complex structures from bridges to airplane wings.</p>
 	</div>
 	<div id="UsingThisTool" class="ToolSection">
 		<h2>Using this Tool</h2>
