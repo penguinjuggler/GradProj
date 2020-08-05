@@ -12,6 +12,8 @@
 	grid-gap: .5rem;
 	grid-template-columns: repeat(6,minmax(150px,200px));
 	grid-template-areas:
+		"gTop gTop gTop gTop gTop gTop"
+		"gSiteD1 gSiteD1 gSiteD2 gSiteD2 gSiteD3 gSiteD3"
 		"Header1 Header1 Header1 Header1 Header1 Header1"
 		"gStressStrain1 gStressStrain1 gStressStrain1 gStressStrain2 gStressStrain2 gStressStrain2"
 		"Header2 Header2 Header2 Header2 Header2 Header2"
@@ -140,13 +142,19 @@ img:hover {
 }
 
 /* Setting Colors for the various sections */
+
 .IntroSection {background: #E7F1F5;}
 .CalcSection {background: #E7F1F5;}
 .VisSection {background: #E7F1F5;}
 .ToolSection {background: #DBF4E0;}
 
 /* Setting grid areas for the various sections */
-#HeaderTitle {}
+#TopTitle {grid-area: gTop;}
+#SiteDescription1 {grid-area: gSiteD1; background: #F4E7EC;}
+#SiteDescription2 {grid-area: gSiteD2; background: #FBF3EF;}
+#SiteDescription3 {grid-area: gSiteD3; background: #FFFBFB;}
+
+#HeaderTitle {grid-area: Header1;}
 #StressStrainExp {grid-area: gStressStrain1;}
 #StressStrainExp2 {grid-area: gStressStrain2;}
 

@@ -200,21 +200,25 @@ function HideCubeLayers(){
 }
 
 function ExpandCollapseSections() {
+	$("#TopTitle").click(function() {
+		$(".TopSection").removeAttr("hidden");
+		$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	})
 	$("#HeaderTitle").click(function() {
 		$(".IntroSection").removeAttr("hidden");
-		$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+		$(".TopSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
 	})
 	$("#HeaderCalc").click(function() {
 		$(".CalcSection").removeAttr("hidden");
-		$(".IntroSection, .VisSection, .ToolSection").attr("hidden","true");
+		$(".TopSection, .IntroSection, .VisSection, .ToolSection").attr("hidden","true");
 	})
 	$("#HeaderVis").click(function() {
 		$(".VisSection").removeAttr("hidden");
-		$(".IntroSection, .CalcSection, .ToolSection").attr("hidden","true");
+		$(".TopSection, .IntroSection, .CalcSection, .ToolSection").attr("hidden","true");
 	})
 	$("#HeaderTool").click(function() {
 		$(".ToolSection").removeAttr("hidden");
-		$(".IntroSection, .CalcSection, .VisSection").attr("hidden","true");
+		$(".TopSection, .IntroSection, .CalcSection, .VisSection").attr("hidden","true");
 	})
 }
 
@@ -357,8 +361,14 @@ $(document).ready(function() {
 	});
 	
 	// Initial Section Groupings
-	$(".CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
 	// Closes and Opens Sections on click
 	ExpandCollapseSections();
+	
+	$("#ScrolltoTop").click(function() {
+		$(".TopSection").removeAttr("hidden");
+		$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+
+	})
 	
 });

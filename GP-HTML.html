@@ -17,13 +17,30 @@
 
 <div class="grid">
 
-	<div class="HeaderBox" id="HeaderTitle">
+
+	<div class="HeaderBox" id="TopTitle">
 		<h1>Engineering Stress</h1>
-		<h3 style="color:#989898">An introduction to Stress, why it's important, how it's calculated,<br>and an interactive tool to visually show how stress is created under various loads.</h3>
+	</div>
+	<div id="SiteDescription1" class="TopSection">
+		<h3>What this is</h3>
+		<p>The following sections below provide a (sometimes silly) introduction to what Engineering Stress is, why it's important, how it's calculated and visualized, and an interactive tool to show how stress is created under various loads.</p>	
+	</div>
+	<div id="SiteDescription2" class="TopSection">
+		<h3>Who it's for</h3>
+		<p>While the analogies and explanations are made to be easy to understand, some descriptions do end up getting into the weeds where having a base understanding of the following is helpful: Forces, Moments, Reactions, Area, Area Moment of Inertia, algebra and basic statics, and maybe an affinity for bears.</p>	
+	</div>
+	<div id="SiteDescription3" class="TopSection">
+		<h3>Why it's here</h3>
+		<p>This page is intended as a resource for introductory engineering courses such as Mechanics of Materials, where terms like "Stress" are first introduced. The tool can also be used as an aid to those textbook problems that involve basic 3D cantilever beams, helping to visualize and show the calculation processes a student must go through to solve them.</p>
+	</div>
+	
+	<div class="HeaderBox" id="HeaderTitle">
+		<h1>Getting Started</h1>
 		<!--<h3>
 			<a href="#HeaderTitle">Stress Explanation</a> | <a href="#HeaderCalc">Calculating Stress</a> | 
 			<a href="#HeaderVis">Stress Visualization</a> | <a href="#HeaderTool">Stress Tool</a>
-		</h3> -->
+		</h3> 
+		<h3 style="color:#989898"></h3>-->
 	</div>
 	
 	<div id="StressStrainExp" class="IntroSection">	
@@ -189,7 +206,7 @@
 	<div id="VisExp2" class="VisSection">
 		<h2>Principal Stress</h2>
 		
-		<p>To understand principal stresses we are going to visit our bear friend one last time.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Fur old time's sake</span> This time he is feeling very talkative and decides to say ‘hello’, which he does by roaring very loudly. You and your friend are both standing 50 feet away from the bear, but, understandably, neither of you are right in front of him, so it's not as loud of a sound. The roar would appear much louder if you were directly in the path of his presumably friendly greetings. Assuming you don’t want to stand directly in front of the bear but you still want to know how loud the roar is over there,  you could measure how loud he is (perceived <span style="color:crimson; font-weight:bold;">magnitude</span>) and how far away from him / in what direction you are (<span style="color:blue; font-weight:bold;">geometry</span>) and use some physics magic (i.e. Mohr’s circle) to calculate the maximum loudness of the roar.  Note that his roar doesn't actually change in volume, you just happened to be standing in the wrong (or right) spot to keep your eardrums intact and not get slobbered on.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Or eaten.</span></p>
+		<p>To understand principal stresses we are going to visit our bear friend one last time.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Fur old time's sake</span> This time he is feeling very talkative and decides to say ‘hello’, which he does by roaring very loudly. You and your friend are both standing 50 feet away from the bear, but  neither of you are right in front of him (understandably), so it's not as loud of a sound. The roar would appear much louder if you were directly in the path of his presumably friendly greetings. Assuming you don’t want to stand directly in front of the bear but you still want to know how loud the roar is over there,  you could measure how loud he is (perceived <span style="color:crimson; font-weight:bold;">magnitude</span>) and how far away from him / in what direction you are (<span style="color:blue; font-weight:bold;">geometry</span>) and use some physics magic (i.e. Mohr’s circle) to calculate the maximum loudness of the roar.  Note that his roar doesn't actually change in volume, you just happened to be standing in the wrong (or right) spot to keep your eardrums intact and not get slobbered on.<span class="ref"><span class="refnum">[*]</span><span class="refbody">Or eaten.</span></p>
 		
 		<div class="PicLabel">
 			<img src="ContentPics\MohrsCircleBear.png" alt="Bear Hello and Principal Stresses" id="MohrsBear" title="The Roaring Twenties"/>
@@ -217,7 +234,7 @@
 	
 	
 	<div id="MaterialandGeometry" class="ToolSection">
-		<h2 style="color:blue">Material and Geometry</h2>
+		<h2 style="color:slateblue">Material and Geometry</h2>
 		<form>
 		<table>
 			<colgroup>
@@ -270,7 +287,7 @@
 				<td><span id="AreaOutput">0.0100</span> <span class="LengthUnits">m</span><sup>2</sup></td>
 			</tr>
 		</table>
-		<br><h2 style="color:red">Apply Loads</h2>
+		<br><h2 style="color:crimson">Apply Loads</h2>
 		<table>
 			<tr>				
 				<td colspan="2" class="thick">
@@ -411,9 +428,7 @@
 	<div id="Footnotes" class="ToolSection">
 		<h3>Footnotes and List of References</h3>
 		1. Note one<br>
-		2. Note two<br>
-		
-		
+		2. Note two<br>	
 	</div>
 	-->
 	
