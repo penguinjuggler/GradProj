@@ -20,7 +20,7 @@
 		"gCalcs gCalcs gCalcs gStressEqs gStressEqs gStressEqs"
 		"gCubeExp gCubeExp gCubeExp gEquil gEquil gEquil"
 		"Header3 Header3 Header3 Header3 Header3 Header3"
-		"gVisExp1 gVisExp1 gVisExp1 gVisExp2 gVisExp2 gVisExp2"
+		"gVisExp gVisExp gVisExp gPStress gPStress gPStress"
 		"Header4 Header4 Header4 Header4 Header4 Header4"
 		"gCanti gCanti gCanti gHowTo gHowTo gHowTo"
 		"gMaterial gMaterial gBeamDims gBeamDims gBeam gBeam"
@@ -108,11 +108,6 @@ img {
 	border: none;
 	box-shadow: none;
 }
-/*top: 0px;
-	left: 0px;
-img:hover {
-	transform: scale(2);
-}*/
 
 .InnerBox {
 	background: #FBF3EF;
@@ -142,7 +137,6 @@ img:hover {
 }
 
 /* Setting Colors for the various sections */
-
 .IntroSection {background: #E7F1F5;}
 .CalcSection {background: #E7F1F5;}
 .VisSection {background: #E7F1F5;}
@@ -165,8 +159,8 @@ img:hover {
 #Equilibrium {grid-area: gEquil;}
 
 #HeaderVis {grid-area: Header3;}
-#VisExp1 {grid-area: gVisExp1;}
-#VisExp2 {grid-area: gVisExp2;}
+#VisExp {grid-area: gVisExp;}
+#PrincipalStresses {grid-area: gPStress;}
 
 #HeaderTool {grid-area: Header4;}
 #Cantilever{grid-area:gCanti; background: #FBF3EF;}

@@ -4,7 +4,8 @@ class Material {
         this.elasticity = elasticity;
         this.foo = foo;
     }
-	ElasticityDisp = function(units){
+  // Apparently don't need to call it out as a function
+	ElasticityDisp(units){
 		var val1 = (this.elasticity * units.stressMult).toPrecision(3);
 		$("#ElasticityDisplay").text(val1);
 		return val1;
@@ -84,7 +85,7 @@ function InputSetup(){
 	$(".slider").attr({
 		type:'range',
 		style:'width:6em; display:inline'
-	})
+	});
 	
 	$(".inputText").attr({
 		type:'number',
@@ -92,21 +93,21 @@ function InputSetup(){
 		maxLength:'8',
 		oninput:"this.value=this.value.slice(0,this.maxLength)",
 		required:'true'
-	})
+	});
 	
 	$(".lengths0").attr({
 		value:'1',
 		min:'0',
 		max:'1000',
 		step:'.1'
-	})
+	});
 
 	$(".lengths1").attr({
 		value:'0.1',
 		min:'0.001',
 		max:'10',
 		step:'.001'
-	})
+	});
 	
 	// Sets up Value inputs for Forces and Moments
 	$(".Force, .Moment").attr({
@@ -114,7 +115,7 @@ function InputSetup(){
 		min:'-100000',
 		max:'100000',
 		step:'0.001'
-	})
+	});
 }
 
 function BeamPictureSelect(Mx_tot, My_tot){
@@ -123,39 +124,39 @@ function BeamPictureSelect(Mx_tot, My_tot){
 	// AC  AB  AA
 	var pos;
 	if (Mx_tot>0)  {pos='A';}
-	if (Mx_tot==0) {pos='B';}
+	if (Mx_tot===0) {pos='B';}
 	if (Mx_tot<0)  {pos='C';}
 	if (My_tot>0)  {pos=pos + 'A';}
-	if (My_tot==0) {pos=pos + 'B';}
+	if (My_tot===0) {pos=pos + 'B';}
 	if (My_tot<0)  {pos=pos + 'C';}
 	return 'BeamPics\\Beam_' + pos + '.png';
 }
 
 function SliderToTextInput(){
-	$("#LengthRange").change(function() {$("#LengthInput").val(this.value);})
-	$("#RadiusRange").change(function() {$("#RadiusInput").val(this.value);})
-	$("#HeightRange").change(function() {$("#HeightInput").val(this.value);})
-	$("#Width_Range").change(function() {$("#Width_Input").val(this.value);})
-	$("#FxSlide").change(function() {$("#Fx").val(this.value);})
-	$("#FySlide").change(function() {$("#Fy").val(this.value);})
-	$("#FzSlide").change(function() {$("#Fz").val(this.value);})
-	$("#MxSlide").change(function() {$("#Mx").val(this.value);})
-	$("#MySlide").change(function() {$("#My").val(this.value);})
-	$("#MzSlide").change(function() {$("#Mz").val(this.value);})
+	$("#LengthRange").change(function() {$("#LengthInput").val(this.value);});
+	$("#RadiusRange").change(function() {$("#RadiusInput").val(this.value);});
+	$("#HeightRange").change(function() {$("#HeightInput").val(this.value);});
+	$("#Width_Range").change(function() {$("#Width_Input").val(this.value);});
+	$("#FxSlide").change(function() {$("#Fx").val(this.value);});
+	$("#FySlide").change(function() {$("#Fy").val(this.value);});
+	$("#FzSlide").change(function() {$("#Fz").val(this.value);});
+	$("#MxSlide").change(function() {$("#Mx").val(this.value);});
+	$("#MySlide").change(function() {$("#My").val(this.value);});
+	$("#MzSlide").change(function() {$("#Mz").val(this.value);});
 }
 
 function TextInputToSlider(){
 	// Connects Text Input to Slider Input
-	$("#LengthInput").change(function() {$("#LengthRange").val(this.value);})
-	$("#RadiusInput").change(function() {$("#RadiusRange").val(this.value);})
-	$("#HeightInput").change(function() {$("#HeightRange").val(this.value);})
-	$("#Width_Input").change(function() {$("#Width_Range").val(this.value);})
-	$("#Fx").change(function() {$("#FxSlide").val(this.value);})
-	$("#Fy").change(function() {$("#FySlide").val(this.value);})
-	$("#Fz").change(function() {$("#FzSlide").val(this.value);})	
-	$("#Mx").change(function() {$("#MxSlide").val(this.value);})
-	$("#My").change(function() {$("#MySlide").val(this.value);})
-	$("#Mz").change(function() {$("#MzSlide").val(this.value);})
+	$("#LengthInput").change(function() {$("#LengthRange").val(this.value);});
+	$("#RadiusInput").change(function() {$("#RadiusRange").val(this.value);});
+	$("#HeightInput").change(function() {$("#HeightRange").val(this.value);});
+	$("#Width_Input").change(function() {$("#Width_Range").val(this.value);});
+	$("#Fx").change(function() {$("#FxSlide").val(this.value);});
+	$("#Fy").change(function() {$("#FySlide").val(this.value);});
+	$("#Fz").change(function() {$("#FzSlide").val(this.value);});	
+	$("#Mx").change(function() {$("#MxSlide").val(this.value);});
+	$("#My").change(function() {$("#MySlide").val(this.value);});
+	$("#Mz").change(function() {$("#MzSlide").val(this.value);});
 }
 
 function CircleOrRectHide(){
@@ -200,25 +201,30 @@ function HideCubeLayers(){
 }
 
 function ExpandCollapseSections() {
-	$("#TopTitle").click(function() {
+	$("#TopTitle, #ScrolltoTop").click(function() {
 		$(".TopSection").removeAttr("hidden");
 		$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+		$("#TopTitle")[0].scrollIntoView(true);
 	})
 	$("#HeaderTitle").click(function() {
 		$(".IntroSection").removeAttr("hidden");
 		$(".TopSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+		$("#HeaderTitle")[0].scrollIntoView();
 	})
 	$("#HeaderCalc").click(function() {
 		$(".CalcSection").removeAttr("hidden");
 		$(".TopSection, .IntroSection, .VisSection, .ToolSection").attr("hidden","true");
+		$("#HeaderCalc")[0].scrollIntoView();
 	})
 	$("#HeaderVis").click(function() {
 		$(".VisSection").removeAttr("hidden");
 		$(".TopSection, .IntroSection, .CalcSection, .ToolSection").attr("hidden","true");
+		$("#HeaderVis")[0].scrollIntoView();
 	})
 	$("#HeaderTool").click(function() {
 		$(".ToolSection").removeAttr("hidden");
 		$(".TopSection, .IntroSection, .CalcSection, .VisSection").attr("hidden","true");
+		$("#HeaderTool")[0].scrollIntoView();
 	})
 }
 
@@ -303,7 +309,7 @@ $(document).ready(function() {
 			// No twisting with rectangular cross section
 			$("#Mz, #MzSlide").val('0');
 			$("#Mz, #MzSlide").attr('disabled','disabled');
-			$("#CrossSectionPic").attr('src','BeamPics\\RectCrossSection1.png');
+			$("#CrossSectionPic").attr('src','BeamPics\\RectCrossSection.png');
 			CrossSectionArea = (h*w);
 			[Ix,Iy,Iz] = AreaMomentInertia_Rect(h,w);
 			halfy = h/2;
@@ -312,12 +318,12 @@ $(document).ready(function() {
 		} else if (RadioInput == 'Circle') {
 			// Allows twisting
 			$("#Mz, #MzSlide").removeAttr('disabled');
-			$("#CrossSectionPic").attr('src','BeamPics\\CircleCrossSection1.png');
+			$("#CrossSectionPic").attr('src','BeamPics\\CircleCrossSection.png');
 			CrossSectionArea = (Math.PI * Math.pow(r,2));
 			[Ix,Iy,Iz] = AreaMomentInertia_Circle(r);
 			halfy = r;
 			tauXZ_BeamShear = 4*Fx/(3*CrossSectionArea);
-			tauXZ_Torsion = Mz*r/Iz;
+			tauXZ_Torsion = - Mz*r/Iz;
 		}
 		
 		// Cross Section Area Output
@@ -362,13 +368,8 @@ $(document).ready(function() {
 	
 	// Initial Section Groupings
 	$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
+	
 	// Closes and Opens Sections on click
 	ExpandCollapseSections();
-	
-	$("#ScrolltoTop").click(function() {
-		$(".TopSection").removeAttr("hidden");
-		$(".IntroSection, .CalcSection, .VisSection, .ToolSection").attr("hidden","true");
-
-	})
 	
 });
